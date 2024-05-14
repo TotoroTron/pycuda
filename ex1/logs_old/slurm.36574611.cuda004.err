@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "main.py", line 39, in <module>
+    main()
+  File "main.py", line 34, in main
+    C = add_gpu(A, B)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/dispatcher.py", line 88, in __call__
+    return CUDAUFuncMechanism.call(self.functions, args, kws)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/npyufunc/deviceufunc.py", line 304, in call
+    cr.launch(func, shape[0], stream, devarys)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/dispatcher.py", line 200, in launch
+    func.forall(count, stream=stream)(*args)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 265, in __call__
+    kernel = self.kernel.specialize(*args)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 809, in specialize
+    kernel = self.compile(argtypes)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 828, in compile
+    kernel.bind()
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 542, in bind
+    self._func.get()
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 420, in get
+    ptx = self.ptx.get()
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 391, in get
+    **self._extra_options)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/nvvm.py", line 496, in llvm_to_ptx
+    ptx = cu.compile(**opts)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/nvvm.py", line 233, in compile
+    self._try_error(err, 'Failed to compile\n')
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/nvvm.py", line 251, in _try_error
+    self.driver.check_error(err, "%s\n%s" % (msg, self.get_log()))
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/nvvm.py", line 141, in check_error
+    raise exc
+numba.cuda.cudadrv.error.NvvmError: Failed to compile
+
+<unnamed> (45, 22): parse expected comma after load's type
+NVVM_ERROR_COMPILATION

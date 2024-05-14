@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "main.py", line 47, in <module>
+    main()
+  File "main.py", line 27, in main
+    A = np.ones(N, dtype=np.float32)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numpy/core/numeric.py", line 192, in ones
+    a = empty(shape, dtype, order)
+TypeError: 'float' object cannot be interpreted as an integer

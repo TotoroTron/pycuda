@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/driver.py", line 266, in __getattr__
+    proto = API_PROTOTYPES[fname]
+KeyError: 'get_version'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 66, in <module>
+    main()
+  File "main.py", line 44, in main
+    print_versions()
+  File "main.py", line 16, in print_versions
+    print(f"CUDA driver version: {cuda.driver.driver.get_version()}")
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/driver.py", line 268, in __getattr__
+    raise AttributeError(fname)
+AttributeError: get_version

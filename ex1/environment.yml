@@ -1,0 +1,44 @@
+name: pycuda
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - blas=1.0=mkl
+  - ca-certificates=2024.3.11=h06a4308_0
+  - certifi=2021.5.30=py36h06a4308_0
+  - cffi=1.14.6=py36h400218f_0
+  - cudatoolkit=10.0.130=0
+  - intel-openmp=2022.1.0=h9e868ea_3769
+  - ld_impl_linux-64=2.38=h1181459_1
+  - libffi=3.3=he6710b0_2
+  - libgcc-ng=13.2.0=h77fa898_7
+  - libgfortran=3.0.0=1
+  - libgfortran-ng=7.5.0=ha8ba4b0_17
+  - libgfortran4=7.5.0=ha8ba4b0_17
+  - libgomp=13.2.0=h77fa898_7
+  - libstdcxx-ng=13.2.0=hc0a3c3a_7
+  - llvmlite=0.31.0=py36hd408876_0
+  - mkl=2018.0.3=1
+  - mkl_fft=1.0.6=py36h7dd41cf_0
+  - mkl_random=1.0.1=py36h4414c95_1
+  - ncurses=6.4=h6a678d5_0
+  - numba=0.47.0=py36h962f231_0
+  - numpy=1.13.3=py36hdbf6ddf_4
+  - openssl=1.1.1w=h7f8727e_0
+  - pip=21.2.2=py36h06a4308_0
+  - pycparser=2.21=pyhd3eb1b0_0
+  - pyculib=1.0.2=np113py36_2
+  - pyculib_sorting=1.0.0=8
+  - python=3.6.13=h12debd9_1
+  - readline=8.2=h5eee18b_0
+  - scipy=1.1.0=py36hfc37229_0
+  - setuptools=58.0.4=py36h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tbb=2021.8.0=hdb19cb5_0
+  - tk=8.6.14=h39e8969_0
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - xz=5.4.6=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+prefix: /home/bbc33/anaconda3/envs/pycuda

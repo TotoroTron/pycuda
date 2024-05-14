@@ -1,0 +1,4 @@
+
+EnvironmentLocationNotFound: Not a conda environment: /home/bbc33/.conda/envs/pycuda
+
+slurmstepd: error: *** JOB 36573492 ON gpu015 CANCELLED AT 2024-05-13T17:56:51 ***
