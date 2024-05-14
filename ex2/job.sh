@@ -14,4 +14,4 @@ module load cuda/10.0
 
 source /home/bbc33/anaconda3/bin/activate
 conda activate /home/bbc33/anaconda3/envs/pycuda
-python3 scratch.py
+python3 main.py
