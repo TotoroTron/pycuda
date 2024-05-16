@@ -23,7 +23,8 @@ output_file="$log_dir/slurm.%j.%N.out"
 error_file="$log_dir/slurm.%j.%N.err"
 
 # CALL SBATCH WITH OUTPUT/ERROR FILE PATHS
-# PASS IN SLURM SCRIPT AS BLOCK OF TEXT
+# PASS IN SLURM SCRIPT AS HERE-DOC
+# command --args --args << DELIMITER (text text) DELIMITER
 sbatch --output="$output_file" --error="$error_file" <<EOF
 #!/bin/bash
 #SBATCH --job-name=tutorial
