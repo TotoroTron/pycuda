@@ -1,0 +1,4 @@
+  File "scratch1.py", line 30
+    arr = np.ones((10,), dtype-=int)
+                               ^
+SyntaxError: invalid syntax

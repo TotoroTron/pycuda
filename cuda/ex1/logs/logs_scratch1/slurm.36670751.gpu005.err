@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "scratch1.py", line 49, in <module>
+    main()
+  File "scratch1.py", line 37, in main
+    f.forall(len(a))(a, c)
+NameError: name 'f' is not defined

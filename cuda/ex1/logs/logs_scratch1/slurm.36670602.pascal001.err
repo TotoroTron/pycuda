@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "scratch1.py", line 36, in <module>
+    if __main__ == '__main__':
+NameError: name '__main__' is not defined

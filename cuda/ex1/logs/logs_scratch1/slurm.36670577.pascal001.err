@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "scratch1.py", line 7, in <module>
+    @cuda.jit
+NameError: name 'cuda' is not defined
