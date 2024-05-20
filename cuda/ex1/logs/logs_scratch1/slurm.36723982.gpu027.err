@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "scratch1.py", line 82, in <module>
+    main()
+  File "scratch1.py", line 50, in main
+    A = np.random.random(size=(N, N), dtype=np.float32)
+  File "mtrand.pyx", line 814, in mtrand.RandomState.random_sample
+TypeError: random_sample() got an unexpected keyword argument 'dtype'

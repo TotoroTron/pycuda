@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "scratch1.py", line 82, in <module>
+    main()
+  File "scratch1.py", line 65, in main
+    matmul_jit[blocks_per_grid, threads_per_block](A, B, C1)
+TypeError: 'CPUDispatcher' object is not subscriptable

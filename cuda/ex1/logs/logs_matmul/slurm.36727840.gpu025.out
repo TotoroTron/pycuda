@@ -1,0 +1,5 @@
+Basic Elapsed time: 5.042 seconds.
+JIT Elapsed time: 1.364 seconds.
+CUDAJIT Global Memory Elapsed time: 0.225 seconds.
+verify: True
+verify: True
