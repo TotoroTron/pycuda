@@ -1,0 +1,6 @@
+Size of matrices A, B, C:  (4096, 4096) (4096, 4096) (4096, 4096)
+CUDAJIT Global Memory Elapsed time run 0: 0.975286 seconds.
+CUDAJIT Global Memory Elapsed time run 1: 0.000353 seconds.
+verify: True
+verify: True
+Done.

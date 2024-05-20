@@ -1,0 +1,6 @@
+JIT Elapsed time run 0: 4.934 seconds.
+JIT Elapsed time run 1: 3.631 seconds.
+CUDAJIT Global Memory Elapsed time run 0: 0.287 seconds.
+CUDAJIT Global Memory Elapsed time run 1: 0.000 seconds.
+verify: True
+Done.

@@ -1,0 +1,10 @@
+Size of matrices A, B, C:  (2048, 2048) (2048, 2048) (2048, 2048)
+JIT Elapsed time run 0: 28.768469 seconds.
+JIT Elapsed time run 1: 27.999794 seconds.
+CUDAJIT Global Memory Elapsed time run 0: 0.208319 seconds.
+CUDAJIT Global Memory Elapsed time run 1: 0.000265 seconds.
+verify: True
+verify: True
+verify: True
+verify: True
+Done.

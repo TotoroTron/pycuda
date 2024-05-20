@@ -13,6 +13,22 @@ def verify(A, B):
     """
     return np.allclose(A, B)
 
+def save_csvs(A, B, outputs):
+    """
+    Save matrices A, B, and outputs to CSV files.
+    """
+    # SAVE INPUTS TO CSV
+    filename = f"logs/matA.csv"
+    np.savetxt(filename, A, delimiter=',', fmt='%f')
+    filename = f"logs/matB.csv"
+    np.savetxt(filename, B, delimiter=',', fmt='%f')
+
+    # SAVE OUTPUTS TO CSV
+    for idx, mat in enumerate(outputs):
+        filename = f"logs/matC_{idx}.csv"
+        np.savetxt(filename, mat, delimiter=',', fmt='%f')
+
+
 def matmul(A, B, C):
     """
     Most basic/naive/intuitive matrix multiplication.
@@ -66,59 +82,54 @@ def matmul_cudajit_globalmem(A, B, C):
 
 def main():
     # INITIALIZE SQUARE MATRICES
-    N = 256
+    N = 1024
     matA = np.random.random(size=(N,N)).astype(np.float32)
     matB = np.random.random(size=(N,N)).astype(np.float32)
     matC = np.zeros(shape=(N, N), dtype=np.float32)
     outputs = [] # List of outputs
     
+    print("Size of matrices A, B, C: ", matA.shape, matB.shape, matC.shape)
+
     # TEST BASIC MATMUL
     start = time.time()
     matmul(matA, matB, matC) # All np arrays are passed by reference!
     elapsed_time = time.time() - start
     print(f"Basic Elapsed time: {elapsed_time:.3f} seconds.")
     outputs.append(matC)
+    
 
     # TEST JIT MATMUL
-    start = time.time()
-    matmul_jit(matA, matB, matC)
-    elapsed_time = time.time() - start
-    print(f"JIT Elapsed time: {elapsed_time:.3f} seconds.")
-    outputs.append(matC)
+    for idx in range(2): # Test twice to because 1st run includes jit compile time
+        start = time.time()
+        matmul_jit(matA, matB, matC)
+        elapsed_time = time.time() - start
+        print(f"JIT Elapsed time run {idx}: {elapsed_time:.6f} seconds.")
+        outputs.append(matC)
 
     # PREPARE INPUTS TO CUDA KERNEL
-    cuda.to_device(matA)
-    cuda.to_device(matB)
+    d_matA = cuda.to_device(matA)
+    d_matB = cuda.to_device(matB)
     d_matC = cuda.to_device(matC)
 
-    threads_per_block = (16, 16) # 16x16=256 TPB (2-dimensional grid)
-    blocks_per_grid_x = int(np.ceil(N / threads_per_block[0])) # 256/16=16 BPGX
-    blocks_per_grid_y = int(np.ceil(N / threads_per_block[1])) # 256/16=16 BPGY
-    blocks_per_grid = (blocks_per_grid_x, blocks_per_grid_y) # (16,16) BPG (2-dimensional grid)
+    threads_per_block = (16, 16) # 256 TPB (2-dimensional grid)
+    blocks_per_grid_x = int(np.ceil(N / threads_per_block[0])) # BPGX
+    blocks_per_grid_y = int(np.ceil(N / threads_per_block[1])) # BPGY
+    blocks_per_grid = (blocks_per_grid_x, blocks_per_grid_y) # BPG (2-dimensional grid)
 
     # TEST CUDAJIT MATMUL
-    start = time.time()
-    matmul_cudajit_globalmem[blocks_per_grid, threads_per_block](matA, matB, d_matC)
-    elapsed_time = time.time() - start
-    print(f"CUDAJIT Global Memory Elapsed time: {elapsed_time:.3f} seconds.")
-    h_matC = d_matC.copy_to_host()
-    outputs.append(h_matC)
+    for idx in range(2):
+        start = time.time()
+        matmul_cudajit_globalmem[blocks_per_grid, threads_per_block](d_matA, d_matB, d_matC)
+        elapsed_time = time.time() - start
+        print(f"CUDAJIT Global Memory Elapsed time run {idx}: {elapsed_time:.6f} seconds.")
+        h_matC = d_matC.copy_to_host()
+        outputs.append(h_matC)
 
     # VERIFY OUTPUTS
-    print(f"verify: {verify(outputs[0], outputs[1])}")
-    print(f"verify: {verify(outputs[0], outputs[2])}")
+    for idx in range(len(outputs)):
+        print(f"verify: {verify(outputs[0], outputs[idx])}")
 
-    # SAVE INPUTS TO CSV
-    filename = f"logs/matA.csv"
-    np.savetxt(filename, matA, delimiter=',', fmt='%f')
-    filename = f"logs/matB.csv"
-    np.savetxt(filename, matB, delimiter=',', fmt='%f')
 
-    # SAVE OUTPUTS TO CSV
-    for idx, mat in enumerate(outputs):
-        filename = f"logs/matC_{idx}.csv"
-        np.savetxt(filename, mat, delimiter=',', fmt='%f')
-    
     print("Done.")
 
     
