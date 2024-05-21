@@ -9,34 +9,30 @@ import utils as u
 
 def main():
     # INITIALIZE SQUARE MATRICES
-    N = 1024
+    N = 8192
     matA = np.random.random(size=(N,N)).astype(np.float32)
     matB = np.random.random(size=(N,N)).astype(np.float32)
     matC = np.zeros(shape=(N, N), dtype=np.float32)
     outputs = [] # List of outputs
     
     print("Size of matrices A, B, C: ", matA.shape, matB.shape, matC.shape)
-
-    # TEST BASIC MATMUL
-    start = time.time()
-    m.matmul(matA, matB, matC) # All np arrays are passed by reference!
-    elapsed_time = time.time() - start
-    print(f"Basic Elapsed time: {elapsed_time:.3f} seconds.")
-    outputs.append(matC)
-    
-
-    # TEST JIT MATMUL
-    for idx in range(2): # Test twice to because 1st run includes jit compile time
-        start = time.time()
-        m.matmul_jit(matA, matB, matC)
-        elapsed_time = time.time() - start
-        print(f"JIT Elapsed time run {idx}: {elapsed_time:.6f} seconds.")
-        outputs.append(matC)
+    print("Size of matrix A in MB: ", matA.nbytes / 1024 / 1024)
 
     # PREPARE INPUTS TO CUDA KERNEL
+    start = time.time()
     d_matA = cuda.to_device(matA)
+    elapsed_time = time.time() - start
+    print(f"matA to_device Elapsed time: {elapsed_time:.6f} seconds.")
+
+    start = time.time()
     d_matB = cuda.to_device(matB)
+    elapsed_time = time.time() - start
+    print(f"matB to_device Elapsed time: {elapsed_time:.6f} seconds.")
+
+    start = time.time()
     d_matC = cuda.to_device(matC)
+    elapsed_time = time.time() - start
+    print(f"matC to_device Elapsed time: {elapsed_time:.6f} seconds.")
 
     threads_per_block = (16, 16) # 256 TPB (2-dimensional grid)
     blocks_per_grid_x = int(np.ceil(N / threads_per_block[0])) # BPGX
@@ -45,16 +41,26 @@ def main():
 
     # TEST CUDAJIT MATMUL
     for idx in range(2):
+
         start = time.time()
         m.matmul_cudajit_globalmem[blocks_per_grid, threads_per_block](d_matA, d_matB, d_matC)
-        elapsed_time = time.time() - start
-        print(f"CUDAJIT Global Memory Elapsed time run {idx}: {elapsed_time:.6f} seconds.")
-        h_matC = d_matC.copy_to_host()
-        outputs.append(h_matC)
+        end = time.time() - start
+        print(f"CUDAJIT Global Memory Kernel Elapsed time run {idx}: {end:.6f} seconds.")
 
-    # VERIFY OUTPUTS
-    for idx in range(len(outputs)):
-        print(f"verify: {u.verify(outputs[0], outputs[idx])}")
+        start = time.time()
+        cuda.synchronize()
+        end = time.time() - start
+        print(f"CUDAJIT Global Memory Synchronize Elapsed time run {idx}: {end:.6f} seconds.")
+
+        start = time.time()
+        h_matC = d_matC.copy_to_host()
+        end = time.time() - start
+        print(f"CUDAJIT Global Memory to_host Elapsed time run {idx}: {end:.6f} seconds.")
+
+        start = time.time()
+        outputs.append(h_matC)
+        end = time.time() - start
+        print(f"Append Elapsed time run {idx}: {end:.6f} seconds.")
 
 
     print("Done.")

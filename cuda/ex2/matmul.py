@@ -57,19 +57,19 @@ def matmul_cudajit_globalmem(A, B, C):
             tmp += A[i, k] * B[k, j]
         C[i, j] = tmp
 
+
+TPB = 16
 @cuda.jit
 def matmul_cudajit_sharedmem(A, B, C):
     """
     Controls threads per block and shared memory usage.
     The computation will be done on blocks of TPBxTPB elements.
-    
-    
     """
     
     # Define an array in the shared memory.
     # The size and type of the arrays must be known at compile time.  
-    sA = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
-    sB = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
+    sA = cuda.shared.array(shape=(TPB, TPB), dtype=np.float32)
+    sB = cuda.shared.array(shape=(TPB, TPB), dtype=np.float32)
     
     x, y = cuda.grid(2)
 
