@@ -1,0 +1,14 @@
+Size of matrices A, B, C:  (8192, 8192) (8192, 8192) (8192, 8192)
+Size of matrix A in MB:  256.0
+matA to_device Elapsed time: 0.188957 seconds.
+matB to_device Elapsed time: 0.030177 seconds.
+matC to_device Elapsed time: 0.023767 seconds.
+CUDAJIT Global Memory Kernel Elapsed time run 0: 2.261747 seconds.
+CUDAJIT Global Memory Synchronize Elapsed time run 0: 12.010502 seconds.
+CUDAJIT Global Memory to_host Elapsed time run 0: 0.095437 seconds.
+Append Elapsed time run 0: 0.000000 seconds.
+CUDAJIT Global Memory Kernel Elapsed time run 1: 0.000772 seconds.
+CUDAJIT Global Memory Synchronize Elapsed time run 1: 12.004969 seconds.
+CUDAJIT Global Memory to_host Elapsed time run 1: 0.093229 seconds.
+Append Elapsed time run 1: 0.000002 seconds.
+Done.

@@ -1,0 +1,11 @@
+Device name: b'Tesla P100-PCIE-16GB'
+Compute capability: (6, 0)
+Total global memory (GB): 15.894775390625
+Free global memory (GB): 15.6446533203125
+Used global memory (GB): 0.2501220703125
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+
+

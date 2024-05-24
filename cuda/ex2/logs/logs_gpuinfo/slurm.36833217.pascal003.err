@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "gpuinfo.py", line 69, in <module>
+    main()
+  File "gpuinfo.py", line 56, in main
+    elementwise_double[blocks_per_grid, threads_per_block](d_data)
+TypeError: 'DeviceFunctionTemplate' object is not subscriptable

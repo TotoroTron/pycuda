@@ -1,3 +1,5 @@
+# https://docs.nvidia.com/cuda/cuda-c-programming-guide/#programming-model 
+
 from numba import jit
 from numba import cuda
 import numpy as np
@@ -34,36 +36,48 @@ def main():
     elapsed_time = time.time() - start
     print(f"matC to_device Elapsed time: {elapsed_time:.6f} seconds.")
 
+    print("\n")
+
     threads_per_block = (16, 16) # 256 TPB (2-dimensional grid)
     blocks_per_grid_x = int(np.ceil(N / threads_per_block[0])) # BPGX
     blocks_per_grid_y = int(np.ceil(N / threads_per_block[1])) # BPGY
     blocks_per_grid = (blocks_per_grid_x, blocks_per_grid_y) # BPG (2-dimensional grid)
 
-    # TEST CUDAJIT MATMUL
-    for idx in range(2):
+    REPS = 1
+
+    # TEST CUDAJIT GLOBAL MEMORY
+    for idx in range(REPS):
 
         start = time.time()
         m.matmul_cudajit_globalmem[blocks_per_grid, threads_per_block](d_matA, d_matB, d_matC)
+        cuda.synchronize() # Wait for all threads to finish
         end = time.time() - start
-        print(f"CUDAJIT Global Memory Kernel Elapsed time run {idx}: {end:.6f} seconds.")
-
-        start = time.time()
-        cuda.synchronize()
-        end = time.time() - start
-        print(f"CUDAJIT Global Memory Synchronize Elapsed time run {idx}: {end:.6f} seconds.")
+        print(f"CUDAJIT GlobalMem kernel run {idx}: {end:.6f} seconds.")
 
         start = time.time()
         h_matC = d_matC.copy_to_host()
         end = time.time() - start
-        print(f"CUDAJIT Global Memory to_host Elapsed time run {idx}: {end:.6f} seconds.")
+        print(f"CUDAJIT GlobalMem to_host run {idx}: {end:.6f} seconds.")
+
+        outputs.append(h_matC)
+
+    # TEST CUDAJIT SHARED MEMORY
+    for idx in range(REPS):
 
         start = time.time()
-        outputs.append(h_matC)
+        m.matmul_cudajit_sharedmem[blocks_per_grid, threads_per_block](d_matA, d_matB, d_matC)
+        cuda.synchronize() # Wait for all threads to finish
         end = time.time() - start
-        print(f"Append Elapsed time run {idx}: {end:.6f} seconds.")
+        print(f"CUDAJIT SharedMem kernel run {idx}: {end:.6f} seconds.")
 
+        start = time.time()
+        h_matC = d_matC.copy_to_host()
+        end = time.time() - start
+        print(f"CUDAJIT SharedMem to_host run {idx}: {end:.6f} seconds.")
 
-    print("Done.")
+        outputs.append(h_matC)
+
+    print("\n")
 
     
 if __name__ == '__main__':
