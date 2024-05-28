@@ -2,30 +2,56 @@ import numpy as np
 from numba import jit
 from numba import cuda, float32
 from abc import ABC, abstractmethod
+import time
 
 # https://docs.python.org/3/library/abc.html 
 
 # ABSTRACT METHOD DOT PRODUCT
 class DotProduct:
-    def __init__(self, dim_m, dim_n, dim_k):
-        self.dim_m = dim_m
-        self.dim_n = dim_n
-        self.dim_k = dim_k
-        self.A = np.random.random(size=(dim_m, dim_k)).astype(np.float32)
-        self.B = np.random.random(size=(dim_k, dim_n)).astype(np.float32)
-        self.C = np.zeros(shape=(dim_m, dim_n), dtype=np.float32)
+    def __init__(self, A, B, C):
+        assert A.shape[1] == B.shape[0], "A and B shapes misaligned!"
+        assert A.shape[0] == C.shape[0], "A and C shapes misaligned!"
+        assert B.shape[1] == C.shape[1], "B and C shapes misaligned!"
+        self.A = A
+        self.B = B
+        self.C = C
+        self.dim_m = A.shape[0]
+        self.dim_n = A.shape[1]
+        self.dim_k = B.shape[1]
+        # self.A = np.random.random(size=(dim_m, dim_k)).astype(np.float32)
+        # self.B = np.random.random(size=(dim_k, dim_n)).astype(np.float32)
+        # self.C = np.zeros(shape=(dim_m, dim_n), dtype=np.float32)
+        self.elapsed_time = 0.0
     
     @abstractmethod
-    def run(self):
+    def _dot(A, B, C): # abstract, protected method (single underscore prefix)
         pass
+
+    def run(self):
+        start_time = time.time()
+        self._dot(self.A, self.B, self.C)
+        self.elapsed_time = time.time() - start_time
 
     def verify(self, expected):
         assert np.allclose(self.C, expected), "Results do not match!"
         print("Results match.")
 
+class Basic(DotProduct):
+    def _dot(A, B, C):
+        for i in range(A.shape[0]):
+            for j in range(B.shape[1]):
+                sum = 0.0
+                for k in range(A.shape[1]):
+                    sum += A[i, k] * B[k, j]
+                C[i, j] = sum
+
+class Numpy(DotProduct):
+    def _dot(A, B, C):
+        C = np.dot(A, B)
+
 class Jit(DotProduct):
     @jit(nopython=True)
-    def dot(A, B, C):
+    def _dot(A, B, C):
         for i in range(A.shape[0]):
             for j in range(B.shape[1]):
                 sum = 0.0
@@ -33,8 +59,6 @@ class Jit(DotProduct):
                     sum += A[i, k] * B[k, j]
                 C[i, j] = sum
     
-    def run(self): 
-        self.dot(self.A, self.B, self.C)
 
 # ABSTRACT METHOD CUDAJIT
 class CudaJit(DotProduct):
@@ -44,26 +68,24 @@ class CudaJit(DotProduct):
         self.bpgx = (self.dim_m + self.tpb[0] - 1) // self.tpb[0] # blocks per grid x
         self.bpgy = (self.dim_n + self.tpb[1] - 1) // self.tpb[1] # blocks per grid y
         self.BPG = (self.bpgx, self.bpgy)
-    
-    def configure(self):
+
+    def __configure(self): # private method (double underscore prefix)
         dA = cuda.to_device(self.A)
         dB = cuda.to_device(self.B)
         dC = cuda.to_device(self.C)
         return dA, dB, dC
     
-    @abstractmethod
-    def dot(self, dA, dB, dC):
-        pass
-
-    def run(self):
-        dA, dB, dC = self.configure()
-        self.dot[self.BPG, self.TPB](dA, dB, dC)
+    def run(self): # Override run method from parent class
+        start_time = time.time()
+        dA, dB, dC = self.__configure()
+        self._dot[self.BPG, self.TPB](dA, dB, dC)
         dC.copy_to_host(self.C)
+        self.elapsed_time = time.time() - start_time
 
 
-class GlobalMemory(CudaJit):
+class CudaGlobalMemory(CudaJit):
     @cuda.jit
-    def dot(A, B, C):
+    def _dot(A, B, C):
         x, y = cuda.grid(2)
         if x < C.shape[0] and y < C.shape[1]:
             sum = 0.0
@@ -72,12 +94,12 @@ class GlobalMemory(CudaJit):
             C[x, y] = sum
 
 
-class SharedMemory(CudaJit):
+class CudaSharedMemory(CudaJit):
     def __init__(self, dim_m, dim_n, dim_k):
         super().__init__(dim_m, dim_n, dim_k) # call base class constructor (in CudaJit)
 
     @cuda.jit
-    def dot(A, B, C):
+    def _dot(A, B, C):
         """
         Controls threads per block and shared memory usage.
         The computation will be done on blocks of TPBxTPB elements.
