@@ -1,0 +1,15 @@
+Size of matrices A, B, C:  (128, 128) (128, 128) (128, 128)
+Size of matrix A in MB:  0.0625
+matA to_device Elapsed time: 0.316495 seconds.
+matB to_device Elapsed time: 0.001528 seconds.
+matC to_device Elapsed time: 0.002466 seconds.
+
+
+JIT Elapsed time: 0.834301 seconds.
+CUDAJIT GlobalMem kernel: 0.230398 seconds.
+CUDAJIT SharedMem kernel: 0.245912 seconds.
+verify: True
+verify: True
+verify: True
+
+

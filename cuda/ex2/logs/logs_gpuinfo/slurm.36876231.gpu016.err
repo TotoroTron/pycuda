@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "gpuinfo.py", line 87, in <module>
+    main()
+  File "gpuinfo.py", line 53, in main
+    do_something[16, 16](d_data) # arbitrary block and grid sizes, just force a compile
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 798, in __call__
+    kernel = self.specialize(*args)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 809, in specialize
+    kernel = self.compile(argtypes)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/compiler.py", line 825, in compile
+    **self.targetoptions)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/compiler_lock.py", line 32, in _acquire_compile_lock
+    return func(*args, **kwargs)
+TypeError: compile_kernel() got an unexpected keyword argument 'nopython'

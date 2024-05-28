@@ -1,6 +1,8 @@
 import numpy as np
 import numba
+from numba import jit
 from numba import cuda
+import math
 import time
 
 def print_gpu_info():
@@ -39,17 +41,18 @@ def print_gpu_info():
 def do_something(data):
     idx = cuda.grid(1)
     if idx < data.size:
-        data[idx] = 2 * np.sqrt(data[idx]) + 0.5 * np.sine(data[idx]) + 0.25 * np.cos(data[idx])
+        data[idx] = 2 * math.sqrt(data[idx]) + 0.5 * math.sin(data[idx]) + 0.25 * math.cos(data[idx])
 
 def main():
     print_gpu_info()
     print("\n")
 
-    data = np.random.rand(10_000_000, dtype=np.float32)
+    data = np.random.random(10_000_000).astype(np.float32)
     d_data = cuda.to_device(data)
 
     # Compile the function first
     do_something[16, 16](d_data) # arbitrary block and grid sizes, just force a compile
+    cuda.synchronize()
 
     # Experiment with different TPB configurations
     for i in range(1, 16):

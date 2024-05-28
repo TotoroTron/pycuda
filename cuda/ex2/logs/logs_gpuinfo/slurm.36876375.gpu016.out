@@ -1,0 +1,28 @@
+Device name: b'NVIDIA A100-PCIE-40GB'
+Compute capability: (8, 0)
+Total global memory (GB): 39.39385986328125
+Free global memory (GB): 25.62188720703125
+Used global memory (GB): 13.77197265625
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+
+
+TPB: 64, BPG: 156250: 0.002631 seconds.
+TPB: 128, BPG: 78125: 0.000813 seconds.
+TPB: 192, BPG: 52084: 0.001494 seconds.
+TPB: 256, BPG: 39063: 0.001069 seconds.
+TPB: 320, BPG: 31250: 0.001957 seconds.
+TPB: 384, BPG: 26042: 0.001619 seconds.
+TPB: 448, BPG: 22322: 0.002009 seconds.
+TPB: 512, BPG: 19532: 0.001627 seconds.
+TPB: 576, BPG: 17362: 0.002245 seconds.
+TPB: 640, BPG: 15625: 0.001779 seconds.
+TPB: 704, BPG: 14205: 0.002250 seconds.
+TPB: 768, BPG: 13021: 0.001816 seconds.
+TPB: 832, BPG: 12020: 0.002229 seconds.
+TPB: 896, BPG: 11161: 0.001604 seconds.
+TPB: 960, BPG: 10417: 0.001740 seconds.
+[ 3.30823827  3.30823827         nan ...,         nan         nan
+  3.30823827]

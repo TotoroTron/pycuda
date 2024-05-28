@@ -1,0 +1,13 @@
+Size of matrices A, B, C:  (4096, 4096) (4096, 4096) (4096, 4096)
+Size of matrix A in MB:  64.0
+matA to_device Elapsed time: 0.318562 seconds.
+matB to_device Elapsed time: 0.015919 seconds.
+matC to_device Elapsed time: 0.014135 seconds.
+
+
+CUDAJIT GlobalMem kernel: 0.734123 seconds.
+CUDAJIT SharedMem kernel: 0.550007 seconds.
+verify: True
+verify: True
+
+
