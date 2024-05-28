@@ -62,8 +62,8 @@ class Jit(DotProduct):
 
 # ABSTRACT METHOD CUDAJIT
 class CudaJit(DotProduct):
-    def __init__(self, dim_m, dim_n, dim_k):
-        super().__init__(dim_m, dim_n, dim_k) # call base class constructor (in DotProduct)
+    def __init__(self, A, B, C):
+        super().__init__(A, B, C) # call base class constructor (in DotProduct)
         self.TPB = (16, 16) # threads per block
         self.bpgx = (self.dim_m + self.tpb[0] - 1) // self.tpb[0] # blocks per grid x
         self.bpgy = (self.dim_n + self.tpb[1] - 1) // self.tpb[1] # blocks per grid y
@@ -95,9 +95,6 @@ class CudaGlobalMemory(CudaJit):
 
 
 class CudaSharedMemory(CudaJit):
-    def __init__(self, dim_m, dim_n, dim_k):
-        super().__init__(dim_m, dim_n, dim_k) # call base class constructor (in CudaJit)
-
     @cuda.jit
     def _dot(A, B, C):
         """
