@@ -1,0 +1,28 @@
+Dimensions: (16, 16, 16), Basic Elapsed time: 0.005504 seconds.
+
+
+Dimensions: (16, 16, 16), Numpy Elapsed time: 0.500111 seconds.
+
+
+Dimensions: (16, 16, 16), Jit Elapsed time: 1.587362 seconds.
+
+
+Dimensions: (32, 32, 32), Basic Elapsed time: 0.021411 seconds.
+
+
+Dimensions: (32, 32, 32), Numpy Elapsed time: 0.000031 seconds.
+
+
+Dimensions: (32, 32, 32), Jit Elapsed time: 0.000041 seconds.
+
+
+Dimensions: (64, 64, 64), Basic Elapsed time: 0.160309 seconds.
+
+
+Dimensions: (64, 64, 64), Numpy Elapsed time: 0.000043 seconds.
+
+
+Dimensions: (64, 64, 64), Jit Elapsed time: 0.000273 seconds.
+
+
+Done.

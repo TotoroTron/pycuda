@@ -1,0 +1,42 @@
+Results match.
+Results match.
+Basic Elapsed time: 0.003089 seconds.
+
+Numpy Elapsed time: 0.011662 seconds.
+
+Jit Elapsed time: 0.293746 seconds.
+
+Results match.
+Results match.
+Basic Elapsed time: 0.003089 seconds.
+
+Numpy Elapsed time: 0.011662 seconds.
+
+Jit Elapsed time: 0.293746 seconds.
+
+Basic Elapsed time: 0.020482 seconds.
+
+Numpy Elapsed time: 0.000027 seconds.
+
+Jit Elapsed time: 0.000039 seconds.
+
+Results match.
+Results match.
+Basic Elapsed time: 0.003089 seconds.
+
+Numpy Elapsed time: 0.011662 seconds.
+
+Jit Elapsed time: 0.293746 seconds.
+
+Basic Elapsed time: 0.020482 seconds.
+
+Numpy Elapsed time: 0.000027 seconds.
+
+Jit Elapsed time: 0.000039 seconds.
+
+Basic Elapsed time: 0.154026 seconds.
+
+Numpy Elapsed time: 0.000040 seconds.
+
+Jit Elapsed time: 0.000271 seconds.
+

@@ -30,8 +30,9 @@ error_file="$log_dir/slurm.%j.%N.err"
 sbatch --output="$output_file" --error="$error_file" <<EOF
 #!/bin/bash
 #SBATCH --job-name=tutorial
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
+#SBATCH --partition=main
+##SBATCH --partition=gpu
+##SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --mem=64000                 # Real memory (RAM) required (MB)
 #SBATCH --time=01:00:00             # Total run time limit (HH:MM:SS)
