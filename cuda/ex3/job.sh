@@ -20,6 +20,27 @@ filename="${filename%.*}"
 log_dir="logs/logs_$filename"
 mkdir -p "$log_dir"
 
+log_old_dir="$log_dir/old"
+mkdir -p "$log_old_dir"
+
+# FIND AND COUNT THE NUMBER OF FILES
+file_count=$(ls -1t "$log_dir" | wc -l)
+# -1 : one per line, -t : sort by modification time
+# wc : word count, -l : line count instead
+
+# IF MORE THAN 6 FILES, MOVE THE OLDEST 6 TO 'old'
+if [ "$file_count" -gt 6 ]; then # -gt 6 : greater than 6
+    files_to_move=$(($file_count - 6))
+
+    # List the oldest files and move them to the 'old' subdirectory
+    ls -1t "$log_dir" | tail -n "$files_to_move" | while read file; do
+        # ls -1 lists one file per line, -t sort by modification time
+        # tail (opposite of head) -n <number of lines>
+        # loop: read a line from tail into $file
+        mv "${log_dir}/${file}" "$log_old_dir"
+    done
+fi
+
 # SET OUTPUT/ERROR FILE PATHS
 output_file="$log_dir/slurm.%j.%N.out"
 error_file="$log_dir/slurm.%j.%N.err"

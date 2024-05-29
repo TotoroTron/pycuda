@@ -1,0 +1,10 @@
+Dimensions: (128, 128, 128), 	Method: Basic  	Elapsed time: 	1.078225 seconds.
+Dimensions: (128, 128, 128), 	Method: Numpy  	Elapsed time: 	0.496406 seconds.
+Dimensions: (128, 128, 128), 	Method: Jit  	Elapsed time: 	1.492681 seconds.
+Dimensions: (256, 256, 256), 	Method: Basic  	Elapsed time: 	7.939621 seconds.
+Dimensions: (256, 256, 256), 	Method: Numpy  	Elapsed time: 	0.001170 seconds.
+Dimensions: (256, 256, 256), 	Method: Jit  	Elapsed time: 	0.020309 seconds.
+Dimensions: (512, 512, 512), 	Method: Basic  	Elapsed time: 	64.201427 seconds.
+Dimensions: (512, 512, 512), 	Method: Numpy  	Elapsed time: 	0.004873 seconds.
+Dimensions: (512, 512, 512), 	Method: Jit  	Elapsed time: 	0.311083 seconds.
+Done.
