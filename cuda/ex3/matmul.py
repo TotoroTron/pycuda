@@ -31,11 +31,11 @@ class DotProduct(ABC):
         self.elapsed_time = time.time() - start_time
 
     def verify(self, expected):
+        if self.dim_m <= 8 and self.dim_n <= 8:
+            print(f"{__name__}: Computed C:\n{self.C}\nExpected C:\n{expected}")
+
         if not np.allclose(self.C, expected, rtol=1e-05, atol=1e-08):
-            if self.dim_m > 16 or self.dim_n > 16:
-                raise AssertionError(f"{__name__}: Results do not match!")
-            else:
-                raise AssertionError(f"{__name__}: Results do not match! Computed C:\n{self.C}\nExpected C:\n{expected}")
+            raise AssertionError(f"{__name__}: Results do not match!")
         else:
             print(f"{__name__}: Results match!")
             
@@ -53,12 +53,12 @@ class Basic(DotProduct):
 class Numpy(DotProduct):
     def _dot(self):
         A, B, C = self.A, self.B, self.C
-        self.C = np.dot(A, B)
+        np.dot(A, B, out=C)
         # self.C[:] = np.dot(A, B) # Modify C in-place
 
 class JitBasic(DotProduct):
     @staticmethod
-    @jit(cache=True, nopython=True)
+    @jit(nopython=True)
     def __dot_kernel(A, B, C): # private method (double underscore prefix)
         for i in range(C.shape[0]):
             for j in range(C.shape[1]):
@@ -72,13 +72,13 @@ class JitBasic(DotProduct):
 
 class JitNumpy(DotProduct):
     @staticmethod
-    @jit(cache=True, nopython=True)
-    def _dot_kernel(A, B, C): # private method (double underscore prefix)
+    @jit(nopython=True)
+    def __dot_kernel(A, B, C): # private method (double underscore prefix)
         np.dot(A, B, out=C) # Modify C in-place
-        C[:] = np.dot(A, B)
+        # C[:] = np.dot(A, B)
 
     def _dot(self):
-        self._dot_kernel(self.A, self.B, self.C)
+        self.__dot_kernel(self.A, self.B, self.C)
 
 
 # ABSTRACT METHOD CUDAJIT

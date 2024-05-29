@@ -1,0 +1,9 @@
+matmul: Results match!
+matmul: Results match!
+Dimensions: (16,16,16    ) 	Method: Numpy            	Elapsed time:     0.012382 seconds.
+Dimensions: (16,16,16    ) 	Method: JitNumpy         	Elapsed time:     0.093748 seconds.
+
+
+Dimensions: (2048,2048,2048) 	Method: Numpy            	Elapsed time:     0.246700 seconds.
+Dimensions: (2048,2048,2048) 	Method: JitNumpy         	Elapsed time:     0.252725 seconds.
+Done.

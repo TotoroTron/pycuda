@@ -1,0 +1,32 @@
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+
+RESULTS:
+
+Dimensions: (16,16,16        ) 	Method: Numpy            	Elapsed time:     0.611676 seconds.
+Dimensions: (16,16,16        ) 	Method: JitNumpy         	Elapsed time:     2.573378 seconds.
+
+
+Dimensions: (2048,2048,2048  ) 	Method: Numpy            	Elapsed time:     0.249768 seconds.
+Dimensions: (2048,2048,2048  ) 	Method: JitNumpy         	Elapsed time:     0.221908 seconds.
+
+
+Dimensions: (2560,2560,2560  ) 	Method: Numpy            	Elapsed time:     0.423719 seconds.
+Dimensions: (2560,2560,2560  ) 	Method: JitNumpy         	Elapsed time:     0.419353 seconds.
+
+
+Dimensions: (3072,3072,3072  ) 	Method: Numpy            	Elapsed time:     0.745614 seconds.
+Dimensions: (3072,3072,3072  ) 	Method: JitNumpy         	Elapsed time:     0.735702 seconds.
+
+
+Dimensions: (3584,3548,3548  ) 	Method: Numpy            	Elapsed time:     1.109082 seconds.
+Dimensions: (3584,3548,3548  ) 	Method: JitNumpy         	Elapsed time:     1.096360 seconds.
+
+
+Dimensions: (4096,4096,4096  ) 	Method: Numpy            	Elapsed time:     1.762550 seconds.
+Dimensions: (4096,4096,4096  ) 	Method: JitNumpy         	Elapsed time:     1.745820 seconds.
+Done.
