@@ -1,0 +1,14 @@
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+Dimensions: (4,4,4       ) 	Method: Numpy            	Elapsed time:     0.012866 seconds.
+Dimensions: (4,4,4       ) 	Method: JitNumpy         	Elapsed time:     0.509634 seconds.
+
+
+Dimensions: (8,8,8       ) 	Method: Numpy            	Elapsed time:     0.000039 seconds.
+Dimensions: (8,8,8       ) 	Method: JitNumpy         	Elapsed time:     0.000008 seconds.
+
+
+Dimensions: (16,16,16    ) 	Method: Numpy            	Elapsed time:     0.000033 seconds.
+Dimensions: (16,16,16    ) 	Method: JitNumpy         	Elapsed time:     0.000006 seconds.
+Done.

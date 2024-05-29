@@ -1,0 +1,6 @@
+Results match!
+Results match!
+Dimensions: (2048,2048,1024  ) 	Method: Numpy            	Elapsed time:     0.240322 seconds.
+Dimensions: (2048,2048,1024  ) 	Method: JitBasic         	Elapsed time:    13.440878 seconds.
+Dimensions: (2048,2048,1024  ) 	Method: JitNumpy         	Elapsed time:     0.392910 seconds.
+Done.

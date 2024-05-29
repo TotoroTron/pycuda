@@ -1,0 +1,11 @@
+Results match!
+Results match!
+Results match!
+Results match!
+Dimensions: (16,16,16        ) 	Method: Numpy            	Elapsed time:     0.071101 seconds.
+Dimensions: (16,16,16        ) 	Method: JitBasic         	Elapsed time:     0.146125 seconds.
+Dimensions: (16,16,16        ) 	Method: JitNumpy         	Elapsed time:     0.306125 seconds.
+Dimensions: (2048,2048,2048  ) 	Method: Numpy            	Elapsed time:     0.244241 seconds.
+Dimensions: (2048,2048,2048  ) 	Method: JitBasic         	Elapsed time:    23.503061 seconds.
+Dimensions: (2048,2048,2048  ) 	Method: JitNumpy         	Elapsed time:     0.184121 seconds.
+Done.

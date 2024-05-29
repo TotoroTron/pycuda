@@ -1,0 +1,16 @@
+Results match!
+Results match!
+Results match!
+Results match!
+Results match!
+Results match!
+Dimensions: (256,256,256) 	Method: Numpy           	Elapsed time:     0.248283 seconds.
+Dimensions: (256,256,256) 	Method: JitBasic        	Elapsed time:     0.454027 seconds.
+Dimensions: (256,256,256) 	Method: JitNumpy        	Elapsed time:     0.327302 seconds.
+Dimensions: (512,512,512) 	Method: Numpy           	Elapsed time:     0.005002 seconds.
+Dimensions: (512,512,512) 	Method: JitBasic        	Elapsed time:     0.365832 seconds.
+Dimensions: (512,512,512) 	Method: JitNumpy        	Elapsed time:     0.003750 seconds.
+Dimensions: (1024,1024,1024) 	Method: Numpy           	Elapsed time:     0.029150 seconds.
+Dimensions: (1024,1024,1024) 	Method: JitBasic        	Elapsed time:     3.280804 seconds.
+Dimensions: (1024,1024,1024) 	Method: JitNumpy        	Elapsed time:     0.029110 seconds.
+Done.
