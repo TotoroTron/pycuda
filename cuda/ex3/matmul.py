@@ -30,8 +30,11 @@ class DotProduct(ABC):
         self.elapsed_time = time.time() - start_time
 
     def verify(self, expected):
-        assert np.allclose(self.C, expected, rtol=1e-05, atol=1e-08), "Results do not match!"
-        # print("Results match.")
+        if not np.allclose(self.C, expected, rtol=1e-05, atol=1e-08):
+            raise AssertionError(f"Results do not match! Computed C:\n{self.C}\nExpected C:\n{expected}")
+        else:
+            print("Results match!")
+            
 
 class Basic(DotProduct):
     def _dot(self):
@@ -46,14 +49,15 @@ class Basic(DotProduct):
 class Numpy(DotProduct):
     def _dot(self):
         A, B, C = self.A, self.B, self.C
-        C = np.dot(A, B)
+        self.C = np.dot(A, B)
+        # self.C[:] = np.dot(A, B) # Modify C in-place
 
-class Jit(DotProduct):
+class JitBasic(DotProduct):
     @staticmethod
     @jit(nopython=True)
     def __dot_kernel(A, B, C): # private method (double underscore prefix)
-        for i in range(A.shape[0]):
-            for j in range(B.shape[1]):
+        for i in range(C.shape[0]):
+            for j in range(C.shape[1]):
                 sum = 0.0
                 for k in range(A.shape[1]):
                     sum += A[i, k] * B[k, j]
@@ -61,6 +65,27 @@ class Jit(DotProduct):
     
     def _dot(self):
         self.__dot_kernel(self.A, self.B, self.C)
+
+# class JitBasic(DotProduct):
+#     @jit(nopython=True)
+#     def _dot(self):
+#         A, B, C = self.A, self.B, self.C
+#         for i in range(C.shape[0]):
+#             for j in range(C.shape[1]):
+#                 sum = 0.0
+#                 for k in range(A.shape[1]):
+#                     sum += A[i, k] * B[k, j]
+#                 C[i, j] = sum
+
+# class JitNumpy(DotProduct):
+#     @staticmethod
+#     @jit(nopython=True)
+#     def __dot_kernel(A, B, C): # private method (double underscore prefix)
+#         self.C = np.dot(A, B)
+#         # self.C[:] = np.dot(A, B) # Modify C in-place
+
+#     def _dot(self):
+#         self.__dot_kernel(self.A, self.B, self.C)
 
 
 # ABSTRACT METHOD CUDAJIT
