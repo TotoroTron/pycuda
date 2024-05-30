@@ -28,7 +28,7 @@ file_count=$(ls -1t "$log_dir" | wc -l)
 # -1 : one per line, -t : sort by modification time
 # wc : word count, -l : line count instead
 
-# IF MORE THAN 6 FILES, MOVE THE OLDEST 6 TO 'old'
+# IF MORE THAN 6 FILES, MOVE ALL EXCEPT NEWEST 6 TO 'old'
 if [ "$file_count" -gt 6 ]; then # -gt 6 : greater than 6
     files_to_move=$(($file_count - 6))
 
