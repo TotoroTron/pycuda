@@ -16,12 +16,6 @@ class Testbench():
     def _verify(self, result):
         return np.allclose(self.result, self._expectation, rtol=1e-5, atol=1e-8)
     
-    def set_methods(self, m):
-        self._methods.extend(m)
-
-    def set_dims(self, d):
-        self._dims.extend(d)
-
     def get_results(self):
         return self._dims, [ self._methods, self._passfail, self._times ] 
 

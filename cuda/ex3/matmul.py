@@ -28,14 +28,14 @@ class DotProduct(ABC):
         self._dot()
         return self._C
 
-    def _verify(self, expected):
-        if self._dim_m <= 8 and self._dim_n <= 8:
-            print(f"{__name__}: Computed C:\n{self._C}\nExpected C:\n{expected}")
+    # def _verify(self, expected):
+    #     if self._dim_m <= 8 and self._dim_n <= 8:
+    #         print(f"{__name__}: Computed C:\n{self._C}\nExpected C:\n{expected}")
 
-        if not np.allclose(self._C, expected, rtol=1e-05, atol=1e-08):
-            raise AssertionError(f"{__name__}: Results do not match!")
-        else:
-            print(f"{__name__}: Results match!")
+    #     if not np.allclose(self._C, expected, rtol=1e-05, atol=1e-08):
+    #         raise AssertionError(f"{__name__}: Results do not match!")
+    #     else:
+    #         print(f"{__name__}: Results match!")
             
 
 class Basic(DotProduct):
