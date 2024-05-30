@@ -1,0 +1,10 @@
+matmul: Computed C:
+[[ 0.00516463]]
+Expected C:
+[[ 0.00516463]]
+matmul: Results match!
+matmul: Computed C:
+[[ 0.00516463]]
+Expected C:
+[[ 0.00516463]]
+matmul: Results match!

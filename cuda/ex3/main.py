@@ -58,7 +58,7 @@ def main():
     # PLOT
     plt.plot(list_of_dims, list_of_numpy_times, 'b', label='Numpy')
     plt.plot(list_of_dims, list_of_jit_times, 'r', label='JitNumpy')
-    plt.yscale("log")
+    # plt.yscale("log")
     plt.grid(which='both', axis='both')
     plt.xlabel("dim_m")
     plt.ylabel("Time (seconds)")
