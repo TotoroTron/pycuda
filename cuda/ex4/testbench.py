@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import matmul as mat
 from abc import ABC, abstractmethod
 import time
@@ -14,7 +15,7 @@ class Testbench():
         self._times = []
 
     def _verify(self, result):
-        return np.allclose(self.result, self._expectation, rtol=1e-5, atol=1e-8)
+        return np.allclose(result, self._expectation, rtol=1e-5, atol=1e-8)
     
     def get_results(self):
 
