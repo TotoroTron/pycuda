@@ -13,26 +13,28 @@ class DotProduct(ABC):
         assert A.shape[1] == B.shape[0], "A and B shapes misaligned!"
         assert A.shape[0] == C.shape[0], "A and C shapes misaligned!"
         assert B.shape[1] == C.shape[1], "B and C shapes misaligned!"
-        self._A = A
-        self._B = B
-        self._C = C
-        self._dim_m = A.shape[0]
-        self._dim_n = A.shape[1]
-        self._dim_k = B.shape[1]
+        self.A = A
+        self.B = B
+        self.C = C
+        self.dim_m = A.shape[0]
+        self.dim_n = A.shape[1]
+        self.dim_k = B.shape[1]
+        self.elapsed_time = 0.0
     
     @abstractmethod
     def _dot(self): # abstract, protected method (single underscore prefix)
         pass
 
     def run(self):
+        start_time = time.time()
         self._dot()
-        return self._C
+        self.elapsed_time = time.time() - start_time
 
-    def _verify(self, expected):
-        if self._dim_m <= 8 and self._dim_n <= 8:
-            print(f"{__name__}: Computed C:\n{self._C}\nExpected C:\n{expected}")
+    def verify(self, expected):
+        if self.dim_m <= 8 and self.dim_n <= 8:
+            print(f"{__name__}: Computed C:\n{self.C}\nExpected C:\n{expected}")
 
-        if not np.allclose(self._C, expected, rtol=1e-05, atol=1e-08):
+        if not np.allclose(self.C, expected, rtol=1e-05, atol=1e-08):
             raise AssertionError(f"{__name__}: Results do not match!")
         else:
             print(f"{__name__}: Results match!")
@@ -40,7 +42,7 @@ class DotProduct(ABC):
 
 class Basic(DotProduct):
     def _dot(self):
-        A, B, C = self._A, self._B, self._C
+        A, B, C = self.A, self.B, self.C
         for i in range(A.shape[0]):
             for j in range(B.shape[1]):
                 sum = 0.0
@@ -50,7 +52,7 @@ class Basic(DotProduct):
 
 class Numpy(DotProduct):
     def _dot(self):
-        A, B, C = self._A, self._B, self._C
+        A, B, C = self.A, self.B, self.C
         np.dot(A, B, out=C)
         # self.C[:] = np.dot(A, B) # Modify C in-place
 
@@ -66,7 +68,7 @@ class JitBasic(DotProduct):
                 C[i, j] = sum
     
     def _dot(self):
-        self.__dot_kernel(self._A, self._B, self._C)
+        self.__dot_kernel(self.A, self.B, self.C)
 
 class JitNumpy(DotProduct):
     @staticmethod
@@ -76,7 +78,7 @@ class JitNumpy(DotProduct):
         # C[:] = np.dot(A, B)
 
     def _dot(self):
-        self.__dot_kernel(self._A, self._B, self._C)
+        self.__dot_kernel(self.A, self.B, self.C)
 
 
 # ABSTRACT METHOD CUDAJIT
@@ -84,21 +86,21 @@ class CudaJit(DotProduct):
     def __init__(self, A, B, C):
         super().__init__(A, B, C) # call base class constructor (in DotProduct)
         self.TPB = (16, 16) # threads per block
-        self.bpgx = (self._dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
-        self.bpgy = (self._dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
+        self.bpgx = (self.dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
+        self.bpgy = (self.dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
         self.BPG = (self.bpgx, self.bpgy)
 
     def __configure(self): # private method (double underscore prefix)
-        dA = cuda.to_device(self._A)
-        dB = cuda.to_device(self._B)
-        dC = cuda.to_device(self._C)
+        dA = cuda.to_device(self.A)
+        dB = cuda.to_device(self.B)
+        dC = cuda.to_device(self.C)
         return dA, dB, dC
     
     def run(self): # Override run method from parent class
         start_time = time.time()
         dA, dB, dC = self.__configure()
         self._dot[self.BPG, self.TPB](dA, dB, dC)
-        dC.copy_to_host(self._C)
+        dC.copy_to_host(self.C)
         self.elapsed_time = time.time() - start_time
 
 

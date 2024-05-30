@@ -33,14 +33,14 @@ def main():
         # NUMPY DOT
         numpy_test = mat.Numpy(*matrices)
         numpy_test.run()
-        expected = numpy_test._C.copy()
-        results.append((dim, numpy_test.__class__.__name__, numpy_test._elapsed_time))
+        expected = numpy_test.C.copy()
+        results.append((dim, numpy_test.__class__.__name__, numpy_test.elapsed_time))
 
         # JIT NUMPY DOT
         jit_np_test = mat.JitNumpy(*matrices)
         jit_np_test.run()
         jit_np_test.verify(expected)
-        results.append((dim, jit_np_test.__class__.__name__, jit_np_test._elapsed_time))
+        results.append((dim, jit_np_test.__class__.__name__, jit_np_test.elapsed_time))
 
     # Remove all (1, 1, 1) tests
     results.pop(0)

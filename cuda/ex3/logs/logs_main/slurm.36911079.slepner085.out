@@ -1,0 +1,72 @@
+matmul: Computed C:
+[[ 0.20863184]]
+Expected C:
+[[ 0.20863184]]
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+matmul: Results match!
+
+RESULTS:
+
+Dimensions: (64,64,64        ) 	Method: Numpy            	Elapsed time:     0.005239 seconds.
+Dimensions: (64,64,64        ) 	Method: JitNumpy         	Elapsed time:     0.000025 seconds.
+
+Dimensions: (128,128,128     ) 	Method: Numpy            	Elapsed time:     0.000593 seconds.
+Dimensions: (128,128,128     ) 	Method: JitNumpy         	Elapsed time:     0.000066 seconds.
+
+Dimensions: (192,192,192     ) 	Method: Numpy            	Elapsed time:     0.000740 seconds.
+Dimensions: (192,192,192     ) 	Method: JitNumpy         	Elapsed time:     0.000203 seconds.
+
+Dimensions: (256,256,256     ) 	Method: Numpy            	Elapsed time:     0.003904 seconds.
+Dimensions: (256,256,256     ) 	Method: JitNumpy         	Elapsed time:     0.000465 seconds.
+
+Dimensions: (320,320,320     ) 	Method: Numpy            	Elapsed time:     0.000929 seconds.
+Dimensions: (320,320,320     ) 	Method: JitNumpy         	Elapsed time:     0.000883 seconds.
+
+Dimensions: (384,384,384     ) 	Method: Numpy            	Elapsed time:     0.002868 seconds.
+Dimensions: (384,384,384     ) 	Method: JitNumpy         	Elapsed time:     0.002132 seconds.
+
+Dimensions: (448,448,448     ) 	Method: Numpy            	Elapsed time:     0.004391 seconds.
+Dimensions: (448,448,448     ) 	Method: JitNumpy         	Elapsed time:     0.003436 seconds.
+
+Dimensions: (512,512,512     ) 	Method: Numpy            	Elapsed time:     0.005024 seconds.
+Dimensions: (512,512,512     ) 	Method: JitNumpy         	Elapsed time:     0.005523 seconds.
+
+Dimensions: (576,576,576     ) 	Method: Numpy            	Elapsed time:     0.006377 seconds.
+Dimensions: (576,576,576     ) 	Method: JitNumpy         	Elapsed time:     0.006133 seconds.
+
+Dimensions: (640,640,640     ) 	Method: Numpy            	Elapsed time:     0.010031 seconds.
+Dimensions: (640,640,640     ) 	Method: JitNumpy         	Elapsed time:     0.008289 seconds.
+
+Dimensions: (704,704,704     ) 	Method: Numpy            	Elapsed time:     0.011509 seconds.
+Dimensions: (704,704,704     ) 	Method: JitNumpy         	Elapsed time:     0.011753 seconds.
+
+Dimensions: (768,768,768     ) 	Method: Numpy            	Elapsed time:     0.016545 seconds.
+Dimensions: (768,768,768     ) 	Method: JitNumpy         	Elapsed time:     0.013903 seconds.
+
+Dimensions: (832,832,832     ) 	Method: Numpy            	Elapsed time:     0.020967 seconds.
+Dimensions: (832,832,832     ) 	Method: JitNumpy         	Elapsed time:     0.020129 seconds.
+
+Dimensions: (896,896,896     ) 	Method: Numpy            	Elapsed time:     0.027254 seconds.
+Dimensions: (896,896,896     ) 	Method: JitNumpy         	Elapsed time:     0.022932 seconds.
+
+Dimensions: (960,960,960     ) 	Method: Numpy            	Elapsed time:     0.030470 seconds.
+Dimensions: (960,960,960     ) 	Method: JitNumpy         	Elapsed time:     0.029795 seconds.
+
+Dimensions: (1024,1024,1024  ) 	Method: Numpy            	Elapsed time:     0.038431 seconds.
+Dimensions: (1024,1024,1024  ) 	Method: JitNumpy         	Elapsed time:     0.038935 seconds.
+Done.
