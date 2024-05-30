@@ -15,11 +15,11 @@ def main():
     # dimensions = [ (256, 256, 256) , (512, 512, 512), (1024, 1024, 1024) ]
     # dimensions = [ (128, 128, 128) , (256, 256, 256), (512, 512, 512)]
     # dimensions = [ (16, 16, 16) , (32, 32, 32), (64, 64, 64)]
-    # dimensions = [ (4, 4, 4) , (8, 8, 8), (16, 16, 16)]
-    dimensions = [ (1, 1, 1)]
-    for i in range(1, 17):
-        size = 64 * i
-        dimensions.append( (size, size, size))
+    dimensions = [ (4, 4, 4) , (8, 8, 8), (16, 16, 16)]
+    # dimensions = [ (1, 1, 1)]
+    # for i in range(1, 17):
+    #     size = 64 * i
+    #     dimensions.append( (size, size, size))
 
     results = []
 
