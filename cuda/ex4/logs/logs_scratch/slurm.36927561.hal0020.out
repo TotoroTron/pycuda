@@ -1,0 +1,9 @@
+Initial C:
+  [[ 0.  0.  0.]
+ [ 0.  0.  0.]]
+C inside test_all after _set_expectation:
+ [[ 0.  0.  0.]
+ [ 0.  0.  0.]]
+C inside test_all after _set_expectation:
+ [[ 0.90333629  0.9045347   0.6958667 ]
+ [ 1.499982    1.15202606  0.82822049]]
