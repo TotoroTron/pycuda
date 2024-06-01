@@ -72,11 +72,13 @@ class JitNumpy(DotProduct):
     @staticmethod
     @jit(nopython=True)
     def __dot_kernel(A, B, C): # private method (double underscore prefix)
-        np.dot(A, B, out=C) # Modify C in-place
-        # C[:] = np.dot(A, B)
+        # np.dot(A, B, out=C) # Modify C in-place
+        return A.dot(B)
 
     def _dot(self):
-        self.__dot_kernel(self._A, self._B, self._C)
+        # self.__dot_kernel(self._A, self._B, self._C)
+        A, B, C = self._A, self._B, self._C
+        np.dot(A, B, out=C)
 
 
 # ABSTRACT METHOD CUDAJIT

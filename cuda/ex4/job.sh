@@ -6,15 +6,18 @@
 # USAGE: ./job.sh filename.py
 # OR: bash job.sh filename.py
 
-# CHECK IF FILENAME PROVIDED
-if [ -z "$1" ]; then
-    echo "Error: No Python filename provided. Exiting."
+# CHECK IF FILENAME AND ENVIRONMENT PROVIDED
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Error: Python filename or environment not provided. Exiting."
     exit 1
 fi
 
 # EXTRACT THE FILENAME WITHOUT EXTENSION
 filename=$(basename -- "$1")
 filename="${filename%.*}"
+
+# SET THE ENVIRONMENT
+environment="$2"
 
 # CREATE DIRECTORY IF DOESNT EXIST
 log_dir="logs/logs_$filename"
@@ -48,20 +51,33 @@ error_file="$log_dir/slurm.%j.%N.err"
 # CALL SBATCH WITH OUTPUT/ERROR FILE PATHS
 # PASS IN SLURM SCRIPT AS HERE-DOC
 # command --args --args <<DELIMITER (text text) DELIMITER
-sbatch --output="$output_file" --error="$error_file" <<EOF
+if [ "$environment" == "amarel" ]; then
+    sbatch --output="$output_file" --error="$error_file" <<EOF
 #!/bin/bash
 #SBATCH --job-name=tutorial
 #SBATCH --partition=main
-##SBATCH --partition=gpu
-##SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
-#SBATCH --mem=64000                 # Real memory (RAM) required (MB)
-#SBATCH --time=01:00:00             # Total run time limit (HH:MM:SS)
+#SBATCH --mem=64000
+#SBATCH --time=01:00:00
 
 module purge
 module load cuda/10.0
 source /home/bbc33/anaconda3/bin/activate
-conda activate /home/bbc33/anaconda3/envs/pycuda    
+conda activate /home/bbc33/anaconda3/envs/pycuda
 
 python3 $1
 EOF
+elif [ "$environment" == "local" ]; then
+    # Unique ID number using timestamp in nanoseconds
+    id_number=$(date +%s%N)
+    # date: display current date and time
+    # +%s number of seconds since Unix epoch
+    # %N number of nanoseconds
+
+    output_file="$log_dir/bash.${id_number}.local.out"
+    error_file="$log_dir/bash.${id_number}.local.err"
+    python3 $1 > "$output_file" 2> "$error_file"
+else
+    echo "Error: Unknown environment specified. Use 'amarel' or 'local'."
+    exit 1
+fi
