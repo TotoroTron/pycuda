@@ -76,6 +76,7 @@ class Testbench_alt():
     def _verify(self, result, expected):
         print("Result:\n", result)
         print("Expected:\n", expected)
+        print()
         return np.allclose(result, expected, rtol=1e-05, atol=1e-08)
     
     def get_results(self):
