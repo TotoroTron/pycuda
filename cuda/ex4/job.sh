@@ -3,8 +3,8 @@
 # https://slurm.schedmd.com/sbatch.html 
 
 # CREATE A NEW LOG DIRECTORY BASED ON PYTHON FILE EXECUTED
-# USAGE: ./job.sh filename.py
-# OR: bash job.sh filename.py
+# USAGE: ./job.sh filename.py amarel/local
+# OR: bash job.sh filename.py amarel/local
 
 # CHECK IF FILENAME AND ENVIRONMENT PROVIDED
 if [ -z "$1" ] || [ -z "$2" ]; then
@@ -55,7 +55,9 @@ if [ "$environment" == "amarel" ]; then
     sbatch --output="$output_file" --error="$error_file" <<EOF
 #!/bin/bash
 #SBATCH --job-name=tutorial
-#SBATCH --partition=main
+##SBATCH --partition=main
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --mem=64000
 #SBATCH --time=01:00:00

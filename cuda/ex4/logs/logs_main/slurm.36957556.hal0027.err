@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "main.py", line 47, in <module>
+    main()
+  File "main.py", line 31, in main
+    tb_squares.test_all()
+  File "/scratch/bbc33/pycuda/cuda/ex4/testbench.py", line 49, in test_all
+    result = instance.run()
+  File "/scratch/bbc33/pycuda/cuda/ex4/matmul.py", line 101, in run
+    dA, dB, dC = self.__configure()
+  File "/scratch/bbc33/pycuda/cuda/ex4/matmul.py", line 94, in __configure
+    dA = cuda.to_device(self._A)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/devices.py", line 224, in _require_cuda_context
+    with _runtime.ensure_context():
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/devices.py", line 122, in ensure_context
+    with driver.get_active_context():
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/driver.py", line 387, in __enter__
+    driver.cuCtxGetCurrent(byref(hctx))
+  File "/home/bbc33/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cuda/cudadrv/driver.py", line 278, in __getattr__
+    self.initialization_error)
+numba.cuda.cudadrv.error.CudaSupportError: Error at driver init: 
+
+CUDA driver library cannot be found.
+If you are sure that a CUDA driver is installed,
+try setting environment variable NUMBA_CUDA_DRIVER
+with the file path of the CUDA driver shared library.
+:

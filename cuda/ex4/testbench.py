@@ -44,7 +44,7 @@ class Testbench():
             for idx, dim in enumerate(self._dims):
                 A, B, C = self._inputs[idx]
                 instance = method(A, B, C)  # Basic, Numpy, JitNumpy, etc.
-                print("Instance: ", instance)
+                # print("Instance: ", instance)
                 start_time = time.time()
                 result = instance.run()
                 elapsed_time = time.time() - start_time
@@ -61,6 +61,10 @@ class Testbench():
             method_str = method.__name__
             report_entry = [ method_str, method_dims, method_passfails, method_times ]
             self._report.append(report_entry)
+    
+    def plot(self):
+        
+        pass
 
 
 class Testbench_alt():
@@ -74,17 +78,17 @@ class Testbench_alt():
         self._report = []
 
     def _verify(self, result, expected):
-        print("Result:\n", result)
-        print("Expected:\n", expected)
-        print()
+        # print("Result:\n", result)
+        # print("Expected:\n", expected)
+        # print()
         return np.allclose(result, expected, rtol=1e-05, atol=1e-08)
     
     def get_results(self):
         return self._report.copy()
 
     def test_all(self):
-        print("Methods: ", self._methods)
-        print("Dims: ", self._dims)
+        # print("Methods: ", self._methods)
+        # print("Dims: ", self._dims)
         
         for method in self._methods:
             self._report.append( [] ) # list of empty lists
