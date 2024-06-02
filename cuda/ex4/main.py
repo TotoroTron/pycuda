@@ -36,14 +36,6 @@ def main():
     # Python garbage collection implicitly calls __del__ on instances that are no longer in use
 
 
-def print_conda_env():
-    try:
-        stream = os.popen('conda env export') # pipe open
-        output = stream.read()
-        print(output)
-    except Exception as e:
-        print(f"Error occurred while printing conda env: {e}")
-
 if __name__ == '__main__':
 
     # Check if an output file argument is provided
@@ -51,8 +43,13 @@ if __name__ == '__main__':
         output_file = sys.argv[1]
         sys.stdout = open(output_file, 'w')
         sys.stderr = open(output_file.replace('.out', '.err'), 'w')
-    
-    # print_conda_env()
-    # Just print from the bash script
 
     main()
+
+# def print_conda_env():
+#     try:
+#         stream = os.popen('conda env export') # pipe open
+#         output = stream.read()
+#         print(output)
+#     except Exception as e:
+#         print(f"Error occurred while printing conda env: {e}")

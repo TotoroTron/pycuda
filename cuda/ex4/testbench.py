@@ -24,16 +24,16 @@ class Testbench():
             self._expectations.append(mat.Numpy(A, B, C).run())
 
     def _verify(self, result, expected):
-        print("Result:\n", result)
-        print("Expected:\n", expected)
+        # print("Result:\n", result)
+        # print("Expected:\n", expected)
         return np.allclose(result, expected, rtol=1e-05, atol=1e-08)
     
     def get_results(self):
         return self._report.copy()
 
     def test_all(self):
-        print("Methods: ", self._methods)
-        print("Dims: ", self._dims)
+        # print("Methods: ", self._methods)
+        # print("Dims: ", self._dims)
 
         self._set_expectations()
 
