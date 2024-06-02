@@ -87,16 +87,14 @@ class CudaJit(DotProduct):
         return dA, dB, dC
     
     def run(self): # Override run method from parent class
-        start_time = time.time()
         dA, dB, dC = self.__configure()
         self._dot[self.BPG, self.TPB](dA, dB, dC)
         dC.copy_to_host(self._C)
-        self.elapsed_time = time.time() - start_time
 
 
 class CudaGlobalMemory(CudaJit):
     @cuda.jit
-    def _dot(self, A, B, C):
+    def _dot(A, B, C):
         x, y = cuda.grid(2)
         if x < C.shape[0] and y < C.shape[1]:
             sum = 0.0
