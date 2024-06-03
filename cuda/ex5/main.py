@@ -17,7 +17,7 @@ def main():
     results = test.get_results()
 
     utils.print_gpu_info()
-    utils.plot(results)
+    # utils.plot(results) # plotting doesn't make sense here
     utils.printout(results)
 
 
