@@ -34,9 +34,8 @@ class Testbench():
         return self._report.copy()
 
     def test_all(self):
-        print("Methods: ", self._methods)
-        print("Dims: ", self._dims)
-
+        # print("Methods: ", self._methods)
+        # print("Dims: ", self._dims)
         self._set_expectations()
 
         for method in self._methods:
@@ -64,10 +63,6 @@ class Testbench():
             method_str = method.__name__
             report_entry = [ method_str, method_dims, method_passfails, method_times ]
             self._report.append(report_entry)
-    
-    def plot(self):
-        
-        pass
 
 
 class Testbench_alt():
