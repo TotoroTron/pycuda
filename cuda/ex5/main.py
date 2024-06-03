@@ -1,5 +1,3 @@
-# https://docs.nvidia.com/cuda/cuda-c-programming-guide/#programming-model 
-
 import sys
 import matmul as mat
 import testbench as tb

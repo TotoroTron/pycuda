@@ -3,9 +3,6 @@ from numba import jit
 from numba import cuda, float32
 from abc import ABC, abstractmethod
 
-
-# https://docs.python.org/3/library/abc.html 
-
 # ABSTRACT METHOD DOT PRODUCT
 class DotProduct(ABC):
     def __init__(self, A, B, C):
