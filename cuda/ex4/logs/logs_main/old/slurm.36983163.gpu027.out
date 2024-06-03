@@ -1,0 +1,4 @@
+Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
+Dims:  [(1, 1, 1), (256, 256, 256)]
+['CudaGlobalMemory', [(256, 256, 256)], [True], [0.0013608932495117188]]
+['CudaSharedMemory', [(256, 256, 256)], [True], [0.001382589340209961]]

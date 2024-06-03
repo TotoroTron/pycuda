@@ -1,0 +1,10 @@
+Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
+Dims:  [(1, 1, 1), (4, 4, 4)]
+Instance:  <matmul.CudaGlobalMemory object at 0x7f29a7721550>
+self._C:  [[ 0.13803908]]
+self._C:  [[ 0.13803908]]
+self._C:  [[ 0.13803908]]
+Result:
+ None
+Expected:
+ [[ 0.13803908]]

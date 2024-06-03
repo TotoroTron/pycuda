@@ -26,6 +26,8 @@ class DotProduct(ABC):
 
     def run(self):
         self._dot()
+    
+    def get_result(self):
         return self._C
 
 class Basic(DotProduct):
@@ -79,20 +81,18 @@ class CudaJit(DotProduct):
         self.bpgx = (self._dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
         self.bpgy = (self._dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
         self.BPG = (self.bpgx, self.bpgy)
-
-    def __configure(self): # private method (double underscore prefix)
+    
+    def run(self): # Override run method from parent class
         dA = cuda.to_device(self._A)
         dB = cuda.to_device(self._B)
         dC = cuda.to_device(self._C)
-        return dA, dB, dC
-    
-    def run(self): # Override run method from parent class
-        dA, dB, dC = self.__configure()
         self._dot[self.BPG, self.TPB](dA, dB, dC)
+        cuda.synchronize()
         dC.copy_to_host(self._C)
 
 
 class CudaGlobalMemory(CudaJit):
+    @staticmethod
     @cuda.jit
     def _dot(A, B, C):
         x, y = cuda.grid(2)
@@ -104,6 +104,7 @@ class CudaGlobalMemory(CudaJit):
 
 
 class CudaSharedMemory(CudaJit):
+    @staticmethod
     @cuda.jit
     def _dot(A, B, C):
         """

@@ -1,0 +1,10 @@
+Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
+Dims:  [(1, 1, 1), (4, 4, 4), (8, 8, 8), (12, 12, 12), (16, 16, 16)]
+Method: CudaGlobalMemory    , dims: (4, 4, 4)           , pass(1)/fail(0): 1,	 time: 0.0035848617553710938
+Method: CudaSharedMemory    , dims: (4, 4, 4)           , pass(1)/fail(0): 0,	 time: 0.0012867450714111328
+Method: CudaGlobalMemory    , dims: (8, 8, 8)           , pass(1)/fail(0): 1,	 time: 0.002017974853515625
+Method: CudaSharedMemory    , dims: (8, 8, 8)           , pass(1)/fail(0): 0,	 time: 0.001224517822265625
+Method: CudaGlobalMemory    , dims: (12, 12, 12)        , pass(1)/fail(0): 1,	 time: 0.0012586116790771484
+Method: CudaSharedMemory    , dims: (12, 12, 12)        , pass(1)/fail(0): 0,	 time: 0.0015413761138916016
+Method: CudaGlobalMemory    , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time: 0.001138448715209961
+Method: CudaSharedMemory    , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time: 0.0015931129455566406

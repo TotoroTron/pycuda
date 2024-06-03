@@ -1,0 +1,18 @@
+Methods:  [<class 'matmul.Numpy'>, <class 'matmul.JitNumpy'>, <class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
+Dims:  [(1, 1, 1), (256, 256, 256), (512, 512, 512), (1024, 1024, 1024), (2048, 2048, 2048)]
+Method: Numpy               , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time: 0.0005629062652587891
+Method: JitNumpy            , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time: 0.00036716461181640625
+Method: CudaGlobalMemory    , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time: 0.002234220504760742
+Method: CudaSharedMemory    , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time: 0.002170562744140625
+Method: Numpy               , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time: 0.002790212631225586
+Method: JitNumpy            , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time: 0.0020618438720703125
+Method: CudaGlobalMemory    , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time: 0.004269599914550781
+Method: CudaSharedMemory    , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time: 0.004561662673950195
+Method: Numpy               , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time: 0.01628851890563965
+Method: JitNumpy            , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time: 0.013980627059936523
+Method: CudaGlobalMemory    , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time: 0.012938737869262695
+Method: CudaSharedMemory    , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time: 0.009716033935546875
+Method: Numpy               , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time: 0.10859179496765137
+Method: JitNumpy            , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time: 0.10744166374206543
+Method: CudaGlobalMemory    , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time: 0.06608128547668457
+Method: CudaSharedMemory    , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time: 0.05027341842651367

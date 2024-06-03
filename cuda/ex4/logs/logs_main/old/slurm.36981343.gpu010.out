@@ -1,0 +1,3 @@
+Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
+Dims:  [(1, 1, 1), (4, 4, 4)]
+Instance:  <matmul.CudaGlobalMemory object at 0x7f8f108543c8>
