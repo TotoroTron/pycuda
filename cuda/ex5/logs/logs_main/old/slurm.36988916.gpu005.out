@@ -1,0 +1,9 @@
+Device name: b'Quadro M6000'
+Compute capability: (5, 2)
+Total global memory (GB): 11.9208984375
+Free global memory (GB): 11.81634521484375
+Used global memory (GB): 0.10455322265625
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0

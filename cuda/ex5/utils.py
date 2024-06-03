@@ -52,3 +52,11 @@ def plot(results):
 
     plt.grid(True)
     plt.savefig('plot.png')
+
+def printout(results):
+    dims = results[0][1]
+    for idx, dim in enumerate(dims):
+        for result in results:
+            if result[1][idx] == dim:
+                print(f"Method: {result[0]:<{20}}, dims: {str(result[1][idx]):<{20}}, pass(1)/fail(0): {result[2][idx]},\t time (s): {result[3][idx]}")
+                
