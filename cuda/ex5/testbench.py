@@ -87,16 +87,26 @@ class Testbench_alt():
         
         for method in self._methods:
             self._report.append( [] ) # list of empty lists
-            
-        
+
+        for idx, method in enumerate(self._methods):
+            self._report[idx][0] = method.__name__
+
         for dim in self._dims:
             A = np.random.random(size=(dim[0], dim[2])).astype(np.float32)
             B = np.random.random(size=(dim[2], dim[1])).astype(np.float32)
             C = np.zeros(shape=(dim[0], dim[1]), dtype=np.float32)
-            expectation = mat.Numpy(A, B, C).run()
+            validation = mat.Numpy(A, B, C.copy())
+            validation.run()
+            expectation = validation.get_result()
                              
             for idx, method in enumerate(self._methods):
                 instance = method(A, B, C)
                 start_time = time.time()
                 instance.run()
                 elapsed_time = start_time - time.time()
+
+                result = instance.get_result()
+                # [ NAME, LIST_DIMS, LIST_PASSFAILS, LIST_TIMES ]
+                self._report[idx][1].append( dim )
+                self._report[idx][2].append( self._verify(result, expectation) )
+                self._report[idx][3].append( elapsed_time )

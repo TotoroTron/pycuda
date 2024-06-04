@@ -6,7 +6,7 @@
 # USAGE: ./job.sh filename.py amarel/local
 # OR: bash job.sh filename.py amarel/local
 
-conda env export > "environment.yml"
+# conda env export > "environment.yml"
 
 # CHECK IF FILENAME AND ENVIRONMENT PROVIDED
 if [ -z "$1" ] || [ -z "$2" ]; then

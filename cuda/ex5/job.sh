@@ -6,7 +6,7 @@
 # USAGE: ./job.sh filename.py amarel/local
 # OR: bash job.sh filename.py amarel/local
 
-conda env export > "environment.yml"
+# conda env export > "environment.yml"
 
 # CHECK IF FILENAME AND ENVIRONMENT PROVIDED
 if [ -z "$1" ] || [ -z "$2" ]; then
@@ -60,7 +60,7 @@ if [ "$environment" == "amarel" ]; then
 ##SBATCH --partition=main
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --exclude=cuda[001-008]
+##SBATCH --exclude=cuda[001-008]
 #SBATCH --ntasks=1
 #SBATCH --mem=64000
 #SBATCH --time=01:00:00

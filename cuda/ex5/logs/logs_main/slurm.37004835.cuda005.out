@@ -1,0 +1,15 @@
+Device name: b'Tesla K80'
+Compute capability: (3, 7)
+Total global memory (GB): 11.173095703125
+Free global memory (GB): 11.114013671875
+Used global memory (GB): 0.05908203125
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: Numpy               , dims: (256, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.0019693374633789062
+Method: CudaSharedMemoryGeneral, dims: (256, 512, 512)     , pass(1)/fail(0): 0,	 time (s): 0.003916501998901367
+Method: Numpy               , dims: (512, 256, 512)     , pass(1)/fail(0): 1,	 time (s): 0.004109382629394531
+Method: CudaSharedMemoryGeneral, dims: (512, 256, 512)     , pass(1)/fail(0): 1,	 time (s): 0.005250215530395508
+Method: Numpy               , dims: (512, 512, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0020020008087158203
+Method: CudaSharedMemoryGeneral, dims: (512, 512, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0052301883697509766

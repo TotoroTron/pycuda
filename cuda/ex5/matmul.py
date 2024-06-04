@@ -76,7 +76,7 @@ class CudaJit(DotProduct):
         self.TPB = (16, 16) # threads per block
         self.bpgx = (self._dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
         self.bpgy = (self._dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
-        self.BPG = (self.bpgx, self.bpgy)
+        self.BPG = (self.bpgx, self.bpgy) # (dim/bpgx, dim/bpgy)
     
     def run(self): # Override run method from parent class
         dA = cuda.to_device(self._A)
@@ -99,7 +99,7 @@ class CudaGlobalMemory(CudaJit):
             C[x, y] = sum
 
 
-class CudaSharedMemory(CudaJit):
+class CudaSharedMemorySquare(CudaJit):
     @staticmethod
     @cuda.jit
     def _dot(A, B, C):
@@ -146,4 +146,44 @@ class CudaSharedMemory(CudaJit):
             cuda.syncthreads()
         
         C[x, y] = tmp
+
+class CudaSharedMemoryGeneral(CudaJit):
+    @staticmethod
+    @cuda.jit
+    def _dot(A, B, C):
+        """
+        Ref:
+        https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
+        https://github.com/numba/numba/blob/556545c5b2b162574c600490a855ba8856255154/numba/cuda/tests/doc_examples/test_matmul.py 
+        """
+        TPB = 16
+        sA = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
+        sB = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
+
+        # (16, 16)
+        x, y = cuda.grid(2)
+
+        tx = cuda.threadIdx.x
+        ty = cuda.threadIdx.y
+        bpg = cuda.gridDim.x
+
+        sum = 0.0
+        for i in range(bpg):
+            sA[ty, tx] = 0
+            sB[ty, tx] = 0
+
+            if y < A.shape[0] and (tx + i * TPB) < A.shape[1]:
+                sA[ty, tx] = A[y, tx + i * TPB]
+            if x < B.shape[1] and (ty + i * TPB) < B.shape[0]:
+                sB[ty, tx] = B[ty + i * TPB, x]
+
+            cuda.syncthreads()
+
+            for j in range(TPB):
+                sum += sA[ty, j] * sB[j, tx]
+
+            cuda.syncthreads()
+        
+        if y < C.shape[0] and x < C.shape[1]:
+            C[y, x] = sum
 

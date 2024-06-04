@@ -9,7 +9,7 @@ import utils as utils
 # Dim C: (M, N)
 
 def main():
-    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory ]
+    methods = [ mat.Numpy, mat.CudaSharedMemoryGeneral ]
     dims = [ (256, 512, 512), (512, 256, 512), (512, 512, 256) ]
 
     test = tb.Testbench(methods, dims)
