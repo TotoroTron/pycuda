@@ -1,0 +1,137 @@
+Device name: b'NVIDIA GeForce RTX 3090'
+Compute capability: (8, 6)
+Total global memory (GB): 23.69110107421875
+Free global memory (GB): 23.43634033203125
+Used global memory (GB): 0.2547607421875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+A: 0.25 MB, B: 0.25 MB, C: 0.25 MB
+A: 1.0 MB, B: 1.0 MB, C: 1.0 MB
+A: 2.25 MB, B: 2.25 MB, C: 2.25 MB
+A: 4.0 MB, B: 4.0 MB, C: 4.0 MB
+A: 6.25 MB, B: 6.25 MB, C: 6.25 MB
+A: 9.0 MB, B: 9.0 MB, C: 9.0 MB
+A: 12.25 MB, B: 12.25 MB, C: 12.25 MB
+A: 16.0 MB, B: 16.0 MB, C: 16.0 MB
+A: 20.25 MB, B: 20.25 MB, C: 20.25 MB
+A: 25.0 MB, B: 25.0 MB, C: 25.0 MB
+A: 30.25 MB, B: 30.25 MB, C: 30.25 MB
+A: 36.0 MB, B: 36.0 MB, C: 36.0 MB
+A: 42.25 MB, B: 42.25 MB, C: 42.25 MB
+A: 49.0 MB, B: 49.0 MB, C: 49.0 MB
+A: 56.25 MB, B: 56.25 MB, C: 56.25 MB
+A: 64.0 MB, B: 64.0 MB, C: 64.0 MB
+A: 72.25 MB, B: 72.25 MB, C: 72.25 MB
+A: 81.0 MB, B: 81.0 MB, C: 81.0 MB
+A: 90.25 MB, B: 90.25 MB, C: 90.25 MB
+A: 100.0 MB, B: 100.0 MB, C: 100.0 MB
+A: 110.25 MB, B: 110.25 MB, C: 110.25 MB
+A: 121.0 MB, B: 121.0 MB, C: 121.0 MB
+A: 132.25 MB, B: 132.25 MB, C: 132.25 MB
+A: 144.0 MB, B: 144.0 MB, C: 144.0 MB
+A: 156.25 MB, B: 156.25 MB, C: 156.25 MB
+A: 169.0 MB, B: 169.0 MB, C: 169.0 MB
+A: 182.25 MB, B: 182.25 MB, C: 182.25 MB
+A: 196.0 MB, B: 196.0 MB, C: 196.0 MB
+A: 210.25 MB, B: 210.25 MB, C: 210.25 MB
+A: 225.0 MB, B: 225.0 MB, C: 225.0 MB
+A: 240.25 MB, B: 240.25 MB, C: 240.25 MB
+A: 256.0 MB, B: 256.0 MB, C: 256.0 MB
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.004080533981323242
+Method: CudaSharedMemorySquare    , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0035305023193359375
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0032684803009033203
+Method: CudaGlobalMemory          , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.005827903747558594
+Method: CudaSharedMemorySquare    , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.005748271942138672
+Method: CudaSharedMemoryGeneral   , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.0052835941314697266
+Method: CudaGlobalMemory          , dims: (768, 768, 768)     , pass(1)/fail(0): 1,	 time (s): 0.009598255157470703
+Method: CudaSharedMemorySquare    , dims: (768, 768, 768)     , pass(1)/fail(0): 1,	 time (s): 0.010519742965698242
+Method: CudaSharedMemoryGeneral   , dims: (768, 768, 768)     , pass(1)/fail(0): 1,	 time (s): 0.009052753448486328
+Method: CudaGlobalMemory          , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.01650094985961914
+Method: CudaSharedMemorySquare    , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.01751875877380371
+Method: CudaSharedMemoryGeneral   , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.017962217330932617
+Method: CudaGlobalMemory          , dims: (1280, 1280, 1280)  , pass(1)/fail(0): 1,	 time (s): 0.02779221534729004
+Method: CudaSharedMemorySquare    , dims: (1280, 1280, 1280)  , pass(1)/fail(0): 1,	 time (s): 0.02645397186279297
+Method: CudaSharedMemoryGeneral   , dims: (1280, 1280, 1280)  , pass(1)/fail(0): 1,	 time (s): 0.029698848724365234
+Method: CudaGlobalMemory          , dims: (1536, 1536, 1536)  , pass(1)/fail(0): 1,	 time (s): 0.04611539840698242
+Method: CudaSharedMemorySquare    , dims: (1536, 1536, 1536)  , pass(1)/fail(0): 1,	 time (s): 0.04167580604553223
+Method: CudaSharedMemoryGeneral   , dims: (1536, 1536, 1536)  , pass(1)/fail(0): 1,	 time (s): 0.04146170616149902
+Method: CudaGlobalMemory          , dims: (1792, 1792, 1792)  , pass(1)/fail(0): 1,	 time (s): 0.0564885139465332
+Method: CudaSharedMemorySquare    , dims: (1792, 1792, 1792)  , pass(1)/fail(0): 1,	 time (s): 0.05327630043029785
+Method: CudaSharedMemoryGeneral   , dims: (1792, 1792, 1792)  , pass(1)/fail(0): 1,	 time (s): 0.052843332290649414
+Method: CudaGlobalMemory          , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.07633352279663086
+Method: CudaSharedMemorySquare    , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.08009886741638184
+Method: CudaSharedMemoryGeneral   , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.07575345039367676
+Method: CudaGlobalMemory          , dims: (2304, 2304, 2304)  , pass(1)/fail(0): 1,	 time (s): 0.10518097877502441
+Method: CudaSharedMemorySquare    , dims: (2304, 2304, 2304)  , pass(1)/fail(0): 1,	 time (s): 0.1049501895904541
+Method: CudaSharedMemoryGeneral   , dims: (2304, 2304, 2304)  , pass(1)/fail(0): 1,	 time (s): 0.10978555679321289
+Method: CudaGlobalMemory          , dims: (2560, 2560, 2560)  , pass(1)/fail(0): 1,	 time (s): 0.14095425605773926
+Method: CudaSharedMemorySquare    , dims: (2560, 2560, 2560)  , pass(1)/fail(0): 1,	 time (s): 0.14169669151306152
+Method: CudaSharedMemoryGeneral   , dims: (2560, 2560, 2560)  , pass(1)/fail(0): 1,	 time (s): 0.14797520637512207
+Method: CudaGlobalMemory          , dims: (2816, 2816, 2816)  , pass(1)/fail(0): 1,	 time (s): 0.18560457229614258
+Method: CudaSharedMemorySquare    , dims: (2816, 2816, 2816)  , pass(1)/fail(0): 1,	 time (s): 0.18569016456604004
+Method: CudaSharedMemoryGeneral   , dims: (2816, 2816, 2816)  , pass(1)/fail(0): 1,	 time (s): 0.18531227111816406
+Method: CudaGlobalMemory          , dims: (3072, 3072, 3072)  , pass(1)/fail(0): 1,	 time (s): 0.24602556228637695
+Method: CudaSharedMemorySquare    , dims: (3072, 3072, 3072)  , pass(1)/fail(0): 1,	 time (s): 0.23770761489868164
+Method: CudaSharedMemoryGeneral   , dims: (3072, 3072, 3072)  , pass(1)/fail(0): 1,	 time (s): 0.23782134056091309
+Method: CudaGlobalMemory          , dims: (3328, 3328, 3328)  , pass(1)/fail(0): 1,	 time (s): 0.29790401458740234
+Method: CudaSharedMemorySquare    , dims: (3328, 3328, 3328)  , pass(1)/fail(0): 1,	 time (s): 0.30822038650512695
+Method: CudaSharedMemoryGeneral   , dims: (3328, 3328, 3328)  , pass(1)/fail(0): 1,	 time (s): 0.29875946044921875
+Method: CudaGlobalMemory          , dims: (3584, 3584, 3584)  , pass(1)/fail(0): 1,	 time (s): 0.36722540855407715
+Method: CudaSharedMemorySquare    , dims: (3584, 3584, 3584)  , pass(1)/fail(0): 1,	 time (s): 0.3810091018676758
+Method: CudaSharedMemoryGeneral   , dims: (3584, 3584, 3584)  , pass(1)/fail(0): 1,	 time (s): 0.36923861503601074
+Method: CudaGlobalMemory          , dims: (3840, 3840, 3840)  , pass(1)/fail(0): 1,	 time (s): 0.48235154151916504
+Method: CudaSharedMemorySquare    , dims: (3840, 3840, 3840)  , pass(1)/fail(0): 1,	 time (s): 0.45090317726135254
+Method: CudaSharedMemoryGeneral   , dims: (3840, 3840, 3840)  , pass(1)/fail(0): 1,	 time (s): 0.46550607681274414
+Method: CudaGlobalMemory          , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.570796012878418
+Method: CudaSharedMemorySquare    , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.545609712600708
+Method: CudaSharedMemoryGeneral   , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.5459268093109131
+Method: CudaGlobalMemory          , dims: (4352, 4352, 4352)  , pass(1)/fail(0): 1,	 time (s): 0.6780459880828857
+Method: CudaSharedMemorySquare    , dims: (4352, 4352, 4352)  , pass(1)/fail(0): 1,	 time (s): 0.6502745151519775
+Method: CudaSharedMemoryGeneral   , dims: (4352, 4352, 4352)  , pass(1)/fail(0): 1,	 time (s): 0.6508092880249023
+Method: CudaGlobalMemory          , dims: (4608, 4608, 4608)  , pass(1)/fail(0): 1,	 time (s): 0.7934103012084961
+Method: CudaSharedMemorySquare    , dims: (4608, 4608, 4608)  , pass(1)/fail(0): 1,	 time (s): 0.7675375938415527
+Method: CudaSharedMemoryGeneral   , dims: (4608, 4608, 4608)  , pass(1)/fail(0): 1,	 time (s): 0.7687532901763916
+Method: CudaGlobalMemory          , dims: (4864, 4864, 4864)  , pass(1)/fail(0): 1,	 time (s): 0.9084172248840332
+Method: CudaSharedMemorySquare    , dims: (4864, 4864, 4864)  , pass(1)/fail(0): 1,	 time (s): 0.9040911197662354
+Method: CudaSharedMemoryGeneral   , dims: (4864, 4864, 4864)  , pass(1)/fail(0): 1,	 time (s): 0.8897628784179688
+Method: CudaGlobalMemory          , dims: (5120, 5120, 5120)  , pass(1)/fail(0): 1,	 time (s): 1.0499746799468994
+Method: CudaSharedMemorySquare    , dims: (5120, 5120, 5120)  , pass(1)/fail(0): 1,	 time (s): 1.032301902770996
+Method: CudaSharedMemoryGeneral   , dims: (5120, 5120, 5120)  , pass(1)/fail(0): 1,	 time (s): 1.0479276180267334
+Method: CudaGlobalMemory          , dims: (5376, 5376, 5376)  , pass(1)/fail(0): 1,	 time (s): 1.2079384326934814
+Method: CudaSharedMemorySquare    , dims: (5376, 5376, 5376)  , pass(1)/fail(0): 1,	 time (s): 1.1905508041381836
+Method: CudaSharedMemoryGeneral   , dims: (5376, 5376, 5376)  , pass(1)/fail(0): 1,	 time (s): 1.2071573734283447
+Method: CudaGlobalMemory          , dims: (5632, 5632, 5632)  , pass(1)/fail(0): 1,	 time (s): 1.36875581741333
+Method: CudaSharedMemorySquare    , dims: (5632, 5632, 5632)  , pass(1)/fail(0): 1,	 time (s): 1.363396167755127
+Method: CudaSharedMemoryGeneral   , dims: (5632, 5632, 5632)  , pass(1)/fail(0): 1,	 time (s): 1.364201307296753
+Method: CudaGlobalMemory          , dims: (5888, 5888, 5888)  , pass(1)/fail(0): 1,	 time (s): 1.592250108718872
+Method: CudaSharedMemorySquare    , dims: (5888, 5888, 5888)  , pass(1)/fail(0): 1,	 time (s): 1.5535595417022705
+Method: CudaSharedMemoryGeneral   , dims: (5888, 5888, 5888)  , pass(1)/fail(0): 1,	 time (s): 1.5530123710632324
+Method: CudaGlobalMemory          , dims: (6144, 6144, 6144)  , pass(1)/fail(0): 1,	 time (s): 1.787125587463379
+Method: CudaSharedMemorySquare    , dims: (6144, 6144, 6144)  , pass(1)/fail(0): 1,	 time (s): 1.7861456871032715
+Method: CudaSharedMemoryGeneral   , dims: (6144, 6144, 6144)  , pass(1)/fail(0): 1,	 time (s): 1.7717368602752686
+Method: CudaGlobalMemory          , dims: (6400, 6400, 6400)  , pass(1)/fail(0): 1,	 time (s): 2.0128698348999023
+Method: CudaSharedMemorySquare    , dims: (6400, 6400, 6400)  , pass(1)/fail(0): 1,	 time (s): 2.0126636028289795
+Method: CudaSharedMemoryGeneral   , dims: (6400, 6400, 6400)  , pass(1)/fail(0): 1,	 time (s): 1.9967551231384277
+Method: CudaGlobalMemory          , dims: (6656, 6656, 6656)  , pass(1)/fail(0): 1,	 time (s): 2.233884334564209
+Method: CudaSharedMemorySquare    , dims: (6656, 6656, 6656)  , pass(1)/fail(0): 1,	 time (s): 2.239071846008301
+Method: CudaSharedMemoryGeneral   , dims: (6656, 6656, 6656)  , pass(1)/fail(0): 1,	 time (s): 2.256974458694458
+Method: CudaGlobalMemory          , dims: (6912, 6912, 6912)  , pass(1)/fail(0): 1,	 time (s): 2.499433994293213
+Method: CudaSharedMemorySquare    , dims: (6912, 6912, 6912)  , pass(1)/fail(0): 1,	 time (s): 2.5023176670074463
+Method: CudaSharedMemoryGeneral   , dims: (6912, 6912, 6912)  , pass(1)/fail(0): 1,	 time (s): 2.502781867980957
+Method: CudaGlobalMemory          , dims: (7168, 7168, 7168)  , pass(1)/fail(0): 1,	 time (s): 2.7936248779296875
+Method: CudaSharedMemorySquare    , dims: (7168, 7168, 7168)  , pass(1)/fail(0): 1,	 time (s): 2.7842559814453125
+Method: CudaSharedMemoryGeneral   , dims: (7168, 7168, 7168)  , pass(1)/fail(0): 1,	 time (s): 2.783985137939453
+Method: CudaGlobalMemory          , dims: (7424, 7424, 7424)  , pass(1)/fail(0): 1,	 time (s): 3.113154888153076
+Method: CudaSharedMemorySquare    , dims: (7424, 7424, 7424)  , pass(1)/fail(0): 1,	 time (s): 3.1088201999664307
+Method: CudaSharedMemoryGeneral   , dims: (7424, 7424, 7424)  , pass(1)/fail(0): 1,	 time (s): 3.10906720161438
+Method: CudaGlobalMemory          , dims: (7680, 7680, 7680)  , pass(1)/fail(0): 1,	 time (s): 3.4011547565460205
+Method: CudaSharedMemorySquare    , dims: (7680, 7680, 7680)  , pass(1)/fail(0): 1,	 time (s): 3.452910900115967
+Method: CudaSharedMemoryGeneral   , dims: (7680, 7680, 7680)  , pass(1)/fail(0): 1,	 time (s): 3.437364339828491
+Method: CudaGlobalMemory          , dims: (7936, 7936, 7936)  , pass(1)/fail(0): 1,	 time (s): 3.7669243812561035
+Method: CudaSharedMemorySquare    , dims: (7936, 7936, 7936)  , pass(1)/fail(0): 1,	 time (s): 3.7845518589019775
+Method: CudaSharedMemoryGeneral   , dims: (7936, 7936, 7936)  , pass(1)/fail(0): 1,	 time (s): 3.8011443614959717
+Method: CudaGlobalMemory          , dims: (8192, 8192, 8192)  , pass(1)/fail(0): 1,	 time (s): 4.146507024765015
+Method: CudaSharedMemorySquare    , dims: (8192, 8192, 8192)  , pass(1)/fail(0): 1,	 time (s): 4.156150579452515
+Method: CudaSharedMemoryGeneral   , dims: (8192, 8192, 8192)  , pass(1)/fail(0): 1,	 time (s): 4.173878908157349
