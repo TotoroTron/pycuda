@@ -3,41 +3,29 @@ import matmul as mat
 import testbench as tb
 import utils as utils
 
-# Dims: (M, N, K)
-# Dim A: (M, K)
-# Dim B: (K, N)
-# Dim C: (M, N)
+def define_combinations(M, N, K):
+    values = list(set([M, N, K])) # remove duplicates
+    combinations = []
 
-def define_squares(min, stride, count):
-    dims = []
-    for i in range(count):
-        dim_m = min + i * stride
-        dim_n = min + i * stride
-        dim_k = min + i * stride
-        dims.append((min + i * stride, min + i * stride, min + i * stride))
+    for i in values:
+        for j in values:
+            for k in values:
+                combinations.append((i, j, k))
 
-    for dim in dims:
-        # print size of A in MB
-        size_A = dim[0] * dim[2] * 4 / 1024 / 1024
-        size_B = dim[2] * dim[1] * 4 / 1024 / 1024
-        size_C = dim[0] * dim[1] * 4 / 1024 / 1024
-        print(f"A: {size_A} MB, B: {size_B} MB, C: {size_C} MB")
+    return combinations
 
-    return dims
-
-
-def main():
-    utils.print_gpu_info()
-
+def test_kernel(M, N, K):
     methods = [ mat.CudaGlobalMemory, mat.CudaSharedMemorySquare, mat.CudaSharedMemoryGeneral ]
-    dims = define_squares(min=256, stride=256, count=32) # (256, 256, 256) to (8192, 8192, 8192)
-
+    dims = define_combinations(M, N, K)
     test = tb.Testbench(methods, dims)
     test.test_all()
     results = test.get_results()
     utils.printout(results)
-    utils.plot(results, 'main')
 
+
+def main():
+    utils.print_gpu_info()
+    test_kernel(128, 256, 256)
 
 if __name__ == '__main__':
     # If executed on local, explicitly route all print() to file

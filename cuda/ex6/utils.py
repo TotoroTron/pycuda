@@ -61,4 +61,5 @@ def printout(results):
         for result in results:
             if result[1][idx] == dim:
                 print(f"Method: {result[0]:<{26}}, dims: {str(result[1][idx]):<{20}}, pass(1)/fail(0): {result[2][idx]},\t time (s): {result[3][idx]}")
+        print()
                 

@@ -10,8 +10,9 @@ class Testbench():
         self._report = []
 
     def _verify(self, result, expected):
-        # print("Result:\n", result)
-        # print("Expected:\n", expected)
+        if expected.shape[0] <= 4 and expected.shape[1] <= 4:
+            print("Result:\n", result)
+            print("Expected:\n", expected)
         # print()
         return int(np.allclose(result, expected, rtol=1e-05, atol=1e-08))
     

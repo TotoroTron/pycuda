@@ -1,0 +1,33 @@
+Device name: b'Tesla V100-PCIE-32GB'
+Compute capability: (7, 0)
+Total global memory (GB): 31.7393798828125
+Free global memory (GB): 31.4366455078125
+Used global memory (GB): 0.302734375
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.005519866943359375
+Method: CudaSharedMemorySquare    , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.0047757625579833984
+Method: CudaSharedMemoryGeneral   , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.003909111022949219
+Method: CudaGlobalMemory          , dims: (128, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0027840137481689453
+Method: CudaSharedMemorySquare    , dims: (128, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0017931461334228516
+Method: CudaSharedMemoryGeneral   , dims: (128, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.001720428466796875
+Method: CudaGlobalMemory          , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0017638206481933594
+Method: CudaSharedMemorySquare    , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0020592212677001953
+Method: CudaSharedMemoryGeneral   , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0013718605041503906
+Method: CudaGlobalMemory          , dims: (128, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0012714862823486328
+Method: CudaSharedMemorySquare    , dims: (128, 256, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0020689964294433594
+Method: CudaSharedMemoryGeneral   , dims: (128, 256, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0013210773468017578
+Method: CudaGlobalMemory          , dims: (256, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.0012202262878417969
+Method: CudaSharedMemorySquare    , dims: (256, 128, 128)     , pass(1)/fail(0): 0,	 time (s): 0.001190185546875
+Method: CudaSharedMemoryGeneral   , dims: (256, 128, 128)     , pass(1)/fail(0): 0,	 time (s): 0.001154184341430664
+Method: CudaGlobalMemory          , dims: (256, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.001300811767578125
+Method: CudaSharedMemorySquare    , dims: (256, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0012803077697753906
+Method: CudaSharedMemoryGeneral   , dims: (256, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0012383460998535156
+Method: CudaGlobalMemory          , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.005747079849243164
+Method: CudaSharedMemorySquare    , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.004222869873046875
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0022459030151367188
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0024280548095703125
+Method: CudaSharedMemorySquare    , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0016553401947021484
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0013103485107421875

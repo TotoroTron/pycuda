@@ -55,10 +55,28 @@ def plot(results, filename=''):
     
     plt.savefig(f'plot_{str(device.name)}_{filename}.png')
 
+
 def printout(results):
     dims = results[0][1]
     for idx, dim in enumerate(dims):
         for result in results:
             if result[1][idx] == dim:
                 print(f"Method: {result[0]:<{26}}, dims: {str(result[1][idx]):<{20}}, pass(1)/fail(0): {result[2][idx]},\t time (s): {result[3][idx]}")
-                
+        print("\n")
+
+def define_squares(min, stride, count):
+    dims = []
+    for i in range(count):
+        dim_m = min + i * stride
+        dim_n = min + i * stride
+        dim_k = min + i * stride
+        dims.append((min + i * stride, min + i * stride, min + i * stride))
+
+    for dim in dims:
+        # print size of A in MB
+        size_A = dim[0] * dim[2] * 4 / 1024 / 1024
+        size_B = dim[2] * dim[1] * 4 / 1024 / 1024
+        size_C = dim[0] * dim[1] * 4 / 1024 / 1024
+        print(f"A: {size_A} MB, B: {size_B} MB, C: {size_C} MB")
+
+    return dims
