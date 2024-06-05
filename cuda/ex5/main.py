@@ -9,16 +9,24 @@ import utils as utils
 # Dim C: (M, N)
 
 def main():
-    methods = [ mat.Numpy, mat.CudaSharedMemoryGeneral ]
-    dims = [ (256, 512, 512), (512, 256, 512), (512, 512, 256) ]
+    utils.print_gpu_info()
 
+    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemoryGeneral ]
+    # dims = [ (256, 512, 512), (512, 256, 512), (512, 512, 256) ]
+    # dims = [ (2, 2, 2), (4, 2, 2), (2, 4, 2), (2, 2, 4) ]
+    dims = [ (256, 256, 256), (512, 512, 512), (1024, 1024, 1024), (2048, 2048, 2048), (4096, 4096, 4096) ]
+
+    print("Test of Testbench()")
     test = tb.Testbench(methods, dims)
     test.test_all()
     results = test.get_results()
-
-    utils.print_gpu_info()
-    # utils.plot(results) # plotting doesn't make sense here
     utils.printout(results)
+
+    print("Test of Testbench_alt()")
+    test_alt = tb.Testbench_alt(methods, dims)
+    test_alt.test_all()
+    results_alt = test_alt.get_results()
+    utils.printout(results_alt)
 
 
 if __name__ == '__main__':

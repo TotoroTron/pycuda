@@ -1,0 +1,21 @@
+Device name: b'NVIDIA GeForce RTX 2080 Ti'
+Compute capability: (7, 5)
+Total global memory (GB): 10.75341796875
+Free global memory (GB): 10.5992431640625
+Used global memory (GB): 0.1541748046875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: Numpy                     , dims: (2, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 1.0251998901367188e-05
+Method: CudaGlobalMemory          , dims: (2, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 0.0022249221801757812
+Method: CudaSharedMemoryGeneral   , dims: (2, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 0.0019528865814208984
+Method: Numpy                     , dims: (4, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 7.152557373046875e-06
+Method: CudaGlobalMemory          , dims: (4, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 0.0017724037170410156
+Method: CudaSharedMemoryGeneral   , dims: (4, 2, 2)           , pass(1)/fail(0): 1,	 time (s): 0.001847982406616211
+Method: Numpy                     , dims: (2, 4, 2)           , pass(1)/fail(0): 1,	 time (s): 5.9604644775390625e-06
+Method: CudaGlobalMemory          , dims: (2, 4, 2)           , pass(1)/fail(0): 1,	 time (s): 0.0018682479858398438
+Method: CudaSharedMemoryGeneral   , dims: (2, 4, 2)           , pass(1)/fail(0): 1,	 time (s): 0.001772165298461914
+Method: Numpy                     , dims: (2, 2, 4)           , pass(1)/fail(0): 1,	 time (s): 5.7220458984375e-06
+Method: CudaGlobalMemory          , dims: (2, 2, 4)           , pass(1)/fail(0): 1,	 time (s): 0.0017697811126708984
+Method: CudaSharedMemoryGeneral   , dims: (2, 2, 4)           , pass(1)/fail(0): 1,	 time (s): 0.0017383098602294922
