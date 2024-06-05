@@ -163,14 +163,18 @@ class CudaSharedMemoryGeneral(CudaJit):
         # (16, 16)
         x, y = cuda.grid(2)
 
-        tx = cuda.threadIdx.x
-        ty = cuda.threadIdx.y
-        bpg = cuda.gridDim.x
+        tx = cuda.threadIdx.x # thread index in x-dimension
+        ty = cuda.threadIdx.y # thread index in y-dimension
+        
+        bx = cuda.blockIdx.x # block index in x-dimension
+        by = cuda.blockIdx.y # block index in y-dimension
+        
+        bpg = cuda.gridDim.x 
 
-        sum = 0.0
+        sum = float32(0.0)
         for i in range(bpg):
-            sA[ty, tx] = 0
-            sB[ty, tx] = 0
+            sA[ty, tx] = 0.0
+            sB[ty, tx] = 0.0
 
             if y < A.shape[0] and (tx + i * TPB) < A.shape[1]:
                 sA[ty, tx] = A[y, tx + i * TPB]

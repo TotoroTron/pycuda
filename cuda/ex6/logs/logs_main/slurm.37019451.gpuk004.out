@@ -1,0 +1,41 @@
+Device name: b'NVIDIA A100-PCIE-40GB'
+Compute capability: (8, 0)
+Total global memory (GB): 39.39385986328125
+Free global memory (GB): 38.98077392578125
+Used global memory (GB): 0.4130859375
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.004936933517456055
+Method: CudaSharedMemorySquare    , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.004326343536376953
+Method: CudaSharedMemoryGeneral   , dims: (128, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.0027282238006591797
+
+Method: CudaGlobalMemory          , dims: (128, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0011153221130371094
+Method: CudaSharedMemorySquare    , dims: (128, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0010707378387451172
+Method: CudaSharedMemoryGeneral   , dims: (128, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0009844303131103516
+
+Method: CudaGlobalMemory          , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.001112222671508789
+Method: CudaSharedMemorySquare    , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0012063980102539062
+Method: CudaSharedMemoryGeneral   , dims: (128, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.001161813735961914
+
+Method: CudaGlobalMemory          , dims: (128, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0011556148529052734
+Method: CudaSharedMemorySquare    , dims: (128, 256, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0018029212951660156
+Method: CudaSharedMemoryGeneral   , dims: (128, 256, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0011098384857177734
+
+Method: CudaGlobalMemory          , dims: (256, 128, 128)     , pass(1)/fail(0): 1,	 time (s): 0.0010907649993896484
+Method: CudaSharedMemorySquare    , dims: (256, 128, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0010526180267333984
+Method: CudaSharedMemoryGeneral   , dims: (256, 128, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0010097026824951172
+
+Method: CudaGlobalMemory          , dims: (256, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0011832714080810547
+Method: CudaSharedMemorySquare    , dims: (256, 128, 256)     , pass(1)/fail(0): 0,	 time (s): 0.0011248588562011719
+Method: CudaSharedMemoryGeneral   , dims: (256, 128, 256)     , pass(1)/fail(0): 1,	 time (s): 0.001031637191772461
+
+Method: CudaGlobalMemory          , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0013432502746582031
+Method: CudaSharedMemorySquare    , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.001298666000366211
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 128)     , pass(1)/fail(0): 0,	 time (s): 0.0010638236999511719
+
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0012671947479248047
+Method: CudaSharedMemorySquare    , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0014309883117675781
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0010979175567626953
+
