@@ -3,7 +3,7 @@ import matmul as mat
 import time
 
 
-class Testbench():
+class __Testbench():
     def __init__(self, methods, dims):
         self._methods = methods
         self._dims = [ (1, 1, 1) ]  # (1, 1, 1) dummy test to force jit compile
@@ -63,7 +63,7 @@ class Testbench():
             self._report.append(report_entry)
 
 
-class Testbench_alt():
+class Testbench():
     def __init__(self, methods, dims):
         self._methods = methods
         self._dims = [ (1, 1, 1) ]  # (1, 1, 1) dummy test to force jit compile

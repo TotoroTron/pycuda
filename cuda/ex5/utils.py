@@ -34,7 +34,7 @@ def print_gpu_info():
     print("Max shared memory per block (KB):", shared_memory_per_block / 1024)
 
 
-def plot(results):
+def plot(results, filename=''):
     methods = [result[0] for result in results]
     dimensions = [result[1] for result in results]
     times = [result[3] for result in results]
@@ -51,7 +51,9 @@ def plot(results):
     plt.legend()
 
     plt.grid(True)
-    plt.savefig('plot.png')
+    device = cuda.get_current_device()
+    
+    plt.savefig(f'plot_{str(device.name)}_{filename}.png')
 
 def printout(results):
     dims = results[0][1]

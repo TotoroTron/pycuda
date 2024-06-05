@@ -1,0 +1,41 @@
+Device name: b'NVIDIA GeForce RTX 2080 Ti'
+Compute capability: (7, 5)
+Total global memory (GB): 10.75341796875
+Free global memory (GB): 10.5992431640625
+Used global memory (GB): 0.1541748046875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Test of Testbench()
+Method: Numpy                     , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0009732246398925781
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.003773212432861328
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.00666046142578125
+Method: Numpy                     , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.0072672367095947266
+Method: CudaGlobalMemory          , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.0057544708251953125
+Method: CudaSharedMemoryGeneral   , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.004686117172241211
+Method: Numpy                     , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.05141854286193848
+Method: CudaGlobalMemory          , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.020967721939086914
+Method: CudaSharedMemoryGeneral   , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.015899658203125
+Method: Numpy                     , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.38892269134521484
+Method: CudaGlobalMemory          , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.12830901145935059
+Method: CudaSharedMemoryGeneral   , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.09826135635375977
+Method: Numpy                     , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 3.064448356628418
+Method: CudaGlobalMemory          , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.6981654167175293
+Method: CudaSharedMemoryGeneral   , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.6831941604614258
+Test of Testbench_alt()
+Method: Numpy                     , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0008437633514404297
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.006445646286010742
+Method: CudaSharedMemoryGeneral   , dims: (256, 256, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0026955604553222656
+Method: Numpy                     , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.0064716339111328125
+Method: CudaGlobalMemory          , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.005579948425292969
+Method: CudaSharedMemoryGeneral   , dims: (512, 512, 512)     , pass(1)/fail(0): 1,	 time (s): 0.005027055740356445
+Method: Numpy                     , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.05078697204589844
+Method: CudaGlobalMemory          , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.021474599838256836
+Method: CudaSharedMemoryGeneral   , dims: (1024, 1024, 1024)  , pass(1)/fail(0): 1,	 time (s): 0.020440101623535156
+Method: Numpy                     , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.39248108863830566
+Method: CudaGlobalMemory          , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.12518644332885742
+Method: CudaSharedMemoryGeneral   , dims: (2048, 2048, 2048)  , pass(1)/fail(0): 1,	 time (s): 0.12821149826049805
+Method: Numpy                     , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 3.071903705596924
+Method: CudaGlobalMemory          , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.7221035957336426
+Method: CudaSharedMemoryGeneral   , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time (s): 0.686551570892334

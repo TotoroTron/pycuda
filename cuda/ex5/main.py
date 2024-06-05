@@ -8,25 +8,35 @@ import utils as utils
 # Dim B: (K, N)
 # Dim C: (M, N)
 
+def define_squares(min, stride, count):
+    dims = []
+    for i in range(count):
+        dim_m = min + i * stride
+        dim_n = min + i * stride
+        dim_k = min + i * stride
+        dims.append((min + i * stride, min + i * stride, min + i * stride))
+
+    for dim in dims:
+        # print size of A in MB
+        size_A = dim[0] * dim[2] * 4 / 1024 / 1024
+        size_B = dim[2] * dim[1] * 4 / 1024 / 1024
+        size_C = dim[0] * dim[1] * 4 / 1024 / 1024
+        print(f"A: {size_A} MB, B: {size_B} MB, C: {size_C} MB")
+
+    return dims
+
+
 def main():
     utils.print_gpu_info()
 
     methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemoryGeneral ]
-    # dims = [ (256, 512, 512), (512, 256, 512), (512, 512, 256) ]
-    # dims = [ (2, 2, 2), (4, 2, 2), (2, 4, 2), (2, 2, 4) ]
-    dims = [ (256, 256, 256), (512, 512, 512), (1024, 1024, 1024), (2048, 2048, 2048), (4096, 4096, 4096) ]
+    dims = define_squares(min=256, stride=256, count=32) # (256, 256, 256) to (8192, 8192, 8192)
 
-    print("Test of Testbench()")
     test = tb.Testbench(methods, dims)
     test.test_all()
     results = test.get_results()
     utils.printout(results)
-
-    print("Test of Testbench_alt()")
-    test_alt = tb.Testbench_alt(methods, dims)
-    test_alt.test_all()
-    results_alt = test_alt.get_results()
-    utils.printout(results_alt)
+    utils.plot(results, 'main')
 
 
 if __name__ == '__main__':
