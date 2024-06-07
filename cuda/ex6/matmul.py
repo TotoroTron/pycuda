@@ -77,7 +77,7 @@ class CudaJit(DotProduct):
         self.bpgx = (self._dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
         self.bpgy = (self._dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
         self.BPG = (self.bpgx, self.bpgy) # ROUNDUP(dim/bpgx), ROUNDUP(dim/bpgy)
-        print("BPG: ", self.BPG, " TPB: ", self.TPB)
+        # print("BPG: ", self.BPG, " TPB: ", self.TPB)
     
     def run(self): # Override run method from parent class
         dA = cuda.to_device(self._A)
@@ -119,23 +119,13 @@ class CudaGlobalMemory(CudaJit):
             pass
 
 
-class CudaSharedMemorySquare(CudaJit):
+class __CudaSharedMemorySquare(CudaJit):
     @staticmethod
     @cuda.jit
     def _dot(A, B, C):
-        """
-        Controls threads per block and shared memory usage.
-        The computation will be done on blocks of TPBxTPB elements.
-        """
         TILE_DIM = 16
-        # 16x16 = 256 threads
-        # 256 x float32 = 8192 bits = 1024 bytes = 1KB
-
-        # Define an array in the shared memory.
-        # The size and type of the arrays must be known at compile time.  
         sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
         sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        # Total 2KB of shared memory per block
         
         x, y = cuda.grid(2)
 
@@ -147,8 +137,7 @@ class CudaSharedMemorySquare(CudaJit):
             # Quit if (x, y) is outside of valid C boundary
             return
         
-        # Each thread computes one element in the result matrix.
-        # The dot product is chunked into dot products of TPB-long vectors.
+        C[x, y] = 0.0
         tmp = 0.0
         for i in range(bpg):
             # Preload data into shared memory
@@ -167,7 +156,57 @@ class CudaSharedMemorySquare(CudaJit):
         
         C[x, y] = tmp
 
-class CudaSharedMemoryGeneral(CudaJit):
+class CudaSharedMemory(CudaJit):
+    @staticmethod
+    @cuda.jit
+    def _dot(A, B, C): 
+        TILE_DIM = 16
+        sum = float32(0.0)
+        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+
+        tx = cuda.threadIdx.x # thread idx x within block
+        ty = cuda.threadIdx.y # thread idx y within block
+
+        bx = cuda.blockIdx.x # block idx x within grid
+        by = cuda.blockIdx.y # block idx y within grid
+        
+        bw = cuda.blockDim.x # block dim x
+        bh = cuda.blockDim.y # block dim y
+
+        bpgx = cuda.gridDim.x # blocks per grid x
+        bpgy = cuda.gridDim.y # blocks per grid y
+
+        x = bx * bw + tx # global thread idx x
+        y = by * bh + ty # global thread idx y
+
+        # if x >= C.shape[0] and y >= C.shape[1]:
+        #     return
+
+        sA[ty, tx] = 0.0
+        sB[ty, tx] = 0.0
+
+        for i in range(bpgy):
+            for j in range(bpgx):
+            
+                if y < A.shape[0] and (tx + j * TILE_DIM) < A.shape[1]:
+                    sA[ty, tx] = A[y, tx + j * TILE_DIM]
+
+                if x < B.shape[1] and (ty + i * TILE_DIM) < B.shape[0]:
+                    sB[ty, tx] = B[ty + i * TILE_DIM, x]
+
+                cuda.syncthreads()
+
+        for k in range(TILE_DIM):
+            sum += sA[ty, k] * sB[k, tx]
+
+        cuda.syncthreads()
+
+        if y < C.shape[0] and x < C.shape[1]:
+            C[y, x] = sum
+
+
+class __CudaSharedMemoryGeneral(CudaJit):
     @staticmethod
     @cuda.jit
     def _dot(A, B, C):
