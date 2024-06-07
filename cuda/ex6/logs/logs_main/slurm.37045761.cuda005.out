@@ -1,0 +1,84 @@
+Device name: b'Tesla K80'
+Compute capability: (3, 7)
+Total global memory (GB): 11.173095703125
+Free global memory (GB): 11.115966796875
+Used global memory (GB): 0.05712890625
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 2)  TPB:  (16, 16)
+BPG:  (1, 2)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0021648406982421875
+
+Method: CudaGlobalMemory          , dims: (16, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0021352767944335938
+
+Method: CudaGlobalMemory          , dims: (16, 17, 16)        , pass(1)/fail(0): 1,	 time (s): 0.002168416976928711
+
+Method: CudaGlobalMemory          , dims: (16, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.002101898193359375
+
+Method: CudaGlobalMemory          , dims: (17, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.001970529556274414
+
+Method: CudaGlobalMemory          , dims: (17, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0019404888153076172
+
+Method: CudaGlobalMemory          , dims: (17, 17, 16)        , pass(1)/fail(0): 1,	 time (s): 0.002129077911376953
+
+Method: CudaGlobalMemory          , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0019369125366210938
+
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 2)  TPB:  (16, 16)
+BPG:  (1, 2)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0022640228271484375
+
+Method: CudaGlobalMemory          , dims: (16, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0022211074829101562
+
+Method: CudaGlobalMemory          , dims: (16, 17, 16)        , pass(1)/fail(0): 1,	 time (s): 0.001984119415283203
+
+Method: CudaGlobalMemory          , dims: (16, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0019342899322509766
+
+Method: CudaGlobalMemory          , dims: (17, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0020399093627929688
+
+Method: CudaGlobalMemory          , dims: (17, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.002079010009765625
+
+Method: CudaGlobalMemory          , dims: (17, 17, 16)        , pass(1)/fail(0): 1,	 time (s): 0.001974821090698242
+
+Method: CudaGlobalMemory          , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0019383430480957031
+
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+Method: CudaGlobalMemory          , dims: (32, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.0019652843475341797
+
+Method: CudaGlobalMemory          , dims: (32, 32, 31)        , pass(1)/fail(0): 1,	 time (s): 0.0019359588623046875
+
+Method: CudaGlobalMemory          , dims: (32, 31, 32)        , pass(1)/fail(0): 1,	 time (s): 0.002248525619506836
+
+Method: CudaGlobalMemory          , dims: (32, 31, 31)        , pass(1)/fail(0): 1,	 time (s): 0.0021975040435791016
+
+Method: CudaGlobalMemory          , dims: (31, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.0019178390502929688
+
+Method: CudaGlobalMemory          , dims: (31, 32, 31)        , pass(1)/fail(0): 1,	 time (s): 0.0019702911376953125
+
+Method: CudaGlobalMemory          , dims: (31, 31, 32)        , pass(1)/fail(0): 1,	 time (s): 0.0020465850830078125
+
+Method: CudaGlobalMemory          , dims: (31, 31, 31)        , pass(1)/fail(0): 1,	 time (s): 0.0019497871398925781
+

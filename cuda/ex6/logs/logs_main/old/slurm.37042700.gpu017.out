@@ -1,0 +1,57 @@
+Device name: b'NVIDIA GeForce RTX 3090'
+Compute capability: (8, 6)
+Total global memory (GB): 23.69110107421875
+Free global memory (GB): 23.43634033203125
+Used global memory (GB): 0.2547607421875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.002446413040161133
+
+Method: CudaGlobalMemory          , dims: (16, 16, 32)        , pass(1)/fail(0): 1,	 time (s): 0.0017464160919189453
+
+Method: CudaGlobalMemory          , dims: (16, 32, 16)        , pass(1)/fail(0): 0,	 time (s): 0.0018029212951660156
+
+Method: CudaGlobalMemory          , dims: (16, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.0016930103302001953
+
+Method: CudaGlobalMemory          , dims: (32, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.001680612564086914
+
+Method: CudaGlobalMemory          , dims: (32, 16, 32)        , pass(1)/fail(0): 1,	 time (s): 0.001682281494140625
+
+Method: CudaGlobalMemory          , dims: (32, 32, 16)        , pass(1)/fail(0): 0,	 time (s): 0.0017025470733642578
+
+Method: CudaGlobalMemory          , dims: (32, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.001630544662475586
+
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0019388198852539062
+
+Method: CudaGlobalMemory          , dims: (16, 16, 15)        , pass(1)/fail(0): 1,	 time (s): 0.0018525123596191406
+
+Method: CudaGlobalMemory          , dims: (16, 15, 16)        , pass(1)/fail(0): 1,	 time (s): 0.001699686050415039
+
+Method: CudaGlobalMemory          , dims: (16, 15, 15)        , pass(1)/fail(0): 1,	 time (s): 0.0017452239990234375
+
+Method: CudaGlobalMemory          , dims: (15, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0016887187957763672
+
+Method: CudaGlobalMemory          , dims: (15, 16, 15)        , pass(1)/fail(0): 1,	 time (s): 0.0016264915466308594
+
+Method: CudaGlobalMemory          , dims: (15, 15, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0016033649444580078
+
+Method: CudaGlobalMemory          , dims: (15, 15, 15)        , pass(1)/fail(0): 1,	 time (s): 0.001615762710571289
+
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0016236305236816406
+
+Method: CudaGlobalMemory          , dims: (16, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0016143321990966797
+
+Method: CudaGlobalMemory          , dims: (16, 17, 16)        , pass(1)/fail(0): 0,	 time (s): 0.0018939971923828125
+
+Method: CudaGlobalMemory          , dims: (16, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.001819610595703125
+
+Method: CudaGlobalMemory          , dims: (17, 16, 16)        , pass(1)/fail(0): 1,	 time (s): 0.0016071796417236328
+
+Method: CudaGlobalMemory          , dims: (17, 16, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0016200542449951172
+
+Method: CudaGlobalMemory          , dims: (17, 17, 16)        , pass(1)/fail(0): 0,	 time (s): 0.0017056465148925781
+
+Method: CudaGlobalMemory          , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0016345977783203125
+

@@ -71,8 +71,11 @@ class Testbench():
         self._report = []
 
     def _verify(self, result, expected):
-        # print("Result:\n", result)
-        # print("Expected:\n", expected)
+        # test_result = int(np.allclose(result, expected, rtol=1e-05, atol=1e-08))
+        # if not test_result:
+        #     print("FAILED! Dimensions: ", self._dims)
+        #     print("Result:\n", result)
+        #     print("Expected:\n", expected)
         # print()
         return int(np.allclose(result, expected, rtol=1e-05, atol=1e-08))
     
@@ -110,7 +113,14 @@ class Testbench():
                 self._report[idx][1].append( dim )
                 self._report[idx][2].append( self._verify(result, expectation) )
                 self._report[idx][3].append( elapsed_time )
+
                 # probably easier to just use pandas at this point
+                verif = self._verify(result, expectation)
+                if not verif:
+                    print("FAILED! Dimensions: ", dim, " Method: ", method.__name__)
+                    print("Result:\n", result)
+                    print("Expected:\n", expectation)
+                    print()
         
         # Remove (1, 1, 1) dummy tests
         for entry in self._report:
