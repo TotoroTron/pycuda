@@ -161,7 +161,7 @@ class CudaSharedMemory(CudaJit):
     @cuda.jit
     def _dot(A, B, C): 
         TILE_DIM = 16
-        sum = float32(0.0)
+
         sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
         sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
 
@@ -180,30 +180,29 @@ class CudaSharedMemory(CudaJit):
         x = bx * bw + tx # global thread idx x
         y = by * bh + ty # global thread idx y
 
-        # if x >= C.shape[0] and y >= C.shape[1]:
-        #     return
-
-        sA[ty, tx] = 0.0
-        sB[ty, tx] = 0.0
-
+        # LOAD TILES INTO SHARED MEMORY
         for i in range(bpgy):
             for j in range(bpgx):
-            
-                if y < A.shape[0] and (tx + j * TILE_DIM) < A.shape[1]:
-                    sA[ty, tx] = A[y, tx + j * TILE_DIM]
+                sA[ty, tx] = 0.0
+                sB[ty, tx] = 0.0
 
-                if x < B.shape[1] and (ty + i * TILE_DIM) < B.shape[0]:
-                    sB[ty, tx] = B[ty + i * TILE_DIM, x]
+                if (ty + i * TILE_DIM) < A.shape[0] and (tx + j * TILE_DIM) < A.shape[1]:
+                    sA[ty, tx] = A[ty + i * TILE_DIM, tx + j * TILE_DIM]
+
+                if (ty + i * TILE_DIM) < B.shape[0] and (tx + j * TILE_DIM) < B.shape[1]:
+                    sB[ty, tx] = B[ty + i * TILE_DIM, tx + j * TILE_DIM]
 
                 cuda.syncthreads()
 
-        for k in range(TILE_DIM):
-            sum += sA[ty, k] * sB[k, tx]
+                sum = float32(0.0)
+                for k in range(TILE_DIM):
+                    sum += sA[ty, k] * sB[k, tx]
 
-        cuda.syncthreads()
+                cuda.syncthreads()
 
-        if y < C.shape[0] and x < C.shape[1]:
-            C[y, x] = sum
+                # if x < C.shape[0] and y < C.shape[1]:
+                C[y, x] += sum
+
 
 
 class __CudaSharedMemoryGeneral(CudaJit):

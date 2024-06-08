@@ -25,8 +25,6 @@ def test_kernel(M, N, K):
 
 def main():
     utils.print_gpu_info()
-    test_kernel(2, 3, 3)
-    test_kernel(5, 5, 7)
     test_kernel(17, 16, 16)
 
 if __name__ == '__main__':

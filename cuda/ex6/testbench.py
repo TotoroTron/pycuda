@@ -120,6 +120,7 @@ class Testbench():
                     print("FAILED! Dimensions: ", dim, " Method: ", method.__name__)
                     print("Result:\n", result)
                     print("Expected:\n", expectation)
+                    print("Difference:\n", result - expectation)
                     print()
         
         # Remove (1, 1, 1) dummy tests
