@@ -1,0 +1,23 @@
+Device name: b'NVIDIA A100-PCIE-40GB'
+Compute capability: (8, 0)
+Total global memory (GB): 39.39385986328125
+Free global memory (GB): 38.98077392578125
+Used global memory (GB): 0.4130859375
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+BPG:  (2, 2)  TPB:  (16, 16)
+Method: Basic                     , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.00024771690368652344
+Method: CudaGlobalMemory          , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.003236055374145508
+Method: CudaSharedMemory          , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.0010271072387695312
+
+Method: Basic                     , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.00209808349609375
+Method: CudaGlobalMemory          , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0009963512420654297
+Method: CudaSharedMemory          , dims: (17, 17, 17)        , pass(1)/fail(0): 1,	 time (s): 0.0009281635284423828
+

@@ -1,5 +1,21 @@
 from numba import cuda
 import matplotlib.pyplot as plt
+import numpy as np
+
+def define_combinations(M, N, K):
+    values = list(set([M, N, K])) # remove duplicates
+    combinations = []
+    for i in values:
+        for j in values:
+            for k in values:
+                combinations.append((i, j, k))
+    return combinations
+
+def define_randoms(low=1, high=256, size=128):
+    dims = np.random.randint(low, high, size=(size, 3))
+    dims = [tuple(row) for row in dims]
+    return dims
+
 
 def print_gpu_info():
     device = cuda.get_current_device()
@@ -56,10 +72,15 @@ def plot(results, filename=''):
     plt.savefig(f'plot_{str(device.name)}_{filename}.png')
 
 def printout(results):
+    fail_count = 0
     dims = results[0][1]
     for idx, dim in enumerate(dims):
         for result in results:
             if result[1][idx] == dim:
+                if result[2][idx] == 0:
+                    fail_count += 1
                 print(f"Method: {result[0]:<{26}}, dims: {str(result[1][idx]):<{20}}, pass(1)/fail(0): {result[2][idx]},\t time (s): {result[3][idx]}")
         print()
+
+    print(f"Total Fail Count: {fail_count}")
                 

@@ -3,20 +3,7 @@ import matmul as mat
 import testbench as tb
 import utils as utils
 
-def define_combinations(M, N, K):
-    values = list(set([M, N, K])) # remove duplicates
-    combinations = []
-
-    for i in values:
-        for j in values:
-            for k in values:
-                combinations.append((i, j, k))
-
-    return combinations
-
-def test_kernel(M, N, K):
-    methods = [ mat.CudaSharedMemory ]
-    dims = define_combinations(M, N, K)
+def test_kernel(methods, dims):
     test = tb.Testbench(methods, dims)
     test.test_all()
     results = test.get_results()
@@ -25,7 +12,10 @@ def test_kernel(M, N, K):
 
 def main():
     utils.print_gpu_info()
-    test_kernel(17, 16, 16)
+    methods = [ mat.Numpy, mat.JitNumpy, mat.CudaGlobalMemory, mat.CudaSharedMemory ]
+    dims = utils.define_randoms(low=1, high=512, size=2048)
+    test_kernel(methods, dims)
+
 
 if __name__ == '__main__':
     # If executed on local, explicitly route all print() to file

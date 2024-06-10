@@ -1,0 +1,41 @@
+Device name: b'Tesla K80'
+Compute capability: (3, 7)
+Total global memory (GB): 11.173095703125
+Free global memory (GB): 11.115966796875
+Used global memory (GB): 0.05712890625
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (1, 1)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 1)  TPB:  (16, 16)
+BPG:  (2, 4)  TPB:  (16, 16)
+BPG:  (2, 4)  TPB:  (16, 16)
+BPG:  (32, 16)  TPB:  (16, 16)
+BPG:  (32, 16)  TPB:  (16, 16)
+BPG:  (16, 16)  TPB:  (16, 16)
+BPG:  (16, 16)  TPB:  (16, 16)
+Method: Basic                     , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.00010967254638671875
+Method: CudaGlobalMemory          , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.002147674560546875
+Method: CudaSharedMemory          , dims: (4, 3, 4)           , pass(1)/fail(0): 1,	 time (s): 0.0020759105682373047
+
+Method: Basic                     , dims: (16, 20, 20)        , pass(1)/fail(0): 1,	 time (s): 0.004682779312133789
+Method: CudaGlobalMemory          , dims: (16, 20, 20)        , pass(1)/fail(0): 0,	 time (s): 0.0019459724426269531
+Method: CudaSharedMemory          , dims: (16, 20, 20)        , pass(1)/fail(0): 1,	 time (s): 0.0019252300262451172
+
+Method: Basic                     , dims: (64, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.04233598709106445
+Method: CudaGlobalMemory          , dims: (64, 32, 32)        , pass(1)/fail(0): 0,	 time (s): 0.0019483566284179688
+Method: CudaSharedMemory          , dims: (64, 32, 32)        , pass(1)/fail(0): 1,	 time (s): 0.002022981643676758
+
+Method: Basic                     , dims: (256, 512, 256)     , pass(1)/fail(0): 1,	 time (s): 13.75975489616394
+Method: CudaGlobalMemory          , dims: (256, 512, 256)     , pass(1)/fail(0): 0,	 time (s): 0.005853176116943359
+Method: CudaSharedMemory          , dims: (256, 512, 256)     , pass(1)/fail(0): 1,	 time (s): 0.0028994083404541016
+
+Method: Basic                     , dims: (256, 256, 512)     , pass(1)/fail(0): 1,	 time (s): 13.681660890579224
+Method: CudaGlobalMemory          , dims: (256, 256, 512)     , pass(1)/fail(0): 1,	 time (s): 0.009099483489990234
+Method: CudaSharedMemory          , dims: (256, 256, 512)     , pass(1)/fail(0): 0,	 time (s): 0.002392292022705078
+

@@ -12,9 +12,9 @@ class DotProduct(ABC):
         self._A = A
         self._B = B
         self._C = C
-        self._dim_m = A.shape[0]
-        self._dim_n = B.shape[1]
-        self._dim_k = B.shape[0] # = A.shape[1]
+        # self._dim_m = A.shape[0]
+        # self._dim_n = B.shape[1]
+        # self._dim_k = B.shape[0] # = A.shape[1]
     
     @abstractmethod
     def _dot(self): # abstract, protected method (single underscore prefix)
@@ -73,10 +73,12 @@ class JitNumpy(DotProduct):
 class CudaJit(DotProduct):
     def __init__(self, A, B, C):
         super().__init__(A, B, C) # call base class constructor (in DotProduct)
-        self.TPB = (16, 16) # threads per block
-        self.bpgx = (self._dim_m + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
-        self.bpgy = (self._dim_n + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
-        self.BPG = (self.bpgx, self.bpgy) # ROUNDUP(dim/bpgx), ROUNDUP(dim/bpgy)
+        self.TPB = (16, 16) # threads per block (x, y)
+        grid_y_max = max(A.shape[0], B.shape[0])
+        grid_x_max = max(A.shape[1], B.shape[1])
+        self.bpgy = (grid_y_max + self.TPB[1] - 1) // self.TPB[1] # blocks per grid y
+        self.bpgx = (grid_x_max + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
+        self.BPG = (self.bpgx, self.bpgy) # ROUNDUP(dim/tpbx), ROUNDUP(dim/tpby)
         # print("BPG: ", self.BPG, " TPB: ", self.TPB)
     
     def run(self): # Override run method from parent class
@@ -110,16 +112,22 @@ class CudaGlobalMemory(CudaJit):
         # SHORTHAND FOR ABOVE:
         x, y = cuda.grid(2)
 
-        if x < C.shape[0] and y < C.shape[1]:
+        if y < C.shape[0] and x < C.shape[1]:
             sum = 0.0
             for k in range(A.shape[1]):
-                sum += A[x, k] * B[k, y]
-            C[x, y] = sum
+                sum += A[y, k] * B[k, x]
+            C[y, x] = sum
         else:
             pass
 
 
 class CudaSharedMemory(CudaJit):
+    """
+    Ref:
+    https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
+    https://github.com/numba/numba/blob/556545c5b2b162574c600490a855ba8856255154/numba/cuda/tests/doc_examples/test_matmul.py 
+    https://stackoverflow.com/questions/18815489/cuda-tiled-matrix-matrix-multiplication-with-shared-memory-and-matrix-size-whic 
+    """
     @staticmethod
     @cuda.jit
     def _dot(A, B, C): 
@@ -144,117 +152,28 @@ class CudaSharedMemory(CudaJit):
         y = by * bh + ty # global thread idx y
 
         # LOAD TILES INTO SHARED MEMORY
-        for i in range(bpgy):
-            for j in range(bpgx):
-                sA[ty, tx] = 0.0
-                sB[ty, tx] = 0.0
+        acc = float32(0.0)
+        for i in range(bpgx):
+            # sA[ty, tx] = 0.0
+            # sB[ty, tx] = 0.0
 
-                if (ty + i * TILE_DIM) < A.shape[0] and (tx + j * TILE_DIM) < A.shape[1]:
-                    sA[ty, tx] = A[ty + i * TILE_DIM, tx + j * TILE_DIM]
+            if (by*TILE_DIM + ty) < A.shape[0] and (i*TILE_DIM + tx) < A.shape[1]:
+                sA[ty, tx] = A[by*TILE_DIM + ty, i*TILE_DIM + tx]
+            else:
+                sA[ty, tx] = float32(0.0)
 
-                if (ty + i * TILE_DIM) < B.shape[0] and (tx + j * TILE_DIM) < B.shape[1]:
-                    sB[ty, tx] = B[ty + i * TILE_DIM, tx + j * TILE_DIM]
-
-                cuda.syncthreads()
-
-                sum = float32(0.0)
-                for k in range(TILE_DIM):
-                    sum += sA[ty, k] * sB[k, tx]
-
-                cuda.syncthreads()
-
-                # if x < C.shape[0] and y < C.shape[1]:
-                C[y, x] += sum
-
-
-
-
-"""
-class __CudaSharedMemorySquare(CudaJit):
-    @staticmethod
-    @cuda.jit
-    def _dot(A, B, C):
-        TILE_DIM = 16
-        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        
-        x, y = cuda.grid(2)
-
-        tx = cuda.threadIdx.x
-        ty = cuda.threadIdx.y
-        bpg = cuda.gridDim.x
-        
-        if x >= C.shape[0] and y >= C.shape[1]:
-            # Quit if (x, y) is outside of valid C boundary
-            return
-        
-        C[x, y] = 0.0
-        tmp = 0.0
-        for i in range(bpg):
-            # Preload data into shared memory
-            sA[tx, ty] = A[x, ty + i * TILE_DIM]
-            sB[tx, ty] = B[tx + i * TILE_DIM, y]
-
-            # Wait until all threads finish preloading
-            cuda.syncthreads()
-
-            # Compute partial product on the shared memory
-            for j in range(TILE_DIM):
-                tmp += sA[tx, j] * sB[j, ty]
-
-            # Wait until all threads finish computing
-            cuda.syncthreads()
-        
-        C[x, y] = tmp
-
-
-
-
-
-class __CudaSharedMemoryGeneral(CudaJit):
-    @staticmethod
-    @cuda.jit
-    def _dot(A, B, C):
-        
-        Ref:
-        # https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
-        # https://github.com/numba/numba/blob/556545c5b2b162574c600490a855ba8856255154/numba/cuda/tests/doc_examples/test_matmul.py 
-        # https://stackoverflow.com/questions/18815489/cuda-tiled-matrix-matrix-multiplication-with-shared-memory-and-matrix-size-whic 
-        
-        TILE_DIM = 16
-        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-
-        # (16, 16)
-        x, y = cuda.grid(2)
-
-        tx = cuda.threadIdx.x # thread index in x-dimension
-        ty = cuda.threadIdx.y # thread index in y-dimension
-        
-        bx = cuda.blockIdx.x # block index in x-dimension
-        by = cuda.blockIdx.y # block index in y-dimension
-        
-        bpg = cuda.gridDim.x 
-
-        sum = float32(0.0)
-        for i in range(bpg):
-            sA[ty, tx] = 0.0
-            sB[ty, tx] = 0.0
-
-            if y < A.shape[0] and (tx + i * TILE_DIM) < A.shape[1]:
-                sA[ty, tx] = A[y, tx + i * TILE_DIM]
-
-            if x < B.shape[1] and (ty + i * TILE_DIM) < B.shape[0]:
-                sB[ty, tx] = B[ty + i * TILE_DIM, x]
+            if (i*TILE_DIM + ty) < B.shape[0] and (bx*TILE_DIM + tx) < B.shape[1]:
+                sB[ty, tx] = B[i*TILE_DIM + ty, bx*TILE_DIM + tx]
+            else:
+                sB[ty, tx] = float32(0.0)
 
             cuda.syncthreads()
 
             for j in range(TILE_DIM):
-                sum += sA[ty, j] * sB[j, tx]
+                acc += sA[ty, j] * sB[j, tx]
 
             cuda.syncthreads()
         
-        if y < C.shape[0] and x < C.shape[1]:
-            C[y, x] = sum
+        if by*TILE_DIM + ty < C.shape[0] and bx*TILE_DIM + tx < C.shape[1]:
+            C[by*TILE_DIM + ty, bx*TILE_DIM + tx] += acc
 
-"""
