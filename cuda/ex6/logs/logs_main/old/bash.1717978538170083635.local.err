@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "main.py", line 2, in <module>
+    import matmul as mat
+  File "/home/bcheng/workspace/dev/pycuda/cuda/ex6/matmul.py", line 2, in <module>
+    from numba import jit
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/__init__.py", line 34, in <module>
+    from numba.core.decorators import (cfunc, generated_jit, jit, njit, stencil,
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/decorators.py", line 12, in <module>
+    from numba.stencils.stencil import stencil
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/stencils/stencil.py", line 11, in <module>
+    from numba.core import types, typing, utils, ir, config, ir_utils, registry
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/registry.py", line 4, in <module>
+    from numba.core import utils, typing, dispatcher, cpu
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/dispatcher.py", line 15, in <module>
+    from numba.core import utils, types, errors, typing, serialize, config, compiler, sigutils
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/compiler.py", line 6, in <module>
+    from numba.core import (utils, errors, typing, interpreter, bytecode, postproc,
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/callconv.py", line 11, in <module>
+    from numba.core.base import PYOBJECT, GENERIC_POINTER
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/base.py", line 23, in <module>
+    from numba.cpython import builtins
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/cpython/builtins.py", line 490, in <module>
+    from numba.core.typing.builtins import IndexValue, IndexValueType
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/typing/builtins.py", line 8, in <module>
+    from numba.parfors.parfor import internal_prange
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/parfors/__init__.py", line 1, in <module>
+    from numba.parfors import parfor_lowering
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/parfors/parfor_lowering.py", line 18, in <module>
+    from numba.parfors import parfor
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/parfors/parfor.py", line 83, in <module>
+    from numba.core.typing import npydecl, signature
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/typing/npydecl.py", line 313, in <module>
+    _numpy_ufunc(func)
+  File "/home/bcheng/workspace/tools/anaconda3/envs/pycuda/lib/python3.6/site-packages/numba/core/typing/npydecl.py", line 297, in _numpy_ufunc
+    func = getattr(np, name)
+AttributeError: module 'numpy' has no attribute 'gcd'

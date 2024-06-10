@@ -119,43 +119,6 @@ class CudaGlobalMemory(CudaJit):
             pass
 
 
-class __CudaSharedMemorySquare(CudaJit):
-    @staticmethod
-    @cuda.jit
-    def _dot(A, B, C):
-        TILE_DIM = 16
-        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
-        
-        x, y = cuda.grid(2)
-
-        tx = cuda.threadIdx.x
-        ty = cuda.threadIdx.y
-        bpg = cuda.gridDim.x
-        
-        if x >= C.shape[0] and y >= C.shape[1]:
-            # Quit if (x, y) is outside of valid C boundary
-            return
-        
-        C[x, y] = 0.0
-        tmp = 0.0
-        for i in range(bpg):
-            # Preload data into shared memory
-            sA[tx, ty] = A[x, ty + i * TILE_DIM]
-            sB[tx, ty] = B[tx + i * TILE_DIM, y]
-
-            # Wait until all threads finish preloading
-            cuda.syncthreads()
-
-            # Compute partial product on the shared memory
-            for j in range(TILE_DIM):
-                tmp += sA[tx, j] * sB[j, ty]
-
-            # Wait until all threads finish computing
-            cuda.syncthreads()
-        
-        C[x, y] = tmp
-
 class CudaSharedMemory(CudaJit):
     @staticmethod
     @cuda.jit
@@ -205,16 +168,59 @@ class CudaSharedMemory(CudaJit):
 
 
 
+
+"""
+class __CudaSharedMemorySquare(CudaJit):
+    @staticmethod
+    @cuda.jit
+    def _dot(A, B, C):
+        TILE_DIM = 16
+        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+        
+        x, y = cuda.grid(2)
+
+        tx = cuda.threadIdx.x
+        ty = cuda.threadIdx.y
+        bpg = cuda.gridDim.x
+        
+        if x >= C.shape[0] and y >= C.shape[1]:
+            # Quit if (x, y) is outside of valid C boundary
+            return
+        
+        C[x, y] = 0.0
+        tmp = 0.0
+        for i in range(bpg):
+            # Preload data into shared memory
+            sA[tx, ty] = A[x, ty + i * TILE_DIM]
+            sB[tx, ty] = B[tx + i * TILE_DIM, y]
+
+            # Wait until all threads finish preloading
+            cuda.syncthreads()
+
+            # Compute partial product on the shared memory
+            for j in range(TILE_DIM):
+                tmp += sA[tx, j] * sB[j, ty]
+
+            # Wait until all threads finish computing
+            cuda.syncthreads()
+        
+        C[x, y] = tmp
+
+
+
+
+
 class __CudaSharedMemoryGeneral(CudaJit):
     @staticmethod
     @cuda.jit
     def _dot(A, B, C):
-        """
+        
         Ref:
-        https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
-        https://github.com/numba/numba/blob/556545c5b2b162574c600490a855ba8856255154/numba/cuda/tests/doc_examples/test_matmul.py 
-        https://stackoverflow.com/questions/18815489/cuda-tiled-matrix-matrix-multiplication-with-shared-memory-and-matrix-size-whic 
-        """
+        # https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
+        # https://github.com/numba/numba/blob/556545c5b2b162574c600490a855ba8856255154/numba/cuda/tests/doc_examples/test_matmul.py 
+        # https://stackoverflow.com/questions/18815489/cuda-tiled-matrix-matrix-multiplication-with-shared-memory-and-matrix-size-whic 
+        
         TILE_DIM = 16
         sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
         sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
@@ -251,3 +257,4 @@ class __CudaSharedMemoryGeneral(CudaJit):
         if y < C.shape[0] and x < C.shape[1]:
             C[y, x] = sum
 
+"""
