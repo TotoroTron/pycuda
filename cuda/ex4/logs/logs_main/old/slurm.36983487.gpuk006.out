@@ -1,2 +1,0 @@
-Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
-Dims:  [(1, 1, 1), (4, 4, 4), (8, 8, 8), (12, 12, 12), (16, 16, 16)]

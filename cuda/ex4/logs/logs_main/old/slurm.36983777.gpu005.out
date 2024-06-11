@@ -1,6 +1,0 @@
-Methods:  [<class 'matmul.Numpy'>, <class 'matmul.JitNumpy'>, <class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
-Dims:  [(1, 1, 1), (4096, 4096, 4096)]
-Method: Numpy               , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time: 1.4934206008911133
-Method: JitNumpy            , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time: 1.4864556789398193
-Method: CudaGlobalMemory    , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time: 1.8072710037231445
-Method: CudaSharedMemory    , dims: (4096, 4096, 4096)  , pass(1)/fail(0): 1,	 time: 2.143542528152466

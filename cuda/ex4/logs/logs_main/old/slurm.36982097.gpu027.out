@@ -1,8 +1,0 @@
-Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
-Dims:  [(1, 1, 1), (4, 4, 4)]
-Instance:  <matmul.CudaGlobalMemory object at 0x7f8371820400>
-self._C:  [[ 0.10185592]]
-Result:
- None
-Expected:
- [[ 0.10185592]]

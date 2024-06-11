@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "gpuinfo.py", line 85, in <module>
-    main()
-  File "gpuinfo.py", line 48, in main
-    data = np.random.rand(10_000_000, dtype=np.float32)
-TypeError: rand() got an unexpected keyword argument 'dtype'

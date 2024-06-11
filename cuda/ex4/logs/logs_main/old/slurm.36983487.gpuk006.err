@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "main.py", line 51, in <module>
-    main()
-  File "main.py", line 41, in main
-    print(f"Method: {result[0]}\t, dims: {result[1][idx]:<{max_dim_len}}, pass(1)/fail(0): {result[2][idx]}, time: {result[3][idx]}")
-TypeError: unsupported format string passed to tuple.__format__

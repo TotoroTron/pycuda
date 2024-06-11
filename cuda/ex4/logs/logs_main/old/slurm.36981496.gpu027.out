@@ -1,9 +1,0 @@
-Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
-Dims:  [(1, 1, 1), (4, 4, 4)]
-Instance:  <matmul.CudaGlobalMemory object at 0x7fac97df9470>
-dA:
- <numba.cuda.cudadrv.devicearray.DeviceNDArray object at 0x7fac97df9a90>
-dB:
- <numba.cuda.cudadrv.devicearray.DeviceNDArray object at 0x7fac96017518>
-dC:
- <numba.cuda.cudadrv.devicearray.DeviceNDArray object at 0x7fac96017780>

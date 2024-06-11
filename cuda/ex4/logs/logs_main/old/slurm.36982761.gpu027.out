@@ -1,4 +1,0 @@
-Methods:  [<class 'matmul.CudaGlobalMemory'>, <class 'matmul.CudaSharedMemory'>]
-Dims:  [(1, 1, 1), (4, 4, 4)]
-Square Results:
- [['CudaGlobalMemory', [(4, 4, 4)], [True], [0.0011205673217773438]], ['CudaSharedMemory', [(4, 4, 4)], [False], [0.0011548995971679688]]]

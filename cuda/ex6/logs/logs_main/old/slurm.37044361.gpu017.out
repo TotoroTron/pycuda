@@ -1,9 +1,0 @@
-Device name: b'NVIDIA GeForce RTX 3090'
-Compute capability: (8, 6)
-Total global memory (GB): 23.69110107421875
-Free global memory (GB): 21.4334716796875
-Used global memory (GB): 2.25762939453125
-Max threads per block: 1024
-Max block dimensions: x=1024, y=1024, z=64
-Max grid dimensions: x=2147483647, y=65535, z=65535
-Max shared memory per block (KB): 48.0
