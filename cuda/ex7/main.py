@@ -9,12 +9,47 @@ def test_kernel(methods, dims):
     results = test.get_results()
     utils.printout(results)
 
+def print_divider():
+    print("\n========================================================================================\n")
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.Numpy, mat.JitNumpy, mat.CudaGlobalMemory, mat.CudaSharedMemory ]
-    dims = utils.define_randoms(low=1, high=512, size=2048)
-    test_kernel(methods, dims)
+    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory ]
+
+    print_divider()
+
+    dims = []
+    for i in range(1, 128+1):
+        dims.append((64*i, 512, 512))
+    test = tb.Testbench(methods, dims)
+    test.test_all()
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report, vary_dim='M', filename='Varying_M')
+
+    print_divider()
+
+    dims = []
+    for i in range(1, 128+1):
+        dims.append((512, 64*i, 512))
+    test = tb.Testbench(methods, dims)
+    test.test_all()
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report, vary_dim='N', filename='Varying_N')
+
+    print_divider()
+
+    dims = []
+    for i in range(1, 128+1):
+        dims.append((512, 512, 64*i))
+    test = tb.Testbench(methods, dims)
+    test.test_all()
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report, vary_dim='K', filename='Varying_K')
+
+    print_divider()
 
 
 if __name__ == '__main__':

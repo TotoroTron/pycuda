@@ -2,7 +2,7 @@ from numba import cuda
 import matplotlib.pyplot as plt
 import numpy as np
 
-def define_combinations(M, N, K):
+def generate_combinations(M, N, K):
     values = list(set([M, N, K])) # remove duplicates
     combinations = []
     for i in values:
@@ -11,11 +11,10 @@ def define_combinations(M, N, K):
                 combinations.append((i, j, k))
     return combinations
 
-def define_randoms(low=1, high=256, size=128):
+def generate_randoms(low=1, high=256, size=128):
     dims = np.random.randint(low, high, size=(size, 3))
     dims = [tuple(row) for row in dims]
     return dims
-
 
 def print_gpu_info():
     device = cuda.get_current_device()
@@ -50,25 +49,25 @@ def print_gpu_info():
     print("Max shared memory per block (KB):", shared_memory_per_block / 1024)
 
 
-def plot(results, filename=''):
-    methods = [result[0] for result in results]
-    dimensions = [result[1] for result in results]
-    times = [result[3] for result in results]
+def plot(report, vary_dim, filename=''):
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12, 8))
+    for entry in report:
+        method = entry[0]
+        dims = entry[1]
+        if vary_dim == 'M': dims = [dim[0] for dim in dims]
+        elif vary_dim == 'N': dims = [dim[1] for dim in dims]
+        elif vary_dim == 'K': dims = [dim[2] for dim in dims]
+        times = entry[3]
+        plt.plot(dims, times, label=method)
 
-    for i, method in enumerate(methods):
-        dims = [dim[0] for dim in dimensions[i]]  # First element of tuple as x-axis
-        plt.plot(dims, times[i], label=method)
+    device = cuda.get_current_device()
 
-    plt.title('Performance Comparison of Methods')
-    plt.xlabel('Dimension M')
+    plt.title(f'Performance Comparison on {str(device.name)}')
+    plt.xlabel(f'Dimension {vary_dim} with others fixed at 512')
     plt.ylabel('Time (s)')
     plt.legend()
-
     plt.grid(True)
-    device = cuda.get_current_device()
-    
     plt.savefig(f'plot_{str(device.name)}_{filename}.png')
 
 def printout(results):
@@ -77,9 +76,9 @@ def printout(results):
     for idx, dim in enumerate(dims):
         for result in results:
             if result[1][idx] == dim:
-                if result[2][idx] == 0:
+                if result[2][idx] == 1:
                     fail_count += 1
-                print(f"Method: {result[0]:<{26}}, dims: {str(result[1][idx]):<{20}}, pass(1)/fail(0): {result[2][idx]},\t time (s): {result[3][idx]}")
+                print(f"Method: {result[0]:<{26}}, dims: {str(result[1][idx]):<{20}}, pass(0)/fail(1): {result[2][idx]},\t time (s): {result[3][idx]}")
         print()
 
     print(f"Total Fail Count: {fail_count}")

@@ -10,9 +10,9 @@ class Testbench():
         self._report = []
 
     def _verify(self, result, expected):
-        return int(np.allclose(result, expected, rtol=1e-05, atol=1e-08))
+        return int(not(np.allclose(result, expected, rtol=1e-05, atol=1e-08)))
     
-    def get_results(self):
+    def get_report(self):
         return self._report.copy()
 
     def test_all(self):

@@ -3,7 +3,7 @@ from numba import jit
 from numba import cuda, float32
 from abc import ABC, abstractmethod
 
-# ABSTRACT METHOD DOT PRODUCT
+# ABSTRACT CLASS DOT PRODUCT
 class DotProduct(ABC):
     def __init__(self, A, B, C):
         assert A.shape[1] == B.shape[0], "A and B shapes misaligned!"
@@ -12,12 +12,9 @@ class DotProduct(ABC):
         self._A = A
         self._B = B
         self._C = C
-        # self._dim_m = A.shape[0]
-        # self._dim_n = B.shape[1]
-        # self._dim_k = B.shape[0] # = A.shape[1]
     
     @abstractmethod
-    def _dot(self): # abstract, protected method (single underscore prefix)
+    def _dot(self):
         pass
 
     def run(self):
@@ -40,36 +37,29 @@ class Numpy(DotProduct):
     def _dot(self):
         A, B, C = self._A, self._B, self._C
         np.dot(A, B, out=C)
-        # self.C[:] = np.dot(A, B) # Modify C in-place
 
 class JitBasic(DotProduct):
     @staticmethod
     @jit(nopython=True)
-    def __dot_kernel(A, B, C): # private method (double underscore prefix)
+    def __dot_kernel(A, B, C):
         for i in range(C.shape[0]):
             for j in range(C.shape[1]):
                 sum = 0.0
                 for k in range(A.shape[1]):
                     sum += A[i, k] * B[k, j]
                 C[i, j] = sum
-    
     def _dot(self):
         self.__dot_kernel(self._A, self._B, self._C)
 
 class JitNumpy(DotProduct):
     @staticmethod
     @jit(nopython=True)
-    def __dot_kernel(A, B, C): # private method (double underscore prefix)
-        # np.dot(A, B, out=C) # Modify C in-place
-        return A.dot(B)
-
     def _dot(self):
-        # self.__dot_kernel(self._A, self._B, self._C)
         A, B, C = self._A, self._B, self._C
         np.dot(A, B, out=C)
 
 
-# ABSTRACT METHOD CUDAJIT
+# ABSTRACT CLASS CUDAJIT
 class CudaJit(DotProduct):
     def __init__(self, A, B, C):
         super().__init__(A, B, C) # call base class constructor (in DotProduct)
