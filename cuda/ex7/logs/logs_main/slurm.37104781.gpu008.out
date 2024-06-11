@@ -1,0 +1,9 @@
+Device name: b'NVIDIA GeForce RTX 2080 Ti'
+Compute capability: (7, 5)
+Total global memory (GB): 10.75341796875
+Free global memory (GB): 10.5992431640625
+Used global memory (GB): 0.1541748046875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0

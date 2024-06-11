@@ -55,7 +55,7 @@ def plot(report, vary_dim, filename=''):
     for entry in report:
         method = entry[0]
         dims = entry[1]
-        if vary_dim == 'M': dims = [dim[0] for dim in dims]
+        if vary_dim == 'M' or vary_dim == 'all': dims = [dim[0] for dim in dims]
         elif vary_dim == 'N': dims = [dim[1] for dim in dims]
         elif vary_dim == 'K': dims = [dim[2] for dim in dims]
         times = entry[3]
@@ -64,7 +64,10 @@ def plot(report, vary_dim, filename=''):
     device = cuda.get_current_device()
 
     plt.title(f'Performance Comparison on {str(device.name)}')
-    plt.xlabel(f'Dimension {vary_dim} with others fixed at 512')
+    if vary_dim == 'all':
+        plt.xlabel('Dimension M (Squares)')
+    else:
+        plt.xlabel(f'Dimension {vary_dim} with others fixed at 512')
     plt.ylabel('Time (s)')
     plt.legend()
     plt.grid(True)

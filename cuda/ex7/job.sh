@@ -62,8 +62,8 @@ if [ "$environment" == "amarel" ]; then
 #SBATCH --gres=gpu:1
 ##SBATCH --exclude=cuda[001-008]
 #SBATCH --ntasks=1
-#SBATCH --mem=12000
-#SBATCH --time=01:00:00
+#SBATCH --mem=16000
+#SBATCH --time=04:00:00
 
 
 module purge

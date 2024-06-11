@@ -111,7 +111,7 @@ class CudaGlobalMemory(CudaJit):
             pass
 
 
-class CudaSharedMemory(CudaJit):
+class CudaSharedMemory1(CudaJit):
     """
     Ref:
     https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
@@ -167,3 +167,39 @@ class CudaSharedMemory(CudaJit):
         if by*TILE_DIM + ty < C.shape[0] and bx*TILE_DIM + tx < C.shape[1]:
             C[by*TILE_DIM + ty, bx*TILE_DIM + tx] += acc
 
+
+class CudaSharedMemory2(CudaJit):
+    @staticmethod
+    @cuda.jit
+    def _dot(A, B, C): 
+        TILE_DIM = 16
+
+        sA = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+        sB = cuda.shared.array(shape=(TILE_DIM, TILE_DIM), dtype=float32)
+
+        tx = cuda.threadIdx.x # thread idx x within block
+        ty = cuda.threadIdx.y # thread idx y within block
+        bpgx = cuda.gridDim.x # blocks per grid x
+        x, y = cuda.grid(2) # global thread idx x, y
+
+        # LOAD TILES INTO SHARED MEMORY
+        acc = float32(0.0)
+        for i in range(bpgx):
+            sA[ty, tx] = 0.0
+            sB[ty, tx] = 0.0
+
+            if y < A.shape[0] and (i*TILE_DIM + tx) < A.shape[1]:
+                sA[ty, tx] = A[y, i*TILE_DIM + tx]
+
+            if (i*TILE_DIM + ty) < B.shape[0] and x < B.shape[1]:
+                sB[ty, tx] = B[i*TILE_DIM + ty, x]
+
+            cuda.syncthreads()
+
+            for j in range(TILE_DIM):
+                acc += sA[ty, j] * sB[j, tx]
+
+            cuda.syncthreads()
+        
+        if y < C.shape[0] and x < C.shape[1]:
+            C[y, x] += acc

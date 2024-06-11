@@ -14,13 +14,13 @@ def print_divider():
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory ]
+    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory1, mat.CudaSharedMemory2 ]
 
     print_divider()
 
     dims = []
-    for i in range(1, 128+1):
-        dims.append((64*i, 512, 512))
+    for i in range(1, 256+1):
+        dims.append((32*i, 512, 512))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
@@ -30,8 +30,8 @@ def main():
     print_divider()
 
     dims = []
-    for i in range(1, 128+1):
-        dims.append((512, 64*i, 512))
+    for i in range(1, 256+1):
+        dims.append((512, 32*i, 512))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
@@ -41,8 +41,8 @@ def main():
     print_divider()
 
     dims = []
-    for i in range(1, 128+1):
-        dims.append((512, 512, 64*i))
+    for i in range(1, 256+1):
+        dims.append((512, 512, 32*i))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
@@ -50,6 +50,15 @@ def main():
     utils.plot(report, vary_dim='K', filename='Varying_K')
 
     print_divider()
+
+    dims = []
+    for i in range(1, 256+1):
+        dims.append((32*i, 32*i, 32*i))
+    test = tb.Testbench(methods, dims)
+    test.test_all()
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report, vary_dim='all', filename='Squares')
 
 
 if __name__ == '__main__':
