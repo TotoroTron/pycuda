@@ -19,8 +19,8 @@ def main():
     print_divider()
 
     dims = []
-    for i in range(1, 256+1):
-        dims.append((32*i, 512, 512))
+    for i in range(1, 128+1):
+        dims.append((64*i, 512, 512))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
@@ -30,8 +30,8 @@ def main():
     print_divider()
 
     dims = []
-    for i in range(1, 256+1):
-        dims.append((512, 32*i, 512))
+    for i in range(1, 128+1):
+        dims.append((512, 64*i, 512))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
@@ -41,8 +41,8 @@ def main():
     print_divider()
 
     dims = []
-    for i in range(1, 256+1):
-        dims.append((512, 512, 32*i))
+    for i in range(1, 128+1):
+        dims.append((512, 512, 64*i))
     test = tb.Testbench(methods, dims)
     test.test_all()
     report = test.get_report()
