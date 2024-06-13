@@ -69,7 +69,7 @@ if [ "$environment" == "amarel" ]; then
 module purge
 module load cuda/10.0
 source /home/bbc33/anaconda3/bin/activate
-conda activate /home/bbc33/anaconda3/envs/pycuda
+conda activate /home/bbc33/anaconda3/envs/pyculib
 
 python3 $1
 EOF

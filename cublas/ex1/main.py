@@ -39,20 +39,22 @@ def main():
     methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory1, mat.CudaSharedMemory2 ]
 
     print_divider()
+    stride = 4
+    count = 512
 
-    dims = generate_stride(stride=16, count=128, vary_dim='M')
+    dims = generate_stride(stride, count, 'M')
     test_kernel(methods, dims)
     print_divider()
 
-    dims = generate_stride(stride=16, count=128, vary_dim='N')
+    dims = generate_stride(stride, count, 'N')
     test_kernel(methods, dims)
     print_divider()
 
-    dims = generate_stride(stride=16, count=128, vary_dim='K')
+    dims = generate_stride(stride, count, 'K')
     test_kernel(methods, dims)
     print_divider()
 
-    dims = generate_stride(stride=16, count=128, vary_dim='Squares')
+    dims = generate_stride(stride, count, 'Squares')
     test_kernel(methods, dims)
     print_divider()
 

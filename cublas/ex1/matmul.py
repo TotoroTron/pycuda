@@ -2,7 +2,7 @@ import numpy as np
 from numba import jit
 from numba import cuda, float32
 from abc import ABC, abstractmethod
-from pyculib import blas
+from pyculib.blas import Blas
 
 # ABSTRACT CLASS DOT PRODUCT
 class DotProduct(ABC):
@@ -212,7 +212,7 @@ class CuBlas(DotProduct):
 
     def __init__(self, A, B, C):
         super().__init__(A, B, C) # call base class constructor (in DotProduct)
-        self._handle = blas.Blas()
+        self._handle = Blas()
 
     def run(self):
         dA = cuda.to_device(self._A)
