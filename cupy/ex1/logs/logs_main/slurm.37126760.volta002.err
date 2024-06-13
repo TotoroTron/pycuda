@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 4, in <module>
+    import utils as utils
+  File "/scratch/bbc33/pycuda/cupy/ex1/utils.py", line 2, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'

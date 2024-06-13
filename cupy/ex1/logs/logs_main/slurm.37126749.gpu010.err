@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 2, in <module>
+    import matmul as mat
+  File "/scratch/bbc33/pycuda/cupy/ex1/matmul.py", line 5, in <module>
+    from pyculib.blas import Blas
+ModuleNotFoundError: No module named 'pyculib'
