@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "main.py", line 2, in <module>
+    import matmul as mat
+  File "/home/bcheng/workspace/dev/pycuda/cublas/ex1/matmul.py", line 5, in <module>
+    from pyculib import blas
+  File "/home/bcheng/workspace/tools/anaconda3/envs/temp_pycuda/lib/python3.6/site-packages/pyculib/__init__.py", line 49, in <module>
+    from . import blas, sparse, fft, rand, sorting
+  File "/home/bcheng/workspace/tools/anaconda3/envs/temp_pycuda/lib/python3.6/site-packages/pyculib/sorting/__init__.py", line 1, in <module>
+    from .radixsort import RadixSort
+  File "/home/bcheng/workspace/tools/anaconda3/envs/temp_pycuda/lib/python3.6/site-packages/pyculib/sorting/radixsort.py", line 38, in <module>
+    lib = load_lib('radixsort')
+  File "/home/bcheng/workspace/tools/anaconda3/envs/temp_pycuda/lib/python3.6/site-packages/pyculib/sorting/common.py", line 24, in load_lib
+    libpath = os.path.join(findlib.get_lib_dir(), fullname)
+AttributeError: module 'numba.findlib' has no attribute 'get_lib_dir'

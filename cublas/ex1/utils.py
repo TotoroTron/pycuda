@@ -49,29 +49,79 @@ def print_gpu_info():
     print("Max shared memory per block (KB):", shared_memory_per_block / 1024)
 
 
-def plot(report, vary_dim, filename=''):
+
+def categorize_dims(dims):
+    if not dims:
+        return "NA"
+    
+    M_values = {dim[0] for dim in dims}
+    N_values = {dim[1] for dim in dims}
+    K_values = {dim[2] for dim in dims}
+
+    if len(M_values) > 1 and len(N_values) == 1 and len(K_values) == 1:
+        return "Varying_M"
+    elif len(N_values) > 1 and len(M_values) == 1 and len(K_values) == 1:
+        return "Varying_N"
+    elif len(K_values) > 1 and len(M_values) == 1 and len(N_values) == 1:
+        return "Varying_K"
+    elif len(M_values) > 1 and len(N_values) > 1 and len(K_values) > 1 and M_values == N_values == K_values:
+        return "Squares"
+    else:
+        return "NA"
+
+
+def plot(report):
+    if not report:
+        print("plot(): Empty report.")
+        return
+    
+    categorize_result = categorize_dims(report[0][1])
 
     plt.figure(figsize=(12, 8))
+    
+    dims_values = None
+    xlabel = None
+    fixed_M = None
+    fixed_N = None
+    fixed_K = None
     for entry in report:
         method = entry[0]
         dims = entry[1]
-        if vary_dim == 'M' or vary_dim == 'all': dims = [dim[0] for dim in dims]
-        elif vary_dim == 'N': dims = [dim[1] for dim in dims]
-        elif vary_dim == 'K': dims = [dim[2] for dim in dims]
         times = entry[3]
-        plt.plot(dims, times, label=method)
+        
+        if categorize_result == "Varying_M":
+            dims_values = [dim[0] for dim in dims]
+            fixed_N = dims[0][1]
+            fixed_K = dims[0][2]
+            xlabel = f'Dimension M with N={fixed_N} and K={fixed_K} fixed'
+        elif categorize_result == "Varying_N":
+            dims_values = [dim[1] for dim in dims]
+            fixed_M = dims[0][0]
+            fixed_K = dims[0][2]
+            xlabel = f'Dimension N with M={fixed_M} and K={fixed_K} fixed'
+        elif categorize_result == "Varying_K":
+            dims_values = [dim[2] for dim in dims]
+            fixed_M = dims[0][0]
+            fixed_N = dims[0][1]
+            xlabel = f'Dimension K with M={fixed_M} and N={fixed_N} fixed'
+        elif categorize_result == "Squares":
+            dims_values = [dim[0] for dim in dims]
+            xlabel = 'Dimension M (Squares)'
+        else:
+            print("Uncategorized dimension variation. Unsuitable for plotting.")
+            return
+
+        plt.plot(dims_values, times, label=method)
 
     device = cuda.get_current_device()
 
     plt.title(f'Performance Comparison on {str(device.name)}')
-    if vary_dim == 'all':
-        plt.xlabel('Dimension M (Squares)')
-    else:
-        plt.xlabel(f'Dimension {vary_dim} with others fixed at 512')
+    plt.xlabel(xlabel)
     plt.ylabel('Time (s)')
     plt.legend()
     plt.grid(True)
-    plt.savefig(f'plot_{str(device.name)}_{filename}.png')
+    plt.savefig(f'plot_{str(device.name)}_{categorize_result}.png')
+    plt.show()
 
 def printout(results):
     fail_count = 0

@@ -6,37 +6,32 @@ import utils as utils
 def test_kernel(methods, dims):
     test = tb.Testbench(methods, dims)
     test.test_all()
-    results = test.get_results()
-    utils.printout(results)
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report)
 
 def print_divider():
     print("\n========================================================================================\n")
 
-def generate_vary_M(stride=16, count=128):
+def generate_stride(stride=16, count=128, vary_dim='M'):
     dims = []
-    fixed_dim = 16 * 128 // 2
-    for i in range(1, count+1):
-        dims.append((stride*i, fixed_dim, fixed_dim))
-    return dims
+    fixed_dim = (stride * count // 2) // 16 * 16 # Multiple of 16
+    if vary_dim == 'M':
+        for i in range(1, count+1):
+            dims.append((stride*i, fixed_dim, fixed_dim))
+    elif vary_dim == 'N':
+        for i in range(1, count+1):
+            dims.append((fixed_dim, stride*i, fixed_dim))
+    elif vary_dim == 'K':
+        for i in range(1, count+1):
+            dims.append((fixed_dim, fixed_dim, stride*i))
+    elif vary_dim == 'Squares':
+        for i in range(1, count+1):
+            dims.append((stride*i, stride*i, stride*i))
+    else:
+        print("Unrecognized vary_dim. Use 'M', 'N', 'K', or 'Squares'.")
+        return
 
-def generate_vary_N(stride=16, count=128):
-    dims = []
-    fixed_dim = 16 * 128 // 2
-    for i in range(1, count+1):
-        dims.append((fixed_dim, stride*i, fixed_dim))
-    return dims
-
-def generate_vary_K(stride=16, count=128):
-    dims = []
-    fixed_dim = 16 * 128 // 2
-    for i in range(1, count+1):
-        dims.append((fixed_dim, fixed_dim, stride*i))
-    return dims
-
-def generate_squares(stride=16, count=128):
-    dims = []
-    for i in range(1, count+1):
-        dims.append((stride*i, stride*i, stride*i))
     return dims
 
 def main():
@@ -45,48 +40,21 @@ def main():
 
     print_divider()
 
-    dims = []
-    for i in range(1, 128+1):
-        dims.append((64*i, 512, 512))
-    test = tb.Testbench(methods, dims)
-    test.test_all()
-    report = test.get_report()
-    utils.printout(report)
-    utils.plot(report, vary_dim='M', filename='Varying_M')
-
+    dims = generate_stride(stride=16, count=128, vary_dim='M')
+    test_kernel(methods, dims)
     print_divider()
 
-    dims = []
-    for i in range(1, 128+1):
-        dims.append((512, 64*i, 512))
-    test = tb.Testbench(methods, dims)
-    test.test_all()
-    report = test.get_report()
-    utils.printout(report)
-    utils.plot(report, vary_dim='N', filename='Varying_N')
-
+    dims = generate_stride(stride=16, count=128, vary_dim='N')
+    test_kernel(methods, dims)
     print_divider()
 
-    dims = []
-    for i in range(1, 128+1):
-        dims.append((512, 512, 64*i))
-    test = tb.Testbench(methods, dims)
-    test.test_all()
-    report = test.get_report()
-    utils.printout(report)
-    utils.plot(report, vary_dim='K', filename='Varying_K')
-
+    dims = generate_stride(stride=16, count=128, vary_dim='K')
+    test_kernel(methods, dims)
     print_divider()
 
-    dims = []
-    for i in range(1, 256+1):
-        dims.append((32*i, 32*i, 32*i))
-    test = tb.Testbench(methods, dims)
-    test.test_all()
-    report = test.get_report()
-    utils.printout(report)
-    utils.plot(report, vary_dim='all', filename='Squares')
-
+    dims = generate_stride(stride=16, count=128, vary_dim='Squares')
+    test_kernel(methods, dims)
+    print_divider()
 
 if __name__ == '__main__':
     # If executed on local, explicitly route all print() to file
