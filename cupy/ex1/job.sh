@@ -67,7 +67,7 @@ if [ "$environment" == "amarel" ]; then
 
 
 module purge
-module load cuda/11.7.1
+module load cuda/12.1.0
 source /home/bbc33/anaconda3/bin/activate
 conda activate /home/bbc33/anaconda3/envs/cupy
 

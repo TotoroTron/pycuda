@@ -111,7 +111,7 @@ class CudaGlobalMemory(CudaJit):
             pass
 
 
-class CudaSharedMemory1(CudaJit):
+class __CudaSharedMemory(CudaJit):
     """
     Ref:
     https://stackoverflow.com/questions/64197780/how-to-generalize-fast-matrix-multiplication-on-gpu-using-numba/64198479#64198479
@@ -168,7 +168,7 @@ class CudaSharedMemory1(CudaJit):
             C[by*TILE_DIM + ty, bx*TILE_DIM + tx] += acc
 
 
-class CudaSharedMemory2(CudaJit):
+class CudaSharedMemory(CudaJit):
     @staticmethod
     @cuda.jit
     def _dot(A, B, C): 

@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 2, in <module>
-    import matmul as mat
-  File "/scratch/bbc33/pycuda/cupy/ex1/matmul.py", line 2, in <module>
-    from numba import jit
-ModuleNotFoundError: No module named 'numba'

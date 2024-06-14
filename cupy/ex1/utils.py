@@ -2,19 +2,6 @@ from numba import cuda
 import matplotlib.pyplot as plt
 import numpy as np
 
-def generate_combinations(M, N, K):
-    values = list(set([M, N, K])) # remove duplicates
-    combinations = []
-    for i in values:
-        for j in values:
-            for k in values:
-                combinations.append((i, j, k))
-    return combinations
-
-def generate_randoms(low=1, high=256, size=128):
-    dims = np.random.randint(low, high, size=(size, 3))
-    dims = [tuple(row) for row in dims]
-    return dims
 
 def print_gpu_info():
     device = cuda.get_current_device()
@@ -48,6 +35,21 @@ def print_gpu_info():
     shared_memory_per_block = device.MAX_SHARED_MEMORY_PER_BLOCK
     print("Max shared memory per block (KB):", shared_memory_per_block / 1024)
 
+
+def generate_combinations(M, N, K):
+    values = list(set([M, N, K])) # remove duplicates
+    combinations = []
+    for i in values:
+        for j in values:
+            for k in values:
+                combinations.append((i, j, k))
+    return combinations
+
+
+def generate_randoms(low=1, high=256, size=128):
+    dims = np.random.randint(low, high, size=(size, 3))
+    dims = [tuple(row) for row in dims]
+    return dims
 
 
 def categorize_dims(dims):
@@ -135,4 +137,5 @@ def printout(results):
         print()
 
     print(f"Total Fail Count: {fail_count}")
+    print("\n======================================================================================================\n")
                 

@@ -3,17 +3,15 @@ import matmul as mat
 import testbench as tb
 import utils as utils
 
-def test_kernel(methods, dims):
-    test = tb.Testbench(methods, dims)
+def test_kernel(dims, methods, validation_method):
+    test = tb.Testbench(dims, methods, validation_method)
     test.test_all()
     report = test.get_report()
     utils.printout(report)
     utils.plot(report)
 
-def print_divider():
-    print("\n========================================================================================\n")
 
-def generate_stride(stride=16, count=128, vary_dim='M'):
+def generate_stride(stride=16, count=256, vary_dim='M'):
     dims = []
     fixed_dim = (stride * count // 2) // 16 * 16 # Multiple of 16
     if vary_dim == 'M':
@@ -31,32 +29,29 @@ def generate_stride(stride=16, count=128, vary_dim='M'):
     else:
         print("Unrecognized vary_dim. Use 'M', 'N', 'K', or 'Squares'.")
         return
-
     return dims
+
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.Numpy, mat.CudaGlobalMemory, mat.CudaSharedMemory1, mat.CudaSharedMemory2 ]
+    methods = [ mat.CudaSharedMemory, mat.CudaSharedMemory ]
+    validation_method = mat.CudaGlobalMemory
 
-    print_divider()
-    stride = 4
+    stride = 16
     count = 512
 
     dims = generate_stride(stride, count, 'M')
-    test_kernel(methods, dims)
-    print_divider()
+    test_kernel(dims, methods, validation_method)
 
     dims = generate_stride(stride, count, 'N')
-    test_kernel(methods, dims)
-    print_divider()
+    test_kernel(dims, methods, validation_method)
 
     dims = generate_stride(stride, count, 'K')
-    test_kernel(methods, dims)
-    print_divider()
+    test_kernel(dims, methods, validation_method)
 
     dims = generate_stride(stride, count, 'Squares')
-    test_kernel(methods, dims)
-    print_divider()
+    test_kernel(dims, methods, validation_method)
+
 
 if __name__ == '__main__':
     # If executed on local, explicitly route all print() to file
