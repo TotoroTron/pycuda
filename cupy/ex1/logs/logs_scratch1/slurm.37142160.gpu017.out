@@ -1,0 +1,18 @@
+Device name: b'NVIDIA GeForce RTX 3090'
+Compute capability: (8, 6)
+Total global memory (GB): 23.69110107421875
+Free global memory (GB): 23.43634033203125
+Used global memory (GB): 0.2547607421875
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.0018572807312011719
+Method: Numpy                     , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.10941171646118164
+Method: CudaSharedMemory          , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.0025615692138671875
+Method: CupyMatmul                , dims: (256, 256, 256)     , pass(0)/fail(1): 1,	 time (s): 0.2954132556915283
+
+Total Fail Count: 1
+
+======================================================================================================
+

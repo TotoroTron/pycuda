@@ -1,0 +1,19 @@
+/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+Traceback (most recent call last):
+  File "/scratch/bbc33/pycuda/cupy/ex1/scratch1.py", line 26, in <module>
+    main()
+  File "/scratch/bbc33/pycuda/cupy/ex1/scratch1.py", line 13, in main
+    test.test_all()
+  File "/scratch/bbc33/pycuda/cupy/ex1/testbench.py", line 39, in test_all
+    instance.run()
+  File "/scratch/bbc33/pycuda/cupy/ex1/matmul.py", line 22, in run
+    self._dot()
+  File "/scratch/bbc33/pycuda/cupy/ex1/matmul.py", line 219, in _dot
+    cp.copyto(self._C, dC)
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/cupy/_manipulation/basic.py", line 96, in copyto
+    dst.data.copy_from_async(src.data, src.nbytes)
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'memoryview' object has no attribute 'copy_from_async'

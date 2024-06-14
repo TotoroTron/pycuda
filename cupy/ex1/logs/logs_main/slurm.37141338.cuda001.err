@@ -1,0 +1,40 @@
+/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+Traceback (most recent call last):
+  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 63, in <module>
+    main()
+  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 44, in main
+    test_kernel(dims, methods, validation_method)
+  File "/scratch/bbc33/pycuda/cupy/ex1/main.py", line 8, in test_kernel
+    test.test_all()
+  File "/scratch/bbc33/pycuda/cupy/ex1/testbench.py", line 39, in test_all
+    instance.run()
+  File "/scratch/bbc33/pycuda/cupy/ex1/matmul.py", line 85, in run
+    self._dot[self.BPG, self.TPB](dA, dB, dC)
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py", line 539, in __call__
+    return self.dispatcher.call(args, self.griddim, self.blockdim,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py", line 681, in call
+    kernel = _dispatcher.Dispatcher._cuda_call(self, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py", line 689, in _compile_for_args
+    return self.compile(tuple(argtypes))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py", line 932, in compile
+    kernel = _Kernel(self.py_func, argtypes, **self.targetoptions)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/core/compiler_lock.py", line 35, in _acquire_compile_lock
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py", line 103, in __init__
+    self.cooperative = 'cudaCGGetIntrinsicHandle' in lib.get_asm_str()
+                                                     ^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/codegen.py", line 134, in get_asm_str
+    arch = nvvm.get_arch_option(*cc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/cudadrv/nvvm.py", line 415, in get_arch_option
+    arch = find_closest_arch((major, minor))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bbc33/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/cudadrv/nvvm.py", line 400, in find_closest_arch
+    raise NvvmSupportError(msg)
+numba.cuda.cudadrv.error.NvvmSupportError: GPU compute capability 3.7 is not supported(requires >=5.0)

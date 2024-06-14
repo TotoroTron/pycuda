@@ -34,11 +34,11 @@ def generate_stride(stride=16, count=256, vary_dim='M'):
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.CudaSharedMemory, mat.CudaSharedMemory ]
+    methods = [ mat.CudaSharedMemory ]
     validation_method = mat.CudaGlobalMemory
 
-    stride = 16
-    count = 512
+    stride = 32
+    count = 256
 
     dims = generate_stride(stride, count, 'M')
     test_kernel(dims, methods, validation_method)

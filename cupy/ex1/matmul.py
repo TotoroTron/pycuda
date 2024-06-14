@@ -2,6 +2,7 @@ import numpy as np
 from numba import jit
 from numba import cuda, float32
 from abc import ABC, abstractmethod
+import cupy as cp
 
 # ABSTRACT CLASS DOT PRODUCT
 class DotProduct(ABC):
@@ -70,6 +71,12 @@ class CudaJit(DotProduct):
         self.bpgx = (grid_x_max + self.TPB[0] - 1) // self.TPB[0] # blocks per grid x
         self.BPG = (self.bpgx, self.bpgy) # ROUNDUP(dim/tpbx), ROUNDUP(dim/tpby)
         # print("BPG: ", self.BPG, " TPB: ", self.TPB)
+    
+    def get_grid_dims(self):
+        return (self.BPG[0], self.BPG[1])
+    
+    def get_block_dims(self):
+        return (self.TPB[0], self.TPB[1])
     
     def run(self): # Override run method from parent class
         dA = cuda.to_device(self._A)
@@ -204,3 +211,10 @@ class CudaSharedMemory(CudaJit):
         if y < C.shape[0] and x < C.shape[1]:
             C[y, x] += acc
 
+class CupyMatmul(DotProduct):
+    def _dot(self):
+        A = cp.array(self._A)
+        B = cp.array(self._B)
+        dC = cp.matmul(A, B)
+        self._C[:] = cp.asnumpy(dC)
+        # cp.copyto(self._C, dC)

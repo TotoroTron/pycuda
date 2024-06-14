@@ -60,7 +60,7 @@ if [ "$environment" == "amarel" ]; then
 ##SBATCH --partition=main
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-##SBATCH --exclude=cuda[001-008]
+#SBATCH --exclude=cuda[001-008]
 #SBATCH --ntasks=1
 #SBATCH --mem=16000
 #SBATCH --time=04:00:00
