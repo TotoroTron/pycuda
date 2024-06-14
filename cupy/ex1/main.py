@@ -34,10 +34,10 @@ def generate_stride(stride=16, count=256, vary_dim='M'):
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.CudaSharedMemory ]
+    methods = [ mat.CudaSharedMemory, mat.CupyMatmul]
     validation_method = mat.CudaGlobalMemory
 
-    stride = 32
+    stride = 16
     count = 256
 
     dims = generate_stride(stride, count, 'M')
