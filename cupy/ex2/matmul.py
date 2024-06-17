@@ -156,15 +156,15 @@ class CudaSharedMemory(CudaJit):
 
 class CupyMatmul(DotProduct):
     def _dot(self):
-        A = cp.array(self._A)
-        B = cp.array(self._B)
-        dC = cp.matmul(A, B)
+        dA = cp.array(self._A)
+        dB = cp.array(self._B)
+        dC = cp.matmul(dA, dB)
         self._C[:] = cp.asnumpy(dC)
 
 
 class CupyDot(DotProduct):
     def _dot(self):
-        A = cp.array(self._A)
-        B = cp.array(self._B)
-        dC = cp.dot(A, B)
+        dA = cp.array(self._A)
+        dB = cp.array(self._B)
+        dC = cp.dot(dA, dB)
         self._C[:] = cp.asnumpy(dC)
