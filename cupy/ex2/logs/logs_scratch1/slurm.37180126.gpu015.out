@@ -1,0 +1,58 @@
+Device name: b'NVIDIA A100-PCIE-40GB'
+Compute capability: (8, 0)
+Total global memory (GB): 39.39385986328125
+Free global memory (GB): 38.98077392578125
+Used global memory (GB): 0.4130859375
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (6144, 6144, 11312) , pass(0)/fail(1): 0,	 time (s): 1.50872802734375
+Method: CudaSharedMemory          , dims: (6144, 6144, 11312) , pass(0)/fail(1): 0,	 time (s): 0.9632411003112793
+Method: CupyMatmul                , dims: (6144, 6144, 11312) , pass(0)/fail(1): 0,	 time (s): 0.940375804901123
+Method: CupyDot                   , dims: (6144, 6144, 11312) , pass(0)/fail(1): 0,	 time (s): 0.3172273635864258
+
+Method: CudaGlobalMemory          , dims: (6144, 6144, 11712) , pass(0)/fail(1): 0,	 time (s): 1.463083267211914
+Method: CudaSharedMemory          , dims: (6144, 6144, 11712) , pass(0)/fail(1): 0,	 time (s): 1.0524702072143555
+Method: CupyMatmul                , dims: (6144, 6144, 11712) , pass(0)/fail(1): 0,	 time (s): 0.27675795555114746
+Method: CupyDot                   , dims: (6144, 6144, 11712) , pass(0)/fail(1): 0,	 time (s): 0.27632999420166016
+
+Method: CudaGlobalMemory          , dims: (6144, 6144, 11904) , pass(0)/fail(1): 0,	 time (s): 1.4867682456970215
+Method: CudaSharedMemory          , dims: (6144, 6144, 11904) , pass(0)/fail(1): 0,	 time (s): 1.0953717231750488
+Method: CupyMatmul                , dims: (6144, 6144, 11904) , pass(0)/fail(1): 0,	 time (s): 0.28092312812805176
+Method: CupyDot                   , dims: (6144, 6144, 11904) , pass(0)/fail(1): 0,	 time (s): 0.27860379219055176
+
+Method: CudaGlobalMemory          , dims: (6144, 6144, 11936) , pass(0)/fail(1): 0,	 time (s): 1.4349172115325928
+Method: CudaSharedMemory          , dims: (6144, 6144, 11936) , pass(0)/fail(1): 0,	 time (s): 1.1055305004119873
+Method: CupyMatmul                , dims: (6144, 6144, 11936) , pass(0)/fail(1): 0,	 time (s): 0.28149890899658203
+Method: CupyDot                   , dims: (6144, 6144, 11936) , pass(0)/fail(1): 0,	 time (s): 0.2797577381134033
+
+Method: CudaGlobalMemory          , dims: (6144, 6144, 12192) , pass(0)/fail(1): 0,	 time (s): 1.5180742740631104
+Method: CudaSharedMemory          , dims: (6144, 6144, 12192) , pass(0)/fail(1): 0,	 time (s): 1.1675825119018555
+Method: CupyMatmul                , dims: (6144, 6144, 12192) , pass(0)/fail(1): 0,	 time (s): 0.289963960647583
+Method: CupyDot                   , dims: (6144, 6144, 12192) , pass(0)/fail(1): 0,	 time (s): 0.2905113697052002
+
+Method: CudaGlobalMemory          , dims: (6144, 6144, 12208) , pass(0)/fail(1): 0,	 time (s): 1.544008493423462
+Method: CudaSharedMemory          , dims: (6144, 6144, 12208) , pass(0)/fail(1): 0,	 time (s): 1.1647050380706787
+Method: CupyMatmul                , dims: (6144, 6144, 12208) , pass(0)/fail(1): 0,	 time (s): 0.2863776683807373
+Method: CupyDot                   , dims: (6144, 6144, 12208) , pass(0)/fail(1): 0,	 time (s): 0.2846224308013916
+
+Method: CudaGlobalMemory          , dims: (10864, 10864, 10864), pass(0)/fail(1): 0,	 time (s): 4.006031036376953
+Method: CudaSharedMemory          , dims: (10864, 10864, 10864), pass(0)/fail(1): 0,	 time (s): 1.1553959846496582
+Method: CupyMatmul                , dims: (10864, 10864, 10864), pass(0)/fail(1): 0,	 time (s): 0.6645257472991943
+Method: CupyDot                   , dims: (10864, 10864, 10864), pass(0)/fail(1): 0,	 time (s): 0.6654746532440186
+
+Method: CudaGlobalMemory          , dims: (10944, 10944, 10944), pass(0)/fail(1): 0,	 time (s): 4.10271430015564
+Method: CudaSharedMemory          , dims: (10944, 10944, 10944), pass(0)/fail(1): 0,	 time (s): 1.1944866180419922
+Method: CupyMatmul                , dims: (10944, 10944, 10944), pass(0)/fail(1): 0,	 time (s): 0.6687395572662354
+Method: CupyDot                   , dims: (10944, 10944, 10944), pass(0)/fail(1): 0,	 time (s): 0.6666762828826904
+
+Method: CudaGlobalMemory          , dims: (11104, 11104, 11104), pass(0)/fail(1): 0,	 time (s): 4.266606330871582
+Method: CudaSharedMemory          , dims: (11104, 11104, 11104), pass(0)/fail(1): 0,	 time (s): 1.2452049255371094
+Method: CupyMatmul                , dims: (11104, 11104, 11104), pass(0)/fail(1): 0,	 time (s): 0.6882233619689941
+Method: CupyDot                   , dims: (11104, 11104, 11104), pass(0)/fail(1): 0,	 time (s): 0.6930856704711914
+
+Total Fail Count: 0
+
+======================================================================================================
+

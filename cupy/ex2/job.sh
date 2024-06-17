@@ -63,7 +63,7 @@ if [ "$environment" == "amarel" ]; then
 #SBATCH --exclude=cuda[001-008]
 #SBATCH --ntasks=1
 #SBATCH --mem=16000
-#SBATCH --time=04:00:00
+#SBATCH --time=18:00:00
 
 
 module purge

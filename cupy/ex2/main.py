@@ -38,7 +38,7 @@ def main():
     validation_method = mat.CudaGlobalMemory
 
     stride = 16
-    count = 512
+    count = 768
 
     dims = generate_stride(stride, count, 'M')
     test_kernel(dims, methods, validation_method)
