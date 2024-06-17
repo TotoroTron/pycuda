@@ -74,5 +74,5 @@ class Testbench():
             if self._dataframe.empty:
                 self._dataframe = df
             else:
-                self._dataframe = pd.merge(self._dataframe, df, on=['dims', 'dim_M', 'dim_N', 'dim_K'], how='outer')
+                self._dataframe = pd.merge(self._dataframe, df, on=['dim_M', 'dim_N', 'dim_K'], how='outer')
 
