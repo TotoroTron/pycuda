@@ -37,28 +37,22 @@ def generate_stride(stride=16, count=256, vary_dim='Squares'):
 
 def main():
     utils.print_gpu_info()
-    methods = [ mat.CudaSharedMemory, mat.CupyMatmul, mat.CupyDot ]
-    validation_method = mat.CudaGlobalMemory
+    methods = [ mat.CudaGlobalMemory, mat.CudaSharedMemory, mat.CupyMatmul, mat.CupyDot ]
+    validation_method = mat.Numpy
 
-    stride = 1
+    stride = 4
     count = 512
 
-    dims = generate_stride(stride, count, 'Squares')
+    test_groups = ['M', 'N', 'K', 'Squares']
 
-    test = tb.Testbench(dims, methods, validation_method)
-    test.test_all()
-    report = test.get_report()
-    utils.plot(report)
-    df = test.get_dataframe()
-    df.to_csv('dataframe_vary_M.csv', index=False)
-
-    test = tb.Testbench(dims, methods, validation_method)
-    test.test_all()
-    report = test.get_report()
-    utils.plot(report)
-    df = test.get_dataframe()
-    df.to_csv('dataframe_vary_N.csv', index=False)
-    
+    for group in test_groups:
+        dims = generate_stride(stride, count, group)
+        test = tb.Testbench(dims, methods, validation_method)
+        test.test_all()
+        report = test.get_report()
+        utils.plot(report)
+        df = test.get_dataframe()
+        df.to_csv(f'dataframe_vary_{group}.csv', index=False)
 
 
 if __name__ == '__main__':
