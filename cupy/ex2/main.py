@@ -7,8 +7,11 @@ def test_kernel(dims, methods, validation_method):
     test = tb.Testbench(dims, methods, validation_method)
     test.test_all()
     report = test.get_report()
-    utils.printout(report)
+    # utils.printout(report)
     utils.plot(report)
+
+    df = test.get_dataframe()
+    df.to_csv('dataframe.csv', index=False)
 
 
 def generate_stride(stride=16, count=256, vary_dim='Squares'):
@@ -38,19 +41,16 @@ def main():
     validation_method = mat.CudaGlobalMemory
 
     stride = 16
-    count = 768
-
-    dims = generate_stride(stride, count, 'M')
-    test_kernel(dims, methods, validation_method)
-
-    dims = generate_stride(stride, count, 'N')
-    test_kernel(dims, methods, validation_method)
-
-    dims = generate_stride(stride, count, 'K')
-    test_kernel(dims, methods, validation_method)
+    count = 32
 
     dims = generate_stride(stride, count, 'Squares')
-    test_kernel(dims, methods, validation_method)
+    test = tb.Testbench(dims, methods, validation_method)
+    test.test_all()
+    report = test.get_report()
+    utils.printout(report)
+    utils.plot(report)
+    df = test.get_dataframe()
+    df.to_csv('dataframe.csv', index=False)
 
 
 if __name__ == '__main__':

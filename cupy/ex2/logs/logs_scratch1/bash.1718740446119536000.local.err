@@ -1,0 +1,20 @@
+/home/bcheng/workspace/tools/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+Traceback (most recent call last):
+  File "/home/bcheng/workspace/dev/pycuda/cupy/ex2/scratch1.py", line 30, in <module>
+    main()
+  File "/home/bcheng/workspace/dev/pycuda/cupy/ex2/scratch1.py", line 23, in main
+    test.test_all()
+  File "/home/bcheng/workspace/dev/pycuda/cupy/ex2/testbench.py", line 43, in test_all
+    instance.run()
+  File "/home/bcheng/workspace/dev/pycuda/cupy/ex2/matmul.py", line 86, in run
+    cuda.synchronize()
+  File "/home/bcheng/workspace/tools/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/api.py", line 252, in synchronize
+    return current_context().synchronize()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bcheng/workspace/tools/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/cudadrv/driver.py", line 1510, in synchronize
+    driver.cuCtxSynchronize()
+  File "/home/bcheng/workspace/tools/anaconda3/envs/cupy/lib/python3.12/site-packages/numba/cuda/cudadrv/driver.py", line 326, in safe_cuda_api_call
+    retcode = libfn(*args)
+              ^^^^^^^^^^^^
+KeyboardInterrupt

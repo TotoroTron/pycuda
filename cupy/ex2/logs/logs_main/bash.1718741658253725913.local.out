@@ -1,0 +1,9 @@
+Device name: b'NVIDIA GeForce GTX 1070'
+Compute capability: (6, 1)
+Total global memory (GB): 7.89508056640625
+Free global memory (GB): 7.66363525390625
+Used global memory (GB): 0.2314453125
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0

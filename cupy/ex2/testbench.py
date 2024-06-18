@@ -69,7 +69,7 @@ class Testbench():
                 f'{entry[0]}_failed (1)' : entry[2],
                 f'{entry[0]}_time (s)' : entry[3]
             })
-            self._dataframe.append(df)
+            # self._dataframe = self._dataframe.append(df)
 
             if self._dataframe.empty:
                 self._dataframe = df
