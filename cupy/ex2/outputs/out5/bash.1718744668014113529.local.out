@@ -1,0 +1,653 @@
+Device name: b'NVIDIA GeForce GTX 1070'
+Compute capability: (6, 1)
+Total global memory (GB): 7.89508056640625
+Free global memory (GB): 7.66363525390625
+Used global memory (GB): 0.2314453125
+Max threads per block: 1024
+Max block dimensions: x=1024, y=1024, z=64
+Max grid dimensions: x=2147483647, y=65535, z=65535
+Max shared memory per block (KB): 48.0
+Method: CudaGlobalMemory          , dims: (16, 16, 16)        , pass(0)/fail(1): 0,	 time (s): 0.00048732757568359375
+Method: CudaSharedMemory          , dims: (16, 16, 16)        , pass(0)/fail(1): 0,	 time (s): 0.00034928321838378906
+Method: CupyMatmul                , dims: (16, 16, 16)        , pass(0)/fail(1): 0,	 time (s): 0.008605003356933594
+Method: CupyDot                   , dims: (16, 16, 16)        , pass(0)/fail(1): 0,	 time (s): 0.00012540817260742188
+
+Method: CudaGlobalMemory          , dims: (32, 32, 32)        , pass(0)/fail(1): 0,	 time (s): 0.0007214546203613281
+Method: CudaSharedMemory          , dims: (32, 32, 32)        , pass(0)/fail(1): 0,	 time (s): 0.00039196014404296875
+Method: CupyMatmul                , dims: (32, 32, 32)        , pass(0)/fail(1): 0,	 time (s): 0.0003178119659423828
+Method: CupyDot                   , dims: (32, 32, 32)        , pass(0)/fail(1): 0,	 time (s): 8.606910705566406e-05
+
+Method: CudaGlobalMemory          , dims: (48, 48, 48)        , pass(0)/fail(1): 0,	 time (s): 0.000457763671875
+Method: CudaSharedMemory          , dims: (48, 48, 48)        , pass(0)/fail(1): 0,	 time (s): 0.00036334991455078125
+Method: CupyMatmul                , dims: (48, 48, 48)        , pass(0)/fail(1): 0,	 time (s): 0.00017142295837402344
+Method: CupyDot                   , dims: (48, 48, 48)        , pass(0)/fail(1): 0,	 time (s): 7.176399230957031e-05
+
+Method: CudaGlobalMemory          , dims: (64, 64, 64)        , pass(0)/fail(1): 0,	 time (s): 0.0004658699035644531
+Method: CudaSharedMemory          , dims: (64, 64, 64)        , pass(0)/fail(1): 0,	 time (s): 0.000339508056640625
+Method: CupyMatmul                , dims: (64, 64, 64)        , pass(0)/fail(1): 0,	 time (s): 0.00016641616821289062
+Method: CupyDot                   , dims: (64, 64, 64)        , pass(0)/fail(1): 0,	 time (s): 7.891654968261719e-05
+
+Method: CudaGlobalMemory          , dims: (80, 80, 80)        , pass(0)/fail(1): 0,	 time (s): 0.0004494190216064453
+Method: CudaSharedMemory          , dims: (80, 80, 80)        , pass(0)/fail(1): 0,	 time (s): 0.0003914833068847656
+Method: CupyMatmul                , dims: (80, 80, 80)        , pass(0)/fail(1): 0,	 time (s): 0.00017976760864257812
+Method: CupyDot                   , dims: (80, 80, 80)        , pass(0)/fail(1): 0,	 time (s): 8.153915405273438e-05
+
+Method: CudaGlobalMemory          , dims: (96, 96, 96)        , pass(0)/fail(1): 0,	 time (s): 0.0004451274871826172
+Method: CudaSharedMemory          , dims: (96, 96, 96)        , pass(0)/fail(1): 0,	 time (s): 0.00040340423583984375
+Method: CupyMatmul                , dims: (96, 96, 96)        , pass(0)/fail(1): 0,	 time (s): 0.00018477439880371094
+Method: CupyDot                   , dims: (96, 96, 96)        , pass(0)/fail(1): 0,	 time (s): 8.916854858398438e-05
+
+Method: CudaGlobalMemory          , dims: (112, 112, 112)     , pass(0)/fail(1): 0,	 time (s): 0.00051116943359375
+Method: CudaSharedMemory          , dims: (112, 112, 112)     , pass(0)/fail(1): 0,	 time (s): 0.0004012584686279297
+Method: CupyMatmul                , dims: (112, 112, 112)     , pass(0)/fail(1): 0,	 time (s): 0.00018477439880371094
+Method: CupyDot                   , dims: (112, 112, 112)     , pass(0)/fail(1): 0,	 time (s): 9.870529174804688e-05
+
+Method: CudaGlobalMemory          , dims: (128, 128, 128)     , pass(0)/fail(1): 0,	 time (s): 0.0005207061767578125
+Method: CudaSharedMemory          , dims: (128, 128, 128)     , pass(0)/fail(1): 0,	 time (s): 0.0003962516784667969
+Method: CupyMatmul                , dims: (128, 128, 128)     , pass(0)/fail(1): 0,	 time (s): 0.000194549560546875
+Method: CupyDot                   , dims: (128, 128, 128)     , pass(0)/fail(1): 0,	 time (s): 0.00010466575622558594
+
+Method: CudaGlobalMemory          , dims: (144, 144, 144)     , pass(0)/fail(1): 0,	 time (s): 0.0005247592926025391
+Method: CudaSharedMemory          , dims: (144, 144, 144)     , pass(0)/fail(1): 0,	 time (s): 0.00043845176696777344
+Method: CupyMatmul                , dims: (144, 144, 144)     , pass(0)/fail(1): 0,	 time (s): 0.00020599365234375
+Method: CupyDot                   , dims: (144, 144, 144)     , pass(0)/fail(1): 0,	 time (s): 0.00011777877807617188
+
+Method: CudaGlobalMemory          , dims: (160, 160, 160)     , pass(0)/fail(1): 0,	 time (s): 0.0005497932434082031
+Method: CudaSharedMemory          , dims: (160, 160, 160)     , pass(0)/fail(1): 0,	 time (s): 0.00041985511779785156
+Method: CupyMatmul                , dims: (160, 160, 160)     , pass(0)/fail(1): 0,	 time (s): 0.0003390312194824219
+Method: CupyDot                   , dims: (160, 160, 160)     , pass(0)/fail(1): 0,	 time (s): 0.00013566017150878906
+
+Method: CudaGlobalMemory          , dims: (176, 176, 176)     , pass(0)/fail(1): 0,	 time (s): 0.0006258487701416016
+Method: CudaSharedMemory          , dims: (176, 176, 176)     , pass(0)/fail(1): 0,	 time (s): 0.0004303455352783203
+Method: CupyMatmul                , dims: (176, 176, 176)     , pass(0)/fail(1): 0,	 time (s): 0.00022864341735839844
+Method: CupyDot                   , dims: (176, 176, 176)     , pass(0)/fail(1): 0,	 time (s): 0.0001423358917236328
+
+Method: CudaGlobalMemory          , dims: (192, 192, 192)     , pass(0)/fail(1): 0,	 time (s): 0.0005996227264404297
+Method: CudaSharedMemory          , dims: (192, 192, 192)     , pass(0)/fail(1): 0,	 time (s): 0.00043392181396484375
+Method: CupyMatmul                , dims: (192, 192, 192)     , pass(0)/fail(1): 0,	 time (s): 0.00023627281188964844
+Method: CupyDot                   , dims: (192, 192, 192)     , pass(0)/fail(1): 0,	 time (s): 0.00015401840209960938
+
+Method: CudaGlobalMemory          , dims: (208, 208, 208)     , pass(0)/fail(1): 0,	 time (s): 0.0007443428039550781
+Method: CudaSharedMemory          , dims: (208, 208, 208)     , pass(0)/fail(1): 0,	 time (s): 0.0004467964172363281
+Method: CupyMatmul                , dims: (208, 208, 208)     , pass(0)/fail(1): 0,	 time (s): 0.0002474784851074219
+Method: CupyDot                   , dims: (208, 208, 208)     , pass(0)/fail(1): 0,	 time (s): 0.0001659393310546875
+
+Method: CudaGlobalMemory          , dims: (224, 224, 224)     , pass(0)/fail(1): 0,	 time (s): 0.0007870197296142578
+Method: CudaSharedMemory          , dims: (224, 224, 224)     , pass(0)/fail(1): 0,	 time (s): 0.0004565715789794922
+Method: CupyMatmul                , dims: (224, 224, 224)     , pass(0)/fail(1): 0,	 time (s): 0.00025582313537597656
+Method: CupyDot                   , dims: (224, 224, 224)     , pass(0)/fail(1): 0,	 time (s): 0.000179290771484375
+
+Method: CudaGlobalMemory          , dims: (240, 240, 240)     , pass(0)/fail(1): 0,	 time (s): 0.0008974075317382812
+Method: CudaSharedMemory          , dims: (240, 240, 240)     , pass(0)/fail(1): 0,	 time (s): 0.0004911422729492188
+Method: CupyMatmul                , dims: (240, 240, 240)     , pass(0)/fail(1): 0,	 time (s): 0.0002758502960205078
+Method: CupyDot                   , dims: (240, 240, 240)     , pass(0)/fail(1): 0,	 time (s): 0.00019121170043945312
+
+Method: CudaGlobalMemory          , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.0008955001831054688
+Method: CudaSharedMemory          , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.0005919933319091797
+Method: CupyMatmul                , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.0002982616424560547
+Method: CupyDot                   , dims: (256, 256, 256)     , pass(0)/fail(1): 0,	 time (s): 0.00021409988403320312
+
+Method: CudaGlobalMemory          , dims: (272, 272, 272)     , pass(0)/fail(1): 0,	 time (s): 0.0010454654693603516
+Method: CudaSharedMemory          , dims: (272, 272, 272)     , pass(0)/fail(1): 0,	 time (s): 0.0005147457122802734
+Method: CupyMatmul                , dims: (272, 272, 272)     , pass(0)/fail(1): 0,	 time (s): 0.0010030269622802734
+Method: CupyDot                   , dims: (272, 272, 272)     , pass(0)/fail(1): 0,	 time (s): 0.00024509429931640625
+
+Method: CudaGlobalMemory          , dims: (288, 288, 288)     , pass(0)/fail(1): 0,	 time (s): 0.0011372566223144531
+Method: CudaSharedMemory          , dims: (288, 288, 288)     , pass(0)/fail(1): 0,	 time (s): 0.000583648681640625
+Method: CupyMatmul                , dims: (288, 288, 288)     , pass(0)/fail(1): 0,	 time (s): 0.0003314018249511719
+Method: CupyDot                   , dims: (288, 288, 288)     , pass(0)/fail(1): 0,	 time (s): 0.0002586841583251953
+
+Method: CudaGlobalMemory          , dims: (304, 304, 304)     , pass(0)/fail(1): 0,	 time (s): 0.0011448860168457031
+Method: CudaSharedMemory          , dims: (304, 304, 304)     , pass(0)/fail(1): 0,	 time (s): 0.0005681514739990234
+Method: CupyMatmul                , dims: (304, 304, 304)     , pass(0)/fail(1): 0,	 time (s): 0.00042176246643066406
+Method: CupyDot                   , dims: (304, 304, 304)     , pass(0)/fail(1): 0,	 time (s): 0.0002894401550292969
+
+Method: CudaGlobalMemory          , dims: (320, 320, 320)     , pass(0)/fail(1): 0,	 time (s): 0.0013391971588134766
+Method: CudaSharedMemory          , dims: (320, 320, 320)     , pass(0)/fail(1): 0,	 time (s): 0.0007066726684570312
+Method: CupyMatmul                , dims: (320, 320, 320)     , pass(0)/fail(1): 0,	 time (s): 0.0003733634948730469
+Method: CupyDot                   , dims: (320, 320, 320)     , pass(0)/fail(1): 0,	 time (s): 0.0003178119659423828
+
+Method: CudaGlobalMemory          , dims: (336, 336, 336)     , pass(0)/fail(1): 0,	 time (s): 0.0013942718505859375
+Method: CudaSharedMemory          , dims: (336, 336, 336)     , pass(0)/fail(1): 0,	 time (s): 0.0006837844848632812
+Method: CupyMatmul                , dims: (336, 336, 336)     , pass(0)/fail(1): 0,	 time (s): 0.00045680999755859375
+Method: CupyDot                   , dims: (336, 336, 336)     , pass(0)/fail(1): 0,	 time (s): 0.00034427642822265625
+
+Method: CudaGlobalMemory          , dims: (352, 352, 352)     , pass(0)/fail(1): 0,	 time (s): 0.001706838607788086
+Method: CudaSharedMemory          , dims: (352, 352, 352)     , pass(0)/fail(1): 0,	 time (s): 0.0006737709045410156
+Method: CupyMatmul                , dims: (352, 352, 352)     , pass(0)/fail(1): 0,	 time (s): 0.00043773651123046875
+Method: CupyDot                   , dims: (352, 352, 352)     , pass(0)/fail(1): 0,	 time (s): 0.0003654956817626953
+
+Method: CudaGlobalMemory          , dims: (368, 368, 368)     , pass(0)/fail(1): 0,	 time (s): 0.0017893314361572266
+Method: CudaSharedMemory          , dims: (368, 368, 368)     , pass(0)/fail(1): 0,	 time (s): 0.000782012939453125
+Method: CupyMatmul                , dims: (368, 368, 368)     , pass(0)/fail(1): 0,	 time (s): 0.0009725093841552734
+Method: CupyDot                   , dims: (368, 368, 368)     , pass(0)/fail(1): 0,	 time (s): 0.00037407875061035156
+
+Method: CudaGlobalMemory          , dims: (384, 384, 384)     , pass(0)/fail(1): 0,	 time (s): 0.0020911693572998047
+Method: CudaSharedMemory          , dims: (384, 384, 384)     , pass(0)/fail(1): 0,	 time (s): 0.0007960796356201172
+Method: CupyMatmul                , dims: (384, 384, 384)     , pass(0)/fail(1): 0,	 time (s): 0.00048160552978515625
+Method: CupyDot                   , dims: (384, 384, 384)     , pass(0)/fail(1): 0,	 time (s): 0.00043511390686035156
+
+Method: CudaGlobalMemory          , dims: (400, 400, 400)     , pass(0)/fail(1): 0,	 time (s): 0.0021638870239257812
+Method: CudaSharedMemory          , dims: (400, 400, 400)     , pass(0)/fail(1): 0,	 time (s): 0.0008573532104492188
+Method: CupyMatmul                , dims: (400, 400, 400)     , pass(0)/fail(1): 0,	 time (s): 0.0006105899810791016
+Method: CupyDot                   , dims: (400, 400, 400)     , pass(0)/fail(1): 0,	 time (s): 0.0004639625549316406
+
+Method: CudaGlobalMemory          , dims: (416, 416, 416)     , pass(0)/fail(1): 0,	 time (s): 0.002411365509033203
+Method: CudaSharedMemory          , dims: (416, 416, 416)     , pass(0)/fail(1): 0,	 time (s): 0.0008604526519775391
+Method: CupyMatmul                , dims: (416, 416, 416)     , pass(0)/fail(1): 0,	 time (s): 0.0005385875701904297
+Method: CupyDot                   , dims: (416, 416, 416)     , pass(0)/fail(1): 0,	 time (s): 0.0004925727844238281
+
+Method: CudaGlobalMemory          , dims: (432, 432, 432)     , pass(0)/fail(1): 0,	 time (s): 0.0025827884674072266
+Method: CudaSharedMemory          , dims: (432, 432, 432)     , pass(0)/fail(1): 0,	 time (s): 0.0013165473937988281
+Method: CupyMatmul                , dims: (432, 432, 432)     , pass(0)/fail(1): 0,	 time (s): 0.0005753040313720703
+Method: CupyDot                   , dims: (432, 432, 432)     , pass(0)/fail(1): 0,	 time (s): 0.0005133152008056641
+
+Method: CudaGlobalMemory          , dims: (448, 448, 448)     , pass(0)/fail(1): 0,	 time (s): 0.0028290748596191406
+Method: CudaSharedMemory          , dims: (448, 448, 448)     , pass(0)/fail(1): 0,	 time (s): 0.0009992122650146484
+Method: CupyMatmul                , dims: (448, 448, 448)     , pass(0)/fail(1): 0,	 time (s): 0.0006914138793945312
+Method: CupyDot                   , dims: (448, 448, 448)     , pass(0)/fail(1): 0,	 time (s): 0.00055694580078125
+
+Method: CudaGlobalMemory          , dims: (464, 464, 464)     , pass(0)/fail(1): 0,	 time (s): 0.0030367374420166016
+Method: CudaSharedMemory          , dims: (464, 464, 464)     , pass(0)/fail(1): 0,	 time (s): 0.0014719963073730469
+Method: CupyMatmul                , dims: (464, 464, 464)     , pass(0)/fail(1): 0,	 time (s): 0.0007121562957763672
+Method: CupyDot                   , dims: (464, 464, 464)     , pass(0)/fail(1): 0,	 time (s): 0.0006270408630371094
+
+Method: CudaGlobalMemory          , dims: (480, 480, 480)     , pass(0)/fail(1): 0,	 time (s): 0.003312826156616211
+Method: CudaSharedMemory          , dims: (480, 480, 480)     , pass(0)/fail(1): 0,	 time (s): 0.0012159347534179688
+Method: CupyMatmul                , dims: (480, 480, 480)     , pass(0)/fail(1): 0,	 time (s): 0.0007386207580566406
+Method: CupyDot                   , dims: (480, 480, 480)     , pass(0)/fail(1): 0,	 time (s): 0.000652313232421875
+
+Method: CudaGlobalMemory          , dims: (496, 496, 496)     , pass(0)/fail(1): 0,	 time (s): 0.0037343502044677734
+Method: CudaSharedMemory          , dims: (496, 496, 496)     , pass(0)/fail(1): 0,	 time (s): 0.0015225410461425781
+Method: CupyMatmul                , dims: (496, 496, 496)     , pass(0)/fail(1): 0,	 time (s): 0.0007915496826171875
+Method: CupyDot                   , dims: (496, 496, 496)     , pass(0)/fail(1): 0,	 time (s): 0.0006928443908691406
+
+Method: CudaGlobalMemory          , dims: (512, 512, 512)     , pass(0)/fail(1): 0,	 time (s): 0.004011631011962891
+Method: CudaSharedMemory          , dims: (512, 512, 512)     , pass(0)/fail(1): 0,	 time (s): 0.0012891292572021484
+Method: CupyMatmul                , dims: (512, 512, 512)     , pass(0)/fail(1): 0,	 time (s): 0.000865936279296875
+Method: CupyDot                   , dims: (512, 512, 512)     , pass(0)/fail(1): 0,	 time (s): 0.0007200241088867188
+
+Method: CudaGlobalMemory          , dims: (528, 528, 528)     , pass(0)/fail(1): 0,	 time (s): 0.004996776580810547
+Method: CudaSharedMemory          , dims: (528, 528, 528)     , pass(0)/fail(1): 0,	 time (s): 0.0014903545379638672
+Method: CupyMatmul                , dims: (528, 528, 528)     , pass(0)/fail(1): 0,	 time (s): 0.0015799999237060547
+Method: CupyDot                   , dims: (528, 528, 528)     , pass(0)/fail(1): 0,	 time (s): 0.001344442367553711
+
+Method: CudaGlobalMemory          , dims: (544, 544, 544)     , pass(0)/fail(1): 0,	 time (s): 0.0047605037689208984
+Method: CudaSharedMemory          , dims: (544, 544, 544)     , pass(0)/fail(1): 0,	 time (s): 0.001627206802368164
+Method: CupyMatmul                , dims: (544, 544, 544)     , pass(0)/fail(1): 0,	 time (s): 0.0010874271392822266
+Method: CupyDot                   , dims: (544, 544, 544)     , pass(0)/fail(1): 0,	 time (s): 0.000881195068359375
+
+Method: CudaGlobalMemory          , dims: (560, 560, 560)     , pass(0)/fail(1): 0,	 time (s): 0.00585484504699707
+Method: CudaSharedMemory          , dims: (560, 560, 560)     , pass(0)/fail(1): 0,	 time (s): 0.0016446113586425781
+Method: CupyMatmul                , dims: (560, 560, 560)     , pass(0)/fail(1): 0,	 time (s): 0.001024484634399414
+Method: CupyDot                   , dims: (560, 560, 560)     , pass(0)/fail(1): 0,	 time (s): 0.0008592605590820312
+
+Method: CudaGlobalMemory          , dims: (576, 576, 576)     , pass(0)/fail(1): 0,	 time (s): 0.005403041839599609
+Method: CudaSharedMemory          , dims: (576, 576, 576)     , pass(0)/fail(1): 0,	 time (s): 0.0017552375793457031
+Method: CupyMatmul                , dims: (576, 576, 576)     , pass(0)/fail(1): 0,	 time (s): 0.0011653900146484375
+Method: CupyDot                   , dims: (576, 576, 576)     , pass(0)/fail(1): 0,	 time (s): 0.0009486675262451172
+
+Method: CudaGlobalMemory          , dims: (592, 592, 592)     , pass(0)/fail(1): 0,	 time (s): 0.006674766540527344
+Method: CudaSharedMemory          , dims: (592, 592, 592)     , pass(0)/fail(1): 0,	 time (s): 0.00185394287109375
+Method: CupyMatmul                , dims: (592, 592, 592)     , pass(0)/fail(1): 0,	 time (s): 0.0011966228485107422
+Method: CupyDot                   , dims: (592, 592, 592)     , pass(0)/fail(1): 0,	 time (s): 0.0010004043579101562
+
+Method: CudaGlobalMemory          , dims: (608, 608, 608)     , pass(0)/fail(1): 0,	 time (s): 0.0063669681549072266
+Method: CudaSharedMemory          , dims: (608, 608, 608)     , pass(0)/fail(1): 0,	 time (s): 0.002872467041015625
+Method: CupyMatmul                , dims: (608, 608, 608)     , pass(0)/fail(1): 0,	 time (s): 0.0010538101196289062
+Method: CupyDot                   , dims: (608, 608, 608)     , pass(0)/fail(1): 0,	 time (s): 0.0008025169372558594
+
+Method: CudaGlobalMemory          , dims: (624, 624, 624)     , pass(0)/fail(1): 0,	 time (s): 0.006679534912109375
+Method: CudaSharedMemory          , dims: (624, 624, 624)     , pass(0)/fail(1): 0,	 time (s): 0.0020384788513183594
+Method: CupyMatmul                , dims: (624, 624, 624)     , pass(0)/fail(1): 0,	 time (s): 0.0010633468627929688
+Method: CupyDot                   , dims: (624, 624, 624)     , pass(0)/fail(1): 0,	 time (s): 0.0008368492126464844
+
+Method: CudaGlobalMemory          , dims: (640, 640, 640)     , pass(0)/fail(1): 0,	 time (s): 0.0072231292724609375
+Method: CudaSharedMemory          , dims: (640, 640, 640)     , pass(0)/fail(1): 0,	 time (s): 0.0030150413513183594
+Method: CupyMatmul                , dims: (640, 640, 640)     , pass(0)/fail(1): 0,	 time (s): 0.0011165142059326172
+Method: CupyDot                   , dims: (640, 640, 640)     , pass(0)/fail(1): 0,	 time (s): 0.0008914470672607422
+
+Method: CudaGlobalMemory          , dims: (656, 656, 656)     , pass(0)/fail(1): 0,	 time (s): 0.007677316665649414
+Method: CudaSharedMemory          , dims: (656, 656, 656)     , pass(0)/fail(1): 0,	 time (s): 0.0022568702697753906
+Method: CupyMatmul                , dims: (656, 656, 656)     , pass(0)/fail(1): 0,	 time (s): 0.001168966293334961
+Method: CupyDot                   , dims: (656, 656, 656)     , pass(0)/fail(1): 0,	 time (s): 0.0009253025054931641
+
+Method: CudaGlobalMemory          , dims: (672, 672, 672)     , pass(0)/fail(1): 0,	 time (s): 0.008170127868652344
+Method: CudaSharedMemory          , dims: (672, 672, 672)     , pass(0)/fail(1): 0,	 time (s): 0.0032422542572021484
+Method: CupyMatmul                , dims: (672, 672, 672)     , pass(0)/fail(1): 0,	 time (s): 0.0012288093566894531
+Method: CupyDot                   , dims: (672, 672, 672)     , pass(0)/fail(1): 0,	 time (s): 0.000972747802734375
+
+Method: CudaGlobalMemory          , dims: (688, 688, 688)     , pass(0)/fail(1): 0,	 time (s): 0.008782625198364258
+Method: CudaSharedMemory          , dims: (688, 688, 688)     , pass(0)/fail(1): 0,	 time (s): 0.0025475025177001953
+Method: CupyMatmul                , dims: (688, 688, 688)     , pass(0)/fail(1): 0,	 time (s): 0.001346588134765625
+Method: CupyDot                   , dims: (688, 688, 688)     , pass(0)/fail(1): 0,	 time (s): 0.0010380744934082031
+
+Method: CudaGlobalMemory          , dims: (704, 704, 704)     , pass(0)/fail(1): 0,	 time (s): 0.010143518447875977
+Method: CudaSharedMemory          , dims: (704, 704, 704)     , pass(0)/fail(1): 0,	 time (s): 0.0026700496673583984
+Method: CupyMatmul                , dims: (704, 704, 704)     , pass(0)/fail(1): 0,	 time (s): 0.0013718605041503906
+Method: CupyDot                   , dims: (704, 704, 704)     , pass(0)/fail(1): 0,	 time (s): 0.0011053085327148438
+
+Method: CudaGlobalMemory          , dims: (720, 720, 720)     , pass(0)/fail(1): 0,	 time (s): 0.00981450080871582
+Method: CudaSharedMemory          , dims: (720, 720, 720)     , pass(0)/fail(1): 0,	 time (s): 0.00275421142578125
+Method: CupyMatmul                , dims: (720, 720, 720)     , pass(0)/fail(1): 0,	 time (s): 0.0013785362243652344
+Method: CupyDot                   , dims: (720, 720, 720)     , pass(0)/fail(1): 0,	 time (s): 0.0011138916015625
+
+Method: CudaGlobalMemory          , dims: (736, 736, 736)     , pass(0)/fail(1): 0,	 time (s): 0.011732101440429688
+Method: CudaSharedMemory          , dims: (736, 736, 736)     , pass(0)/fail(1): 0,	 time (s): 0.0030939579010009766
+Method: CupyMatmul                , dims: (736, 736, 736)     , pass(0)/fail(1): 0,	 time (s): 0.0024518966674804688
+Method: CupyDot                   , dims: (736, 736, 736)     , pass(0)/fail(1): 0,	 time (s): 0.002064228057861328
+
+Method: CudaGlobalMemory          , dims: (752, 752, 752)     , pass(0)/fail(1): 0,	 time (s): 0.011156797409057617
+Method: CudaSharedMemory          , dims: (752, 752, 752)     , pass(0)/fail(1): 0,	 time (s): 0.003095388412475586
+Method: CupyMatmul                , dims: (752, 752, 752)     , pass(0)/fail(1): 0,	 time (s): 0.0015578269958496094
+Method: CupyDot                   , dims: (752, 752, 752)     , pass(0)/fail(1): 0,	 time (s): 0.0012629032135009766
+
+Method: CudaGlobalMemory          , dims: (768, 768, 768)     , pass(0)/fail(1): 0,	 time (s): 0.013386011123657227
+Method: CudaSharedMemory          , dims: (768, 768, 768)     , pass(0)/fail(1): 0,	 time (s): 0.0032329559326171875
+Method: CupyMatmul                , dims: (768, 768, 768)     , pass(0)/fail(1): 0,	 time (s): 0.0016307830810546875
+Method: CupyDot                   , dims: (768, 768, 768)     , pass(0)/fail(1): 0,	 time (s): 0.0012867450714111328
+
+Method: CudaGlobalMemory          , dims: (784, 784, 784)     , pass(0)/fail(1): 0,	 time (s): 0.012530803680419922
+Method: CudaSharedMemory          , dims: (784, 784, 784)     , pass(0)/fail(1): 0,	 time (s): 0.004854679107666016
+Method: CupyMatmul                , dims: (784, 784, 784)     , pass(0)/fail(1): 0,	 time (s): 0.0018057823181152344
+Method: CupyDot                   , dims: (784, 784, 784)     , pass(0)/fail(1): 0,	 time (s): 0.00146484375
+
+Method: CudaGlobalMemory          , dims: (800, 800, 800)     , pass(0)/fail(1): 0,	 time (s): 0.013266563415527344
+Method: CudaSharedMemory          , dims: (800, 800, 800)     , pass(0)/fail(1): 0,	 time (s): 0.0035026073455810547
+Method: CupyMatmul                , dims: (800, 800, 800)     , pass(0)/fail(1): 0,	 time (s): 0.0017724037170410156
+Method: CupyDot                   , dims: (800, 800, 800)     , pass(0)/fail(1): 0,	 time (s): 0.0014910697937011719
+
+Method: CudaGlobalMemory          , dims: (816, 816, 816)     , pass(0)/fail(1): 0,	 time (s): 0.013982534408569336
+Method: CudaSharedMemory          , dims: (816, 816, 816)     , pass(0)/fail(1): 0,	 time (s): 0.005800008773803711
+Method: CupyMatmul                , dims: (816, 816, 816)     , pass(0)/fail(1): 0,	 time (s): 0.0019378662109375
+Method: CupyDot                   , dims: (816, 816, 816)     , pass(0)/fail(1): 0,	 time (s): 0.0015592575073242188
+
+Method: CudaGlobalMemory          , dims: (832, 832, 832)     , pass(0)/fail(1): 0,	 time (s): 0.014924287796020508
+Method: CudaSharedMemory          , dims: (832, 832, 832)     , pass(0)/fail(1): 0,	 time (s): 0.0038754940032958984
+Method: CupyMatmul                , dims: (832, 832, 832)     , pass(0)/fail(1): 0,	 time (s): 0.0019388198852539062
+Method: CupyDot                   , dims: (832, 832, 832)     , pass(0)/fail(1): 0,	 time (s): 0.0016236305236816406
+
+Method: CudaGlobalMemory          , dims: (848, 848, 848)     , pass(0)/fail(1): 0,	 time (s): 0.015719175338745117
+Method: CudaSharedMemory          , dims: (848, 848, 848)     , pass(0)/fail(1): 0,	 time (s): 0.0056073665618896484
+Method: CupyMatmul                , dims: (848, 848, 848)     , pass(0)/fail(1): 0,	 time (s): 0.0020656585693359375
+Method: CupyDot                   , dims: (848, 848, 848)     , pass(0)/fail(1): 0,	 time (s): 0.0017077922821044922
+
+Method: CudaGlobalMemory          , dims: (864, 864, 864)     , pass(0)/fail(1): 0,	 time (s): 0.016450881958007812
+Method: CudaSharedMemory          , dims: (864, 864, 864)     , pass(0)/fail(1): 0,	 time (s): 0.004265785217285156
+Method: CupyMatmul                , dims: (864, 864, 864)     , pass(0)/fail(1): 0,	 time (s): 0.0021064281463623047
+Method: CupyDot                   , dims: (864, 864, 864)     , pass(0)/fail(1): 0,	 time (s): 0.001748800277709961
+
+Method: CudaGlobalMemory          , dims: (880, 880, 880)     , pass(0)/fail(1): 0,	 time (s): 0.01888728141784668
+Method: CudaSharedMemory          , dims: (880, 880, 880)     , pass(0)/fail(1): 0,	 time (s): 0.004521369934082031
+Method: CupyMatmul                , dims: (880, 880, 880)     , pass(0)/fail(1): 0,	 time (s): 0.0021958351135253906
+Method: CupyDot                   , dims: (880, 880, 880)     , pass(0)/fail(1): 0,	 time (s): 0.001798391342163086
+
+Method: CudaGlobalMemory          , dims: (896, 896, 896)     , pass(0)/fail(1): 0,	 time (s): 0.01832294464111328
+Method: CudaSharedMemory          , dims: (896, 896, 896)     , pass(0)/fail(1): 0,	 time (s): 0.00472712516784668
+Method: CupyMatmul                , dims: (896, 896, 896)     , pass(0)/fail(1): 0,	 time (s): 0.002274751663208008
+Method: CupyDot                   , dims: (896, 896, 896)     , pass(0)/fail(1): 0,	 time (s): 0.0018992424011230469
+
+Method: CudaGlobalMemory          , dims: (912, 912, 912)     , pass(0)/fail(1): 0,	 time (s): 0.020789384841918945
+Method: CudaSharedMemory          , dims: (912, 912, 912)     , pass(0)/fail(1): 0,	 time (s): 0.004927635192871094
+Method: CupyMatmul                , dims: (912, 912, 912)     , pass(0)/fail(1): 0,	 time (s): 0.0024580955505371094
+Method: CupyDot                   , dims: (912, 912, 912)     , pass(0)/fail(1): 0,	 time (s): 0.0020585060119628906
+
+Method: CudaGlobalMemory          , dims: (928, 928, 928)     , pass(0)/fail(1): 0,	 time (s): 0.020203113555908203
+Method: CudaSharedMemory          , dims: (928, 928, 928)     , pass(0)/fail(1): 0,	 time (s): 0.00513005256652832
+Method: CupyMatmul                , dims: (928, 928, 928)     , pass(0)/fail(1): 0,	 time (s): 0.002563953399658203
+Method: CupyDot                   , dims: (928, 928, 928)     , pass(0)/fail(1): 0,	 time (s): 0.0021758079528808594
+
+Method: CudaGlobalMemory          , dims: (944, 944, 944)     , pass(0)/fail(1): 0,	 time (s): 0.022777795791625977
+Method: CudaSharedMemory          , dims: (944, 944, 944)     , pass(0)/fail(1): 0,	 time (s): 0.0061190128326416016
+Method: CupyMatmul                , dims: (944, 944, 944)     , pass(0)/fail(1): 0,	 time (s): 0.0027332305908203125
+Method: CupyDot                   , dims: (944, 944, 944)     , pass(0)/fail(1): 0,	 time (s): 0.002322673797607422
+
+Method: CudaGlobalMemory          , dims: (960, 960, 960)     , pass(0)/fail(1): 0,	 time (s): 0.02243351936340332
+Method: CudaSharedMemory          , dims: (960, 960, 960)     , pass(0)/fail(1): 0,	 time (s): 0.007062673568725586
+Method: CupyMatmul                , dims: (960, 960, 960)     , pass(0)/fail(1): 0,	 time (s): 0.0027360916137695312
+Method: CupyDot                   , dims: (960, 960, 960)     , pass(0)/fail(1): 0,	 time (s): 0.0023353099822998047
+
+Method: CudaGlobalMemory          , dims: (976, 976, 976)     , pass(0)/fail(1): 0,	 time (s): 0.023305177688598633
+Method: CudaSharedMemory          , dims: (976, 976, 976)     , pass(0)/fail(1): 0,	 time (s): 0.005793571472167969
+Method: CupyMatmul                , dims: (976, 976, 976)     , pass(0)/fail(1): 0,	 time (s): 0.002819061279296875
+Method: CupyDot                   , dims: (976, 976, 976)     , pass(0)/fail(1): 0,	 time (s): 0.0024743080139160156
+
+Method: CudaGlobalMemory          , dims: (992, 992, 992)     , pass(0)/fail(1): 0,	 time (s): 0.024434328079223633
+Method: CudaSharedMemory          , dims: (992, 992, 992)     , pass(0)/fail(1): 0,	 time (s): 0.007504940032958984
+Method: CupyMatmul                , dims: (992, 992, 992)     , pass(0)/fail(1): 0,	 time (s): 0.002892017364501953
+Method: CupyDot                   , dims: (992, 992, 992)     , pass(0)/fail(1): 0,	 time (s): 0.0025017261505126953
+
+Method: CudaGlobalMemory          , dims: (1008, 1008, 1008)  , pass(0)/fail(1): 0,	 time (s): 0.02558612823486328
+Method: CudaSharedMemory          , dims: (1008, 1008, 1008)  , pass(0)/fail(1): 0,	 time (s): 0.006250143051147461
+Method: CupyMatmul                , dims: (1008, 1008, 1008)  , pass(0)/fail(1): 0,	 time (s): 0.002958536148071289
+Method: CupyDot                   , dims: (1008, 1008, 1008)  , pass(0)/fail(1): 0,	 time (s): 0.0025742053985595703
+
+Method: CudaGlobalMemory          , dims: (1024, 1024, 1024)  , pass(0)/fail(1): 0,	 time (s): 0.027564525604248047
+Method: CudaSharedMemory          , dims: (1024, 1024, 1024)  , pass(0)/fail(1): 0,	 time (s): 0.007958412170410156
+Method: CupyMatmul                , dims: (1024, 1024, 1024)  , pass(0)/fail(1): 0,	 time (s): 0.003049135208129883
+Method: CupyDot                   , dims: (1024, 1024, 1024)  , pass(0)/fail(1): 0,	 time (s): 0.002618551254272461
+
+Method: CudaGlobalMemory          , dims: (1040, 1040, 1040)  , pass(0)/fail(1): 0,	 time (s): 0.0279388427734375
+Method: CudaSharedMemory          , dims: (1040, 1040, 1040)  , pass(0)/fail(1): 0,	 time (s): 0.0067827701568603516
+Method: CupyMatmul                , dims: (1040, 1040, 1040)  , pass(0)/fail(1): 0,	 time (s): 0.004889965057373047
+Method: CupyDot                   , dims: (1040, 1040, 1040)  , pass(0)/fail(1): 0,	 time (s): 0.004496097564697266
+
+Method: CudaGlobalMemory          , dims: (1056, 1056, 1056)  , pass(0)/fail(1): 0,	 time (s): 0.031104564666748047
+Method: CudaSharedMemory          , dims: (1056, 1056, 1056)  , pass(0)/fail(1): 0,	 time (s): 0.0071680545806884766
+Method: CupyMatmul                , dims: (1056, 1056, 1056)  , pass(0)/fail(1): 0,	 time (s): 0.0032978057861328125
+Method: CupyDot                   , dims: (1056, 1056, 1056)  , pass(0)/fail(1): 0,	 time (s): 0.0028824806213378906
+
+Method: CudaGlobalMemory          , dims: (1072, 1072, 1072)  , pass(0)/fail(1): 0,	 time (s): 0.030428647994995117
+Method: CudaSharedMemory          , dims: (1072, 1072, 1072)  , pass(0)/fail(1): 0,	 time (s): 0.007428407669067383
+Method: CupyMatmul                , dims: (1072, 1072, 1072)  , pass(0)/fail(1): 0,	 time (s): 0.003335237503051758
+Method: CupyDot                   , dims: (1072, 1072, 1072)  , pass(0)/fail(1): 0,	 time (s): 0.0028638839721679688
+
+Method: CudaGlobalMemory          , dims: (1088, 1088, 1088)  , pass(0)/fail(1): 0,	 time (s): 0.03393888473510742
+Method: CudaSharedMemory          , dims: (1088, 1088, 1088)  , pass(0)/fail(1): 0,	 time (s): 0.007724285125732422
+Method: CupyMatmul                , dims: (1088, 1088, 1088)  , pass(0)/fail(1): 0,	 time (s): 0.0034258365631103516
+Method: CupyDot                   , dims: (1088, 1088, 1088)  , pass(0)/fail(1): 0,	 time (s): 0.0029747486114501953
+
+Method: CudaGlobalMemory          , dims: (1104, 1104, 1104)  , pass(0)/fail(1): 0,	 time (s): 0.033110857009887695
+Method: CudaSharedMemory          , dims: (1104, 1104, 1104)  , pass(0)/fail(1): 0,	 time (s): 0.007952213287353516
+Method: CupyMatmul                , dims: (1104, 1104, 1104)  , pass(0)/fail(1): 0,	 time (s): 0.003533601760864258
+Method: CupyDot                   , dims: (1104, 1104, 1104)  , pass(0)/fail(1): 0,	 time (s): 0.0030379295349121094
+
+Method: CudaGlobalMemory          , dims: (1120, 1120, 1120)  , pass(0)/fail(1): 0,	 time (s): 0.036685943603515625
+Method: CudaSharedMemory          , dims: (1120, 1120, 1120)  , pass(0)/fail(1): 0,	 time (s): 0.008243560791015625
+Method: CupyMatmul                , dims: (1120, 1120, 1120)  , pass(0)/fail(1): 0,	 time (s): 0.003641843795776367
+Method: CupyDot                   , dims: (1120, 1120, 1120)  , pass(0)/fail(1): 0,	 time (s): 0.0031502246856689453
+
+Method: CudaGlobalMemory          , dims: (1136, 1136, 1136)  , pass(0)/fail(1): 0,	 time (s): 0.03586578369140625
+Method: CudaSharedMemory          , dims: (1136, 1136, 1136)  , pass(0)/fail(1): 0,	 time (s): 0.01059269905090332
+Method: CupyMatmul                , dims: (1136, 1136, 1136)  , pass(0)/fail(1): 0,	 time (s): 0.00366973876953125
+Method: CupyDot                   , dims: (1136, 1136, 1136)  , pass(0)/fail(1): 0,	 time (s): 0.003197193145751953
+
+Method: CudaGlobalMemory          , dims: (1152, 1152, 1152)  , pass(0)/fail(1): 0,	 time (s): 0.037436723709106445
+Method: CudaSharedMemory          , dims: (1152, 1152, 1152)  , pass(0)/fail(1): 0,	 time (s): 0.008851289749145508
+Method: CupyMatmul                , dims: (1152, 1152, 1152)  , pass(0)/fail(1): 0,	 time (s): 0.003778219223022461
+Method: CupyDot                   , dims: (1152, 1152, 1152)  , pass(0)/fail(1): 0,	 time (s): 0.003316164016723633
+
+Method: CudaGlobalMemory          , dims: (1168, 1168, 1168)  , pass(0)/fail(1): 0,	 time (s): 0.038915157318115234
+Method: CudaSharedMemory          , dims: (1168, 1168, 1168)  , pass(0)/fail(1): 0,	 time (s): 0.011313915252685547
+Method: CupyMatmul                , dims: (1168, 1168, 1168)  , pass(0)/fail(1): 0,	 time (s): 0.004014015197753906
+Method: CupyDot                   , dims: (1168, 1168, 1168)  , pass(0)/fail(1): 0,	 time (s): 0.0035619735717773438
+
+Method: CudaGlobalMemory          , dims: (1184, 1184, 1184)  , pass(0)/fail(1): 0,	 time (s): 0.040457725524902344
+Method: CudaSharedMemory          , dims: (1184, 1184, 1184)  , pass(0)/fail(1): 0,	 time (s): 0.009502887725830078
+Method: CupyMatmul                , dims: (1184, 1184, 1184)  , pass(0)/fail(1): 0,	 time (s): 0.004132270812988281
+Method: CupyDot                   , dims: (1184, 1184, 1184)  , pass(0)/fail(1): 0,	 time (s): 0.0036842823028564453
+
+Method: CudaGlobalMemory          , dims: (1200, 1200, 1200)  , pass(0)/fail(1): 0,	 time (s): 0.0420687198638916
+Method: CudaSharedMemory          , dims: (1200, 1200, 1200)  , pass(0)/fail(1): 0,	 time (s): 0.012558698654174805
+Method: CupyMatmul                , dims: (1200, 1200, 1200)  , pass(0)/fail(1): 0,	 time (s): 0.00417780876159668
+Method: CupyDot                   , dims: (1200, 1200, 1200)  , pass(0)/fail(1): 0,	 time (s): 0.003693819046020508
+
+Method: CudaGlobalMemory          , dims: (1216, 1216, 1216)  , pass(0)/fail(1): 0,	 time (s): 0.04378199577331543
+Method: CudaSharedMemory          , dims: (1216, 1216, 1216)  , pass(0)/fail(1): 0,	 time (s): 0.010225296020507812
+Method: CupyMatmul                , dims: (1216, 1216, 1216)  , pass(0)/fail(1): 0,	 time (s): 0.004638671875
+Method: CupyDot                   , dims: (1216, 1216, 1216)  , pass(0)/fail(1): 0,	 time (s): 0.0038361549377441406
+
+Method: CudaGlobalMemory          , dims: (1232, 1232, 1232)  , pass(0)/fail(1): 0,	 time (s): 0.04749655723571777
+Method: CudaSharedMemory          , dims: (1232, 1232, 1232)  , pass(0)/fail(1): 0,	 time (s): 0.010558366775512695
+Method: CupyMatmul                , dims: (1232, 1232, 1232)  , pass(0)/fail(1): 0,	 time (s): 0.004464626312255859
+Method: CupyDot                   , dims: (1232, 1232, 1232)  , pass(0)/fail(1): 0,	 time (s): 0.00390934944152832
+
+Method: CudaGlobalMemory          , dims: (1248, 1248, 1248)  , pass(0)/fail(1): 0,	 time (s): 0.04727649688720703
+Method: CudaSharedMemory          , dims: (1248, 1248, 1248)  , pass(0)/fail(1): 0,	 time (s): 0.010924339294433594
+Method: CupyMatmul                , dims: (1248, 1248, 1248)  , pass(0)/fail(1): 0,	 time (s): 0.004568576812744141
+Method: CupyDot                   , dims: (1248, 1248, 1248)  , pass(0)/fail(1): 0,	 time (s): 0.003890514373779297
+
+Method: CudaGlobalMemory          , dims: (1264, 1264, 1264)  , pass(0)/fail(1): 0,	 time (s): 0.05090594291687012
+Method: CudaSharedMemory          , dims: (1264, 1264, 1264)  , pass(0)/fail(1): 0,	 time (s): 0.011246204376220703
+Method: CupyMatmul                , dims: (1264, 1264, 1264)  , pass(0)/fail(1): 0,	 time (s): 0.005518674850463867
+Method: CupyDot                   , dims: (1264, 1264, 1264)  , pass(0)/fail(1): 0,	 time (s): 0.004033565521240234
+
+Method: CudaGlobalMemory          , dims: (1280, 1280, 1280)  , pass(0)/fail(1): 0,	 time (s): 0.050666093826293945
+Method: CudaSharedMemory          , dims: (1280, 1280, 1280)  , pass(0)/fail(1): 0,	 time (s): 0.01167154312133789
+Method: CupyMatmul                , dims: (1280, 1280, 1280)  , pass(0)/fail(1): 0,	 time (s): 0.0047032833099365234
+Method: CupyDot                   , dims: (1280, 1280, 1280)  , pass(0)/fail(1): 0,	 time (s): 0.0040585994720458984
+
+Method: CudaGlobalMemory          , dims: (1296, 1296, 1296)  , pass(0)/fail(1): 0,	 time (s): 0.055599212646484375
+Method: CudaSharedMemory          , dims: (1296, 1296, 1296)  , pass(0)/fail(1): 0,	 time (s): 0.01199650764465332
+Method: CupyMatmul                , dims: (1296, 1296, 1296)  , pass(0)/fail(1): 0,	 time (s): 0.004974842071533203
+Method: CupyDot                   , dims: (1296, 1296, 1296)  , pass(0)/fail(1): 0,	 time (s): 0.004375934600830078
+
+Method: CudaGlobalMemory          , dims: (1312, 1312, 1312)  , pass(0)/fail(1): 0,	 time (s): 0.05448198318481445
+Method: CudaSharedMemory          , dims: (1312, 1312, 1312)  , pass(0)/fail(1): 0,	 time (s): 0.015079498291015625
+Method: CupyMatmul                , dims: (1312, 1312, 1312)  , pass(0)/fail(1): 0,	 time (s): 0.005111217498779297
+Method: CupyDot                   , dims: (1312, 1312, 1312)  , pass(0)/fail(1): 0,	 time (s): 0.004517555236816406
+
+Method: CudaGlobalMemory          , dims: (1328, 1328, 1328)  , pass(0)/fail(1): 0,	 time (s): 0.05648374557495117
+Method: CudaSharedMemory          , dims: (1328, 1328, 1328)  , pass(0)/fail(1): 0,	 time (s): 0.01278066635131836
+Method: CupyMatmul                , dims: (1328, 1328, 1328)  , pass(0)/fail(1): 0,	 time (s): 0.0051572322845458984
+Method: CupyDot                   , dims: (1328, 1328, 1328)  , pass(0)/fail(1): 0,	 time (s): 0.004523277282714844
+
+Method: CudaGlobalMemory          , dims: (1344, 1344, 1344)  , pass(0)/fail(1): 0,	 time (s): 0.05844569206237793
+Method: CudaSharedMemory          , dims: (1344, 1344, 1344)  , pass(0)/fail(1): 0,	 time (s): 0.015776634216308594
+Method: CupyMatmul                , dims: (1344, 1344, 1344)  , pass(0)/fail(1): 0,	 time (s): 0.00558781623840332
+Method: CupyDot                   , dims: (1344, 1344, 1344)  , pass(0)/fail(1): 0,	 time (s): 0.004663228988647461
+
+Method: CudaGlobalMemory          , dims: (1360, 1360, 1360)  , pass(0)/fail(1): 0,	 time (s): 0.06053614616394043
+Method: CudaSharedMemory          , dims: (1360, 1360, 1360)  , pass(0)/fail(1): 0,	 time (s): 0.013607025146484375
+Method: CupyMatmul                , dims: (1360, 1360, 1360)  , pass(0)/fail(1): 0,	 time (s): 0.0054171085357666016
+Method: CupyDot                   , dims: (1360, 1360, 1360)  , pass(0)/fail(1): 0,	 time (s): 0.00475311279296875
+
+Method: CudaGlobalMemory          , dims: (1376, 1376, 1376)  , pass(0)/fail(1): 0,	 time (s): 0.06242227554321289
+Method: CudaSharedMemory          , dims: (1376, 1376, 1376)  , pass(0)/fail(1): 0,	 time (s): 0.016666889190673828
+Method: CupyMatmul                , dims: (1376, 1376, 1376)  , pass(0)/fail(1): 0,	 time (s): 0.005494832992553711
+Method: CupyDot                   , dims: (1376, 1376, 1376)  , pass(0)/fail(1): 0,	 time (s): 0.0048787593841552734
+
+Method: CudaGlobalMemory          , dims: (1392, 1392, 1392)  , pass(0)/fail(1): 0,	 time (s): 0.06466150283813477
+Method: CudaSharedMemory          , dims: (1392, 1392, 1392)  , pass(0)/fail(1): 0,	 time (s): 0.014328479766845703
+Method: CupyMatmul                , dims: (1392, 1392, 1392)  , pass(0)/fail(1): 0,	 time (s): 0.0056285858154296875
+Method: CupyDot                   , dims: (1392, 1392, 1392)  , pass(0)/fail(1): 0,	 time (s): 0.005007743835449219
+
+Method: CudaGlobalMemory          , dims: (1408, 1408, 1408)  , pass(0)/fail(1): 0,	 time (s): 0.0695199966430664
+Method: CudaSharedMemory          , dims: (1408, 1408, 1408)  , pass(0)/fail(1): 0,	 time (s): 0.01481771469116211
+Method: CupyMatmul                , dims: (1408, 1408, 1408)  , pass(0)/fail(1): 0,	 time (s): 0.0057125091552734375
+Method: CupyDot                   , dims: (1408, 1408, 1408)  , pass(0)/fail(1): 0,	 time (s): 0.005097389221191406
+
+Method: CudaGlobalMemory          , dims: (1424, 1424, 1424)  , pass(0)/fail(1): 0,	 time (s): 0.06904768943786621
+Method: CudaSharedMemory          , dims: (1424, 1424, 1424)  , pass(0)/fail(1): 0,	 time (s): 0.015211343765258789
+Method: CupyMatmul                , dims: (1424, 1424, 1424)  , pass(0)/fail(1): 0,	 time (s): 0.005897045135498047
+Method: CupyDot                   , dims: (1424, 1424, 1424)  , pass(0)/fail(1): 0,	 time (s): 0.005227088928222656
+
+Method: CudaGlobalMemory          , dims: (1440, 1440, 1440)  , pass(0)/fail(1): 0,	 time (s): 0.07454991340637207
+Method: CudaSharedMemory          , dims: (1440, 1440, 1440)  , pass(0)/fail(1): 0,	 time (s): 0.015787839889526367
+Method: CupyMatmul                , dims: (1440, 1440, 1440)  , pass(0)/fail(1): 0,	 time (s): 0.005976200103759766
+Method: CupyDot                   , dims: (1440, 1440, 1440)  , pass(0)/fail(1): 0,	 time (s): 0.0053250789642333984
+
+Method: CudaGlobalMemory          , dims: (1456, 1456, 1456)  , pass(0)/fail(1): 0,	 time (s): 0.07362818717956543
+Method: CudaSharedMemory          , dims: (1456, 1456, 1456)  , pass(0)/fail(1): 0,	 time (s): 0.016315698623657227
+Method: CupyMatmul                , dims: (1456, 1456, 1456)  , pass(0)/fail(1): 0,	 time (s): 0.009631872177124023
+Method: CupyDot                   , dims: (1456, 1456, 1456)  , pass(0)/fail(1): 0,	 time (s): 0.008613109588623047
+
+Method: CudaGlobalMemory          , dims: (1472, 1472, 1472)  , pass(0)/fail(1): 0,	 time (s): 0.07905316352844238
+Method: CudaSharedMemory          , dims: (1472, 1472, 1472)  , pass(0)/fail(1): 0,	 time (s): 0.016623735427856445
+Method: CupyMatmul                , dims: (1472, 1472, 1472)  , pass(0)/fail(1): 0,	 time (s): 0.006224870681762695
+Method: CupyDot                   , dims: (1472, 1472, 1472)  , pass(0)/fail(1): 0,	 time (s): 0.005494117736816406
+
+Method: CudaGlobalMemory          , dims: (1488, 1488, 1488)  , pass(0)/fail(1): 0,	 time (s): 0.0791630744934082
+Method: CudaSharedMemory          , dims: (1488, 1488, 1488)  , pass(0)/fail(1): 0,	 time (s): 0.020551204681396484
+Method: CupyMatmul                , dims: (1488, 1488, 1488)  , pass(0)/fail(1): 0,	 time (s): 0.006844043731689453
+Method: CupyDot                   , dims: (1488, 1488, 1488)  , pass(0)/fail(1): 0,	 time (s): 0.0056149959564208984
+
+Method: CudaGlobalMemory          , dims: (1504, 1504, 1504)  , pass(0)/fail(1): 0,	 time (s): 0.08099007606506348
+Method: CudaSharedMemory          , dims: (1504, 1504, 1504)  , pass(0)/fail(1): 0,	 time (s): 0.017615318298339844
+Method: CupyMatmul                , dims: (1504, 1504, 1504)  , pass(0)/fail(1): 0,	 time (s): 0.006445407867431641
+Method: CupyDot                   , dims: (1504, 1504, 1504)  , pass(0)/fail(1): 0,	 time (s): 0.00580286979675293
+
+Method: CudaGlobalMemory          , dims: (1520, 1520, 1520)  , pass(0)/fail(1): 0,	 time (s): 0.08345985412597656
+Method: CudaSharedMemory          , dims: (1520, 1520, 1520)  , pass(0)/fail(1): 0,	 time (s): 0.0225827693939209
+Method: CupyMatmul                , dims: (1520, 1520, 1520)  , pass(0)/fail(1): 0,	 time (s): 0.006495952606201172
+Method: CupyDot                   , dims: (1520, 1520, 1520)  , pass(0)/fail(1): 0,	 time (s): 0.005784034729003906
+
+Method: CudaGlobalMemory          , dims: (1536, 1536, 1536)  , pass(0)/fail(1): 0,	 time (s): 0.08608675003051758
+Method: CudaSharedMemory          , dims: (1536, 1536, 1536)  , pass(0)/fail(1): 0,	 time (s): 0.018646717071533203
+Method: CupyMatmul                , dims: (1536, 1536, 1536)  , pass(0)/fail(1): 0,	 time (s): 0.0066492557525634766
+Method: CupyDot                   , dims: (1536, 1536, 1536)  , pass(0)/fail(1): 0,	 time (s): 0.005879402160644531
+
+Method: CudaGlobalMemory          , dims: (1552, 1552, 1552)  , pass(0)/fail(1): 0,	 time (s): 0.08872771263122559
+Method: CudaSharedMemory          , dims: (1552, 1552, 1552)  , pass(0)/fail(1): 0,	 time (s): 0.023511409759521484
+Method: CupyMatmul                , dims: (1552, 1552, 1552)  , pass(0)/fail(1): 0,	 time (s): 0.007059335708618164
+Method: CupyDot                   , dims: (1552, 1552, 1552)  , pass(0)/fail(1): 0,	 time (s): 0.0062983036041259766
+
+Method: CudaGlobalMemory          , dims: (1568, 1568, 1568)  , pass(0)/fail(1): 0,	 time (s): 0.09142112731933594
+Method: CudaSharedMemory          , dims: (1568, 1568, 1568)  , pass(0)/fail(1): 0,	 time (s): 0.019643545150756836
+Method: CupyMatmul                , dims: (1568, 1568, 1568)  , pass(0)/fail(1): 0,	 time (s): 0.0071909427642822266
+Method: CupyDot                   , dims: (1568, 1568, 1568)  , pass(0)/fail(1): 0,	 time (s): 0.006421327590942383
+
+Method: CudaGlobalMemory          , dims: (1584, 1584, 1584)  , pass(0)/fail(1): 0,	 time (s): 0.09744906425476074
+Method: CudaSharedMemory          , dims: (1584, 1584, 1584)  , pass(0)/fail(1): 0,	 time (s): 0.0202791690826416
+Method: CupyMatmul                , dims: (1584, 1584, 1584)  , pass(0)/fail(1): 0,	 time (s): 0.0074405670166015625
+Method: CupyDot                   , dims: (1584, 1584, 1584)  , pass(0)/fail(1): 0,	 time (s): 0.006479978561401367
+
+Method: CudaGlobalMemory          , dims: (1600, 1600, 1600)  , pass(0)/fail(1): 0,	 time (s): 0.09700179100036621
+Method: CudaSharedMemory          , dims: (1600, 1600, 1600)  , pass(0)/fail(1): 0,	 time (s): 0.020756959915161133
+Method: CupyMatmul                , dims: (1600, 1600, 1600)  , pass(0)/fail(1): 0,	 time (s): 0.007404327392578125
+Method: CupyDot                   , dims: (1600, 1600, 1600)  , pass(0)/fail(1): 0,	 time (s): 0.006688356399536133
+
+Method: CudaGlobalMemory          , dims: (1616, 1616, 1616)  , pass(0)/fail(1): 0,	 time (s): 0.10306882858276367
+Method: CudaSharedMemory          , dims: (1616, 1616, 1616)  , pass(0)/fail(1): 0,	 time (s): 0.021228313446044922
+Method: CupyMatmul                , dims: (1616, 1616, 1616)  , pass(0)/fail(1): 0,	 time (s): 0.00754547119140625
+Method: CupyDot                   , dims: (1616, 1616, 1616)  , pass(0)/fail(1): 0,	 time (s): 0.006864070892333984
+
+Method: CudaGlobalMemory          , dims: (1632, 1632, 1632)  , pass(0)/fail(1): 0,	 time (s): 0.10279488563537598
+Method: CudaSharedMemory          , dims: (1632, 1632, 1632)  , pass(0)/fail(1): 0,	 time (s): 0.02183842658996582
+Method: CupyMatmul                , dims: (1632, 1632, 1632)  , pass(0)/fail(1): 0,	 time (s): 0.007656097412109375
+Method: CupyDot                   , dims: (1632, 1632, 1632)  , pass(0)/fail(1): 0,	 time (s): 0.006925821304321289
+
+Method: CudaGlobalMemory          , dims: (1648, 1648, 1648)  , pass(0)/fail(1): 0,	 time (s): 0.10943913459777832
+Method: CudaSharedMemory          , dims: (1648, 1648, 1648)  , pass(0)/fail(1): 0,	 time (s): 0.022355318069458008
+Method: CupyMatmul                , dims: (1648, 1648, 1648)  , pass(0)/fail(1): 0,	 time (s): 0.007795095443725586
+Method: CupyDot                   , dims: (1648, 1648, 1648)  , pass(0)/fail(1): 0,	 time (s): 0.006990909576416016
+
+Method: CudaGlobalMemory          , dims: (1664, 1664, 1664)  , pass(0)/fail(1): 0,	 time (s): 0.10880589485168457
+Method: CudaSharedMemory          , dims: (1664, 1664, 1664)  , pass(0)/fail(1): 0,	 time (s): 0.027017593383789062
+Method: CupyMatmul                , dims: (1664, 1664, 1664)  , pass(0)/fail(1): 0,	 time (s): 0.007888555526733398
+Method: CupyDot                   , dims: (1664, 1664, 1664)  , pass(0)/fail(1): 0,	 time (s): 0.007131099700927734
+
+Method: CudaGlobalMemory          , dims: (1680, 1680, 1680)  , pass(0)/fail(1): 0,	 time (s): 0.11190533638000488
+Method: CudaSharedMemory          , dims: (1680, 1680, 1680)  , pass(0)/fail(1): 0,	 time (s): 0.0235750675201416
+Method: CupyMatmul                , dims: (1680, 1680, 1680)  , pass(0)/fail(1): 0,	 time (s): 0.008362770080566406
+Method: CupyDot                   , dims: (1680, 1680, 1680)  , pass(0)/fail(1): 0,	 time (s): 0.007551908493041992
+
+Method: CudaGlobalMemory          , dims: (1696, 1696, 1696)  , pass(0)/fail(1): 0,	 time (s): 0.11520624160766602
+Method: CudaSharedMemory          , dims: (1696, 1696, 1696)  , pass(0)/fail(1): 0,	 time (s): 0.028155803680419922
+Method: CupyMatmul                , dims: (1696, 1696, 1696)  , pass(0)/fail(1): 0,	 time (s): 0.00841975212097168
+Method: CupyDot                   , dims: (1696, 1696, 1696)  , pass(0)/fail(1): 0,	 time (s): 0.007605314254760742
+
+Method: CudaGlobalMemory          , dims: (1712, 1712, 1712)  , pass(0)/fail(1): 0,	 time (s): 0.11810851097106934
+Method: CudaSharedMemory          , dims: (1712, 1712, 1712)  , pass(0)/fail(1): 0,	 time (s): 0.024817228317260742
+Method: CupyMatmul                , dims: (1712, 1712, 1712)  , pass(0)/fail(1): 0,	 time (s): 0.008620738983154297
+Method: CupyDot                   , dims: (1712, 1712, 1712)  , pass(0)/fail(1): 0,	 time (s): 0.00820612907409668
+
+Method: CudaGlobalMemory          , dims: (1728, 1728, 1728)  , pass(0)/fail(1): 0,	 time (s): 0.12136435508728027
+Method: CudaSharedMemory          , dims: (1728, 1728, 1728)  , pass(0)/fail(1): 0,	 time (s): 0.030886411666870117
+Method: CupyMatmul                , dims: (1728, 1728, 1728)  , pass(0)/fail(1): 0,	 time (s): 0.008703470230102539
+Method: CupyDot                   , dims: (1728, 1728, 1728)  , pass(0)/fail(1): 0,	 time (s): 0.007840871810913086
+
+Method: CudaGlobalMemory          , dims: (1744, 1744, 1744)  , pass(0)/fail(1): 0,	 time (s): 0.12485194206237793
+Method: CudaSharedMemory          , dims: (1744, 1744, 1744)  , pass(0)/fail(1): 0,	 time (s): 0.026255130767822266
+Method: CupyMatmul                , dims: (1744, 1744, 1744)  , pass(0)/fail(1): 0,	 time (s): 0.008860349655151367
+Method: CupyDot                   , dims: (1744, 1744, 1744)  , pass(0)/fail(1): 0,	 time (s): 0.00796055793762207
+
+Method: CudaGlobalMemory          , dims: (1760, 1760, 1760)  , pass(0)/fail(1): 0,	 time (s): 0.1327190399169922
+Method: CudaSharedMemory          , dims: (1760, 1760, 1760)  , pass(0)/fail(1): 0,	 time (s): 0.026750802993774414
+Method: CupyMatmul                , dims: (1760, 1760, 1760)  , pass(0)/fail(1): 0,	 time (s): 0.008954286575317383
+Method: CupyDot                   , dims: (1760, 1760, 1760)  , pass(0)/fail(1): 0,	 time (s): 0.008158445358276367
+
+Method: CudaGlobalMemory          , dims: (1776, 1776, 1776)  , pass(0)/fail(1): 0,	 time (s): 0.13157105445861816
+Method: CudaSharedMemory          , dims: (1776, 1776, 1776)  , pass(0)/fail(1): 0,	 time (s): 0.027454137802124023
+Method: CupyMatmul                , dims: (1776, 1776, 1776)  , pass(0)/fail(1): 0,	 time (s): 0.009094715118408203
+Method: CupyDot                   , dims: (1776, 1776, 1776)  , pass(0)/fail(1): 0,	 time (s): 0.00823354721069336
+
+Method: CudaGlobalMemory          , dims: (1792, 1792, 1792)  , pass(0)/fail(1): 0,	 time (s): 0.13920164108276367
+Method: CudaSharedMemory          , dims: (1792, 1792, 1792)  , pass(0)/fail(1): 0,	 time (s): 0.028804779052734375
+Method: CupyMatmul                , dims: (1792, 1792, 1792)  , pass(0)/fail(1): 0,	 time (s): 0.009285688400268555
+Method: CupyDot                   , dims: (1792, 1792, 1792)  , pass(0)/fail(1): 0,	 time (s): 0.008354902267456055
+
+Method: CudaGlobalMemory          , dims: (1808, 1808, 1808)  , pass(0)/fail(1): 0,	 time (s): 0.13928937911987305
+Method: CudaSharedMemory          , dims: (1808, 1808, 1808)  , pass(0)/fail(1): 0,	 time (s): 0.02872610092163086
+Method: CupyMatmul                , dims: (1808, 1808, 1808)  , pass(0)/fail(1): 0,	 time (s): 0.009817123413085938
+Method: CupyDot                   , dims: (1808, 1808, 1808)  , pass(0)/fail(1): 0,	 time (s): 0.00901651382446289
+
+Method: CudaGlobalMemory          , dims: (1824, 1824, 1824)  , pass(0)/fail(1): 0,	 time (s): 0.14670920372009277
+Method: CudaSharedMemory          , dims: (1824, 1824, 1824)  , pass(0)/fail(1): 0,	 time (s): 0.02931666374206543
+Method: CupyMatmul                , dims: (1824, 1824, 1824)  , pass(0)/fail(1): 0,	 time (s): 0.009944677352905273
+Method: CupyDot                   , dims: (1824, 1824, 1824)  , pass(0)/fail(1): 0,	 time (s): 0.009027481079101562
+
+Method: CudaGlobalMemory          , dims: (1840, 1840, 1840)  , pass(0)/fail(1): 0,	 time (s): 0.1462564468383789
+Method: CudaSharedMemory          , dims: (1840, 1840, 1840)  , pass(0)/fail(1): 0,	 time (s): 0.03466343879699707
+Method: CupyMatmul                , dims: (1840, 1840, 1840)  , pass(0)/fail(1): 0,	 time (s): 0.010119915008544922
+Method: CupyDot                   , dims: (1840, 1840, 1840)  , pass(0)/fail(1): 0,	 time (s): 0.009101152420043945
+
+Method: CudaGlobalMemory          , dims: (1856, 1856, 1856)  , pass(0)/fail(1): 0,	 time (s): 0.14976119995117188
+Method: CudaSharedMemory          , dims: (1856, 1856, 1856)  , pass(0)/fail(1): 0,	 time (s): 0.030857086181640625
+Method: CupyMatmul                , dims: (1856, 1856, 1856)  , pass(0)/fail(1): 0,	 time (s): 0.010483264923095703
+Method: CupyDot                   , dims: (1856, 1856, 1856)  , pass(0)/fail(1): 0,	 time (s): 0.009367942810058594
+
+Method: CudaGlobalMemory          , dims: (1872, 1872, 1872)  , pass(0)/fail(1): 0,	 time (s): 0.1537332534790039
+Method: CudaSharedMemory          , dims: (1872, 1872, 1872)  , pass(0)/fail(1): 0,	 time (s): 0.03611612319946289
+Method: CupyMatmul                , dims: (1872, 1872, 1872)  , pass(0)/fail(1): 0,	 time (s): 0.010381221771240234
+Method: CupyDot                   , dims: (1872, 1872, 1872)  , pass(0)/fail(1): 0,	 time (s): 0.0095977783203125
+
+Method: CudaGlobalMemory          , dims: (1888, 1888, 1888)  , pass(0)/fail(1): 0,	 time (s): 0.15753722190856934
+Method: CudaSharedMemory          , dims: (1888, 1888, 1888)  , pass(0)/fail(1): 0,	 time (s): 0.03234457969665527
+Method: CupyMatmul                , dims: (1888, 1888, 1888)  , pass(0)/fail(1): 0,	 time (s): 0.010693788528442383
+Method: CupyDot                   , dims: (1888, 1888, 1888)  , pass(0)/fail(1): 0,	 time (s): 0.009538888931274414
+
+Method: CudaGlobalMemory          , dims: (1904, 1904, 1904)  , pass(0)/fail(1): 0,	 time (s): 0.16164422035217285
+Method: CudaSharedMemory          , dims: (1904, 1904, 1904)  , pass(0)/fail(1): 0,	 time (s): 0.03758430480957031
+Method: CupyMatmul                , dims: (1904, 1904, 1904)  , pass(0)/fail(1): 0,	 time (s): 0.010646343231201172
+Method: CupyDot                   , dims: (1904, 1904, 1904)  , pass(0)/fail(1): 0,	 time (s): 0.009775876998901367
+
+Method: CudaGlobalMemory          , dims: (1920, 1920, 1920)  , pass(0)/fail(1): 0,	 time (s): 0.16518187522888184
+Method: CudaSharedMemory          , dims: (1920, 1920, 1920)  , pass(0)/fail(1): 0,	 time (s): 0.03394269943237305
+Method: CupyMatmul                , dims: (1920, 1920, 1920)  , pass(0)/fail(1): 0,	 time (s): 0.01114344596862793
+Method: CupyDot                   , dims: (1920, 1920, 1920)  , pass(0)/fail(1): 0,	 time (s): 0.009822845458984375
+
+Method: CudaGlobalMemory          , dims: (1936, 1936, 1936)  , pass(0)/fail(1): 0,	 time (s): 0.17454051971435547
+Method: CudaSharedMemory          , dims: (1936, 1936, 1936)  , pass(0)/fail(1): 0,	 time (s): 0.034613609313964844
+Method: CupyMatmul                , dims: (1936, 1936, 1936)  , pass(0)/fail(1): 0,	 time (s): 0.011547088623046875
+Method: CupyDot                   , dims: (1936, 1936, 1936)  , pass(0)/fail(1): 0,	 time (s): 0.010306358337402344
+
+Method: CudaGlobalMemory          , dims: (1952, 1952, 1952)  , pass(0)/fail(1): 0,	 time (s): 0.17371225357055664
+Method: CudaSharedMemory          , dims: (1952, 1952, 1952)  , pass(0)/fail(1): 0,	 time (s): 0.035346269607543945
+Method: CupyMatmul                , dims: (1952, 1952, 1952)  , pass(0)/fail(1): 0,	 time (s): 0.011381864547729492
+Method: CupyDot                   , dims: (1952, 1952, 1952)  , pass(0)/fail(1): 0,	 time (s): 0.010463237762451172
+
+Method: CudaGlobalMemory          , dims: (1968, 1968, 1968)  , pass(0)/fail(1): 0,	 time (s): 0.1829087734222412
+Method: CudaSharedMemory          , dims: (1968, 1968, 1968)  , pass(0)/fail(1): 0,	 time (s): 0.03619742393493652
+Method: CupyMatmul                , dims: (1968, 1968, 1968)  , pass(0)/fail(1): 0,	 time (s): 0.01153874397277832
+Method: CupyDot                   , dims: (1968, 1968, 1968)  , pass(0)/fail(1): 0,	 time (s): 0.010541915893554688
+
+Method: CudaGlobalMemory          , dims: (1984, 1984, 1984)  , pass(0)/fail(1): 0,	 time (s): 0.18239712715148926
+Method: CudaSharedMemory          , dims: (1984, 1984, 1984)  , pass(0)/fail(1): 0,	 time (s): 0.036896705627441406
+Method: CupyMatmul                , dims: (1984, 1984, 1984)  , pass(0)/fail(1): 0,	 time (s): 0.011824369430541992
+Method: CupyDot                   , dims: (1984, 1984, 1984)  , pass(0)/fail(1): 0,	 time (s): 0.010713815689086914
+
+Method: CudaGlobalMemory          , dims: (2000, 2000, 2000)  , pass(0)/fail(1): 0,	 time (s): 0.1921689510345459
+Method: CudaSharedMemory          , dims: (2000, 2000, 2000)  , pass(0)/fail(1): 0,	 time (s): 0.037624359130859375
+Method: CupyMatmul                , dims: (2000, 2000, 2000)  , pass(0)/fail(1): 0,	 time (s): 0.012234210968017578
+Method: CupyDot                   , dims: (2000, 2000, 2000)  , pass(0)/fail(1): 0,	 time (s): 0.010800838470458984
+
+Method: CudaGlobalMemory          , dims: (2016, 2016, 2016)  , pass(0)/fail(1): 0,	 time (s): 0.19121170043945312
+Method: CudaSharedMemory          , dims: (2016, 2016, 2016)  , pass(0)/fail(1): 0,	 time (s): 0.04401731491088867
+Method: CupyMatmul                , dims: (2016, 2016, 2016)  , pass(0)/fail(1): 0,	 time (s): 0.012057781219482422
+Method: CupyDot                   , dims: (2016, 2016, 2016)  , pass(0)/fail(1): 0,	 time (s): 0.011031389236450195
+
+Method: CudaGlobalMemory          , dims: (2032, 2032, 2032)  , pass(0)/fail(1): 0,	 time (s): 0.19553232192993164
+Method: CudaSharedMemory          , dims: (2032, 2032, 2032)  , pass(0)/fail(1): 0,	 time (s): 0.03931117057800293
+Method: CupyMatmul                , dims: (2032, 2032, 2032)  , pass(0)/fail(1): 0,	 time (s): 0.012244939804077148
+Method: CupyDot                   , dims: (2032, 2032, 2032)  , pass(0)/fail(1): 0,	 time (s): 0.011172294616699219
+
+Method: CudaGlobalMemory          , dims: (2048, 2048, 2048)  , pass(0)/fail(1): 0,	 time (s): 0.20011019706726074
+Method: CudaSharedMemory          , dims: (2048, 2048, 2048)  , pass(0)/fail(1): 0,	 time (s): 0.045037269592285156
+Method: CupyMatmul                , dims: (2048, 2048, 2048)  , pass(0)/fail(1): 0,	 time (s): 0.012426614761352539
+Method: CupyDot                   , dims: (2048, 2048, 2048)  , pass(0)/fail(1): 0,	 time (s): 0.01139521598815918
+
+Total Fail Count: 0
+
+======================================================================================================
+

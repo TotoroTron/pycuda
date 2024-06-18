@@ -40,17 +40,25 @@ def main():
     methods = [ mat.CudaSharedMemory, mat.CupyMatmul, mat.CupyDot ]
     validation_method = mat.CudaGlobalMemory
 
-    stride = 16
-    count = 32
+    stride = 1
+    count = 512
 
     dims = generate_stride(stride, count, 'Squares')
+
     test = tb.Testbench(dims, methods, validation_method)
     test.test_all()
     report = test.get_report()
-    utils.printout(report)
     utils.plot(report)
     df = test.get_dataframe()
-    df.to_csv('dataframe.csv', index=False)
+    df.to_csv('dataframe_vary_M.csv', index=False)
+
+    test = tb.Testbench(dims, methods, validation_method)
+    test.test_all()
+    report = test.get_report()
+    utils.plot(report)
+    df = test.get_dataframe()
+    df.to_csv('dataframe_vary_N.csv', index=False)
+    
 
 
 if __name__ == '__main__':
